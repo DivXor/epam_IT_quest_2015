@@ -1,6 +1,7 @@
 package kz.epam.quiz.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -11,6 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    AuthSuccessHandler authSuccessHandler;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -31,12 +35,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/quest/**").hasRole("USER")
-                .antMatchers("/maze/**").hasRole("USER")
-                .and()
+                .antMatchers("/maze/**").hasRole("USER");
+        http
                 .formLogin()
                 .loginProcessingUrl("/login")
-                .loginPage("/")
-                .defaultSuccessUrl("/maze", true)
+                .loginPage("/").successHandler(authSuccessHandler)
                 .failureUrl("/login-error")
                 .permitAll();
 

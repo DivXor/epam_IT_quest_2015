@@ -46,15 +46,9 @@
                         <button type="submit" class="btn btn-primary">Войти</button>
                     </form>
                 </div>
-
-                <!--<h1 class="cover-heading">Cover your page.</h1>-->
-
-                <!--<p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download,-->
-                <!--edit the text, and add your own fullscreen background photo to make it your own.</p>-->
-
-                <!--<p class="lead">-->
-                <!--<a href="http://getbootstrap.com/examples/cover/#" class="btn btn-lg btn-default">Learn more</a>-->
-                <!--</p>-->
+                <div sec:authorize="isAuthenticated()">
+                    <a class="btn btn-success" th:href="@{/maze}">Перейти к заданиям</a>
+                </div>
             </div>
 
             <div th:replace="fragments/footer"></div>

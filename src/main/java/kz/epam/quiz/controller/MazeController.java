@@ -91,11 +91,4 @@ public class MazeController {
         return mazeGenerator.generateMaze(wx, wy, 0, 0, MAZE_X_SIZE, MAZE_Y_SIZE);
     }
 
-    private void makePng(int[][] mazeMap, List<Coordinates> resolvePath) throws IOException {
-        MazeViewer mv = new MazeViewer(mazeMap, resolvePath);
-        mv.drawMaze();
-        mv.drawWord("word");
-        mv.saveToFile("test.png");
-    }
-
 }
