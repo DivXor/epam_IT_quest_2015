@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Quiz</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="/css/cover.css"/>
+
+    <!-- User style -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
+</head>
+
+<body>
+
+<canvas class="maze-canvas" id="chars_maze"></canvas>
+<canvas class="maze-canvas" id="numbers_maze"></canvas>
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div th:replace="fragments/header"></div>
+
+            <div class="inner cover">
+                <h1>Лабиринт! </h1>
+
+                <p class="lead">В этом задании вам необходимо пройти два лабиринта.</p>
+
+                <!--<button id="button">Test</button>-->
+                <div class="row">
+                    <div class="col-xs-6 col-sm-4 col-sm-offset-2">
+                        <a id="charsMaze" href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-4">
+                        <a id="numbersMaze" href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                        </a>
+                    </div>
+                </div>
+
+                <div id="lightbox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×</button>
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <img src="" alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+                <form role="form" class="form-inline">
+                    <div class="form-group">
+                        <!--<label for="result-word">Ответ</label>-->
+                        <input type="email" class="form-control" id="result-word" placeholder="Введите ответ"/>
+                    </div>
+                    <button type="submit" class="btn btn-success">Проверить</button>
+                </form>
+                <!--<h1 class="cover-heading">Cover your page.</h1>-->
+
+                <!--<p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download,-->
+                <!--edit the text, and add your own fullscreen background photo to make it your own.</p>-->
+
+                <!--<p class="lead">-->
+                <!--<a href="http://getbootstrap.com/examples/cover/#" class="btn btn-lg btn-default">Learn more</a>-->
+                <!--</p>-->
+            </div>
+
+            <div th:replace="fragments/footer"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script type="text/javascript" th:src="@{/js/jquery-1.11.3.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+<!-- Lightbox library JavaScript
+================================================== -->
+<script type="text/javascript" th:src="@{/js/lightbox.js}"></script>
+
+<!-- Maze canvas rendering JavaScript
+================================================== -->
+<script type="text/javascript" th:src="@{/js/maze_renderer.js}"></script>
+
+</body>
+</html>
