@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F09B3A5B-65D9-F3FC-0D62-190E53B67914" containerWithKeyObject="7DA47A85-0218-7421-10B5-C34290EE2AF0" localFKIndex="20EBD183-17B8-FBEA-E46A-EDB4E2DA829E" name="grammar_quiz_history_grammar_quiz_FK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 10:39:43 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2B73535A-2BC9-C221-FF8B-BC0A9CA939EC</referredTableID>
+<keyObject>47C6783F-FE72-6CA9-0292-325EB5457041</keyObject>
+<referredKeyID>47C6783F-FE72-6CA9-0292-325EB5457041</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

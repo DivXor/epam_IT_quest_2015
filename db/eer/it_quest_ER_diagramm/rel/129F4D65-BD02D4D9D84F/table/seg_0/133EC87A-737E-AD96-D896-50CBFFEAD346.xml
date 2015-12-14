@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="133EC87A-737E-AD96-D896-50CBFFEAD346" name="maze_history">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 10:01:53 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<ordsAlias>table_23</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="5482D53F-8EC4-8198-67DC-A0194FA2394B">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 10:03:41 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="maze_id" id="D29568CE-7312-40A9-0CFE-86E17A217EB8">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 10:27:04 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4DE26CAA-E109-BEDB-D5B7-28EA37F38AFC" referredColumn="C735C638-4353-5BEE-70F2-59CD63F6A76A"/>
+</associations>
+</Column>
+<Column name="User_id" id="E9604D21-9FFE-8E6C-62F7-0E9F2DC9EB1F">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 11:05:21 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="562C4FE1-4F5E-E354-E58B-8EA5E02BF6DC" referredColumn="3481140D-5889-7A06-7977-33121424EF76"/>
+</associations>
+</Column>
+<Column name="time" id="D9990E0C-DF5C-982D-5AC6-0E47A73B4727">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 10:28:23 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<usesDefaultValue>true</usesDefaultValue>
+<defaultValue>current_timestamp()</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7404680C-5F67-52AE-AA31-62DB2D5E2323" name="maze_history_PK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 10:03:41 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5482D53F-8EC4-8198-67DC-A0194FA2394B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6F46466B-F44E-AF05-3DEA-4F3F027318C8" name="maze_history_maze_FK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 10:27:04 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D29568CE-7312-40A9-0CFE-86E17A217EB8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D53DB4F6-3EB4-8286-CEBA-BF9994BE666E" name="maze_history_User_FK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 11:05:21 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E9604D21-9FFE-8E6C-62F7-0E9F2DC9EB1F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

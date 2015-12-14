@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A3F86585-49BA-CCD7-EDC4-BE4A75550D98" name="User">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:28:18 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="3481140D-5889-7A06-7977-33121424EF76">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:29:20 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="FAB4D597-82FE-6138-C4FB-11DB37B0F28F">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:32:21 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="4937334E-0C29-51C0-E647-E30D811DF152">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:32:21 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="role" id="4523F9FA-ADCE-7BAB-6D11-D27A1551615C">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 07:26:07 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<listOfValues>
+<valueDef value="ADMIN" description=""/>
+<valueDef value="ANONYMOUS" description=""/>
+<valueDef value="USER" description=""/>
+</listOfValues>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Result_id" id="BDD62CAE-A138-4711-DC2C-93313C825C89">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 11:32:12 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E61048F6-CB03-CFB7-112C-FE4645F32241" referredColumn="B54BA36F-3CC0-9D38-59D4-842108B6718B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="009AD29F-0F24-B2B1-1D25-594132E9377F" name="User_PK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:29:20 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3481140D-5889-7A06-7977-33121424EF76"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DADE5E12-1FED-78A1-607E-0FEE66A98C52" name="User_Result_FK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 11:32:12 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BDD62CAE-A138-4711-DC2C-93313C825C89"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

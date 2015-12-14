@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E116B952-FAED-DA6E-B2DF-AC67E31CE276" name="maze">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:45:46 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="C735C638-4353-5BEE-70F2-59CD63F6A76A">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:48:56 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="x_size" id="33A16F88-3C5C-D352-52A9-7D27E52A29BE">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:55:30 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="y_size" id="7FE39C1C-AA79-C850-40B6-A99BE578A736">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:55:30 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="word" id="6C922984-7F42-506E-0B74-2ACBE1F236E5">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:48:56 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cell_size" id="46703C72-F9F2-E0B9-9898-A9F8AC8F4BF9">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:55:30 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="char_distance" id="F7C64EAB-8906-D8F8-6F8E-B8478E9AD8EC">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:48:56 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="base_score" id="69FFC493-25C0-ABD5-FE2D-D6AF9F14AF03">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 11:50:36 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1A49D893-9EB0-164D-8D44-C85591B961F7" name="maze_PK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:48:56 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C735C638-4353-5BEE-70F2-59CD63F6A76A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

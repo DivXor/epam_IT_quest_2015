@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1BF9865C-1586-F5EE-B298-17B823038768" name="wrong_picture_quiz">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 08:35:20 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="940550B6-70D8-FA14-AE36-574F209703C2">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 08:38:22 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="answer_picture_number" id="E8BA376C-3211-3403-EF27-DE3D85427BED">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 08:50:12 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="img_1" id="EF100DA4-BECC-39EC-5BC4-E7EC1BF9B6A1">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 08:38:22 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="img_2" id="6049D4D3-FFD2-7068-7F14-9A2C27B8BBE5">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 08:38:22 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="img_3" id="DA50B3EA-AE9C-7E05-91F4-90886EC85E17">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 08:38:22 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="img_4" id="CB4E3B0F-74D6-3723-5888-E4B97A5777FD">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 08:38:22 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="base_score" id="37D225CF-7546-99A5-1121-153150196B7A">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 08:38:22 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="42EE5442-BD5D-9613-B2A1-F47A45875C93" name="wrong_picture_quiz_PK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 08:38:22 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="940550B6-70D8-FA14-AE36-574F209703C2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

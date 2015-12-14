@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="9B4D7A6F-BD96-F440-CCDC-3F4402BE173F" containerWithKeyObject="17A0E62E-4A34-0D07-7C6A-7B0EE0CB66F4" localFKIndex="C2CE780B-25B6-BE5A-E39A-EBA763E6EB31" name="wrong_picture_history_User_FK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 11:24:14 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A3F86585-49BA-CCD7-EDC4-BE4A75550D98</referredTableID>
+<keyObject>009AD29F-0F24-B2B1-1D25-594132E9377F</keyObject>
+<referredKeyID>009AD29F-0F24-B2B1-1D25-594132E9377F</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

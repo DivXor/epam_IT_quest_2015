@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="4CBD2200-BE16-9C53-9C10-F3FFD7314A99" mainViewID="EDF4EDC3-F4B2-9DB8-5DAF-F8E900C3938D">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 06:26:41 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

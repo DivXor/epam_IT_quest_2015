@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="89081F0C-2115-76A6-F8E6-E3C5D561246C" containerWithKeyObject="F5872631-7E20-AA93-A94E-BB4A2652C171" localFKIndex="EDDF744E-20DD-B38A-D322-902C40EE7404" name="word_search_history_User_FK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-12-14 11:05:30 UTC</createdTime>
+<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A3F86585-49BA-CCD7-EDC4-BE4A75550D98</referredTableID>
+<keyObject>009AD29F-0F24-B2B1-1D25-594132E9377F</keyObject>
+<referredKeyID>009AD29F-0F24-B2B1-1D25-594132E9377F</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
