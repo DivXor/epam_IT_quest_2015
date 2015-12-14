@@ -5,8 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.Map;
-
 @Controller
 public class MainController {
 
@@ -25,6 +23,11 @@ public class MainController {
     @RequestMapping(value = "/maze", method = RequestMethod.GET)
     public String viewMaze(Model model) {
         return "maze";
+    }
+
+    @RequestMapping(value = "/finish", method = RequestMethod.GET)
+    public String finishPage(Model model) {
+        return "finish";
     }
 
 }

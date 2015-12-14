@@ -62,9 +62,18 @@ body {
 /*
  * Header
  */
+.current-score {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .masthead-brand {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.masthead-brand img {
+  width: 100px;
 }
 
 .masthead-nav > li {
@@ -116,7 +125,6 @@ body {
   padding: 10px 20px;
   font-weight: bold;
 }
-
 
 /*
  * Footer

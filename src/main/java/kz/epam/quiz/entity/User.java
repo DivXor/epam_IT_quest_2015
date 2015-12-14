@@ -1,25 +1,39 @@
 package kz.epam.quiz.entity;
 
-public class User {
+import kz.epam.quiz.entity.enums.UserRoleEnum;
 
-    private String login;
+import javax.persistence.Entity;
+
+@Entity
+public class User extends AbstractEntity{
+    private String name;
     private String password;
 
-    public User(String login, String password) {
-        this.login = login;
+    private UserRoleEnum role;
+
+    protected User() {
+    }
+
+    public User(String name, String password, UserRoleEnum role) {
+        this.name = name;
         this.password = password;
+        this.role = role;
     }
 
-    public User() {
-
+    public String getName() {
+        return name;
     }
 
-    public String getLogin() {
-        return login;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public UserRoleEnum getRole() {
+        return role;
+    }
+
+    public void setRole(UserRoleEnum role) {
+        this.role = role;
     }
 
     public String getPassword() {

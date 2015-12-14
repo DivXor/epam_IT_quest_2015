@@ -23,7 +23,7 @@
             <div th:replace="fragments/header"></div>
 
             <div class="inner cover">
-                <h1>Привет! </h1>
+                <h1>Привет!</h1>
 
                 <p class="lead">Приветствуем вас на IT Quest 2015. От вас потребуется пройти четыре задания разной
                     степени сложности. Условия для каждого задания будут подробно изложены далее. Чтобы начать
@@ -47,7 +47,7 @@
                     </form>
                 </div>
                 <div sec:authorize="isAuthenticated()">
-                    <a class="btn btn-success" th:href="@{/maze}">Перейти к заданиям</a>
+                    <a class="btn btn-success" th:href="@{/finish}">Перейти к заданиям</a>
                 </div>
             </div>
 
