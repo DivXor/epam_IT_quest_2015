@@ -1,3 +1,38 @@
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+
+/* Navbar */
+
+.logo {
+  width: 90px;
+}
+
+/* Content */
+
+.content {
+  margin-top: 70px;
+}
+
+.col-centered {
+  text-align: center;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin: 0 auto -3em;
+}
+
+.push-down {
+  margin: 5em;
+}
+
+/* Footer */
+
+
 #lightbox .modal-content {
   display: inline-block;
   text-align: center;
@@ -21,11 +56,18 @@
   display: none;
 }
 
+/* Grammar test */
+
+.grammar-test {
+  color: #000;
+  text-shadow: none;
+}
+
 /*Messages area*/
 
-.comment-input textarea {
-  width: 85%;
-}
+/*.comment-input textarea {*/
+  /*width: 85%;*/
+/*}*/
 
 .chat
 {

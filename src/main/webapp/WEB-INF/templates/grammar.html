@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Quiz</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+
+    <!-- User style -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
+</head>
+
+<body>
+
+<div th:replace="fragments/header"></div>
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row content">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h1>Найди ошибку! </h1>
+
+                </div>
+                <p>В этом задании вам необходимо найти граматические или синтаксические ошибки в
+                    предложениях и
+                    указать их</p>
+                <br/>
+                <form>
+                    <div class="grammar-test">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p>To enable <u>the automatic</u> registration to SLD you have <u>to
+                                    configure</u>
+                                    the
+                                    connectivity
+                                    information <u>using the</u> command line tool sldreg.</p>
+                            </div>
+                            <div class="panel-footer"><label class="radio-inline">
+                                <input name="radioGroup1" value="option1" type="radio"/> A
+                            </label>
+                                <label class="radio-inline">
+                                    <input name="radioGroup1" value="option2" checked="" type="radio"/> B
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="radioGroup1" value="option3" type="radio"/> C
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grammar-test">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p>To enable <u>the automatic</u> registration to SLD you have <u>to
+                                    configure</u>
+                                    the
+                                    connectivity
+                                    information <u>using the</u> command line tool sldreg.</p>
+                            </div>
+                            <div class="panel-footer"><label class="radio-inline">
+                                <input name="radioGroup1" value="option1" type="radio"/> A
+                            </label>
+                                <label class="radio-inline">
+                                    <input name="radioGroup1" value="option2" checked="" type="radio"/> B
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="radioGroup1" value="option3" type="radio"/> C
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grammar-test">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p>To enable <u>the automatic</u> registration to SLD you have <u>to
+                                    configure</u>
+                                    the
+                                    connectivity
+                                    information <u>using the</u> command line tool sldreg.</p>
+                            </div>
+                            <div class="panel-footer"><label class="radio-inline">
+                                <input name="radioGroup1" value="option1" type="radio"/> A
+                            </label>
+                                <label class="radio-inline">
+                                    <input name="radioGroup1" value="option2" checked="" type="radio"/> B
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="radioGroup1" value="option3" type="radio"/> C
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grammar-test">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p>To enable <u>the automatic</u> registration to SLD you have <u>to
+                                    configure</u>
+                                    the
+                                    connectivity
+                                    information <u>using the</u> command line tool sldreg.</p>
+                            </div>
+                            <div class="panel-footer"><label class="radio-inline">
+                                <input name="radioGroup1" value="option1" type="radio"/> A
+                            </label>
+                                <label class="radio-inline">
+                                    <input name="radioGroup1" value="option2" checked="" type="radio"/> B
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="radioGroup1" value="option3" type="radio"/> C
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <button type="submit" class="btn btn-success">Проверить</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="push-down"></div>
+
+<div th:replace="fragments/footer"></div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script type="text/javascript" th:src="@{/js/jquery-1.11.3.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+<!-- Lightbox library JavaScript
+================================================== -->
+<script type="text/javascript" th:src="@{/js/lightbox.js}"></script>
+
+</body>
+</html>
