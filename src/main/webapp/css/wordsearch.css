@@ -1,0 +1,64 @@
+.clears {
+    clear: both;
+}
+.blocks-container {
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.game-table-container .table-block {
+    float: left;;
+    width: 33.333%;
+}
+
+@media screen and (max-width: 900px) {
+    .game-table-container .table-block {
+        width: 50%;
+    }
+}
+.game-table-container {
+    width: 100%;
+}
+.game-table-container .table-block table {
+    border: none;
+    margin-bottom: 0px;
+}
+.game-table-container .table-block table tr td {
+    width: 15px;
+    height: 10px;
+    text-align:center;
+    box-sizing: initial;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    color: #000;
+    text-shadow: none;
+}
+.game-table-container .table-block table tr td.active {
+    color: #FFF;
+    background: #6ebcf0;
+}
+.game-table-container .table-block table tr td span {
+    text-align: center;
+    box-sizing: initial;
+}
+.game-table-container .table-block table tr td:first-child {
+    /*border-left: none;*/
+}
+.game-table-container .table-block table tr td:last-child{
+    border-right: none;
+}
+
+.game-table-container .table-block table tr:last-child td {
+    border-bottom: none;
+}
+
+p span {
+    padding-right: 5px;
+}
+
+.smallwords:after {
+    content:", ";
+}
+
+.smallwords:last-child:after {
+    content: ".";
+}
