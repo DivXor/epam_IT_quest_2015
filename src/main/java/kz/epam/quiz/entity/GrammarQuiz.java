@@ -1,0 +1,49 @@
+package kz.epam.quiz.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.math.BigDecimal;
+
+@Entity
+@Table(name = "GRAMMAR_QUIZ")
+public class GrammarQuiz extends AbstractEntity{
+    private String answer;
+    private String sentence;
+
+    @Column(name = "BASE_SCORE")
+    private BigDecimal baseScore;
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public String getSentence() {
+        return sentence;
+    }
+
+    public void setSentence(String sentence) {
+        this.sentence = sentence;
+    }
+
+    public BigDecimal getBaseScore() {
+        return baseScore;
+    }
+
+    public void setBaseScore(BigDecimal baseScore) {
+        this.baseScore = baseScore;
+    }
+
+    @Override
+    public String toString() {
+        return "GrammarQuiz{" +
+                "answer='" + answer + '\'' +
+                ", sentence='" + sentence + '\'' +
+                ", baseScore=" + baseScore +
+                "} " + super.toString();
+    }
+}
