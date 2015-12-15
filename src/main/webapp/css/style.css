@@ -24,10 +24,11 @@ html, body {
 .wrapper {
   min-height: 100%;
   margin: 0 auto -3em;
+  position: relative;
 }
 
 .push-down {
-  margin: 5em;
+  height: 50px;
 }
 
 /* Footer */
@@ -106,3 +107,9 @@ html, body {
 }
 
 
+.footer-fixed-bottom {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+}

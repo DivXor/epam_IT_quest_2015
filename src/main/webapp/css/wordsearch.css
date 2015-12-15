@@ -62,3 +62,7 @@ p span {
 .smallwords:last-child:after {
     content: ".";
 }
+
+.wordsearch-button {
+
+}
