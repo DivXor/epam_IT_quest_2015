@@ -1,4 +1,4 @@
-package kz.epam.quiz.maze.entity;
+package kz.epam.quiz.util.maze.entity;
 
 public class Coordinates {
     private int x;

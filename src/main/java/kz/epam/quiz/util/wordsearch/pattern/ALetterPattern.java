@@ -1,4 +1,4 @@
-package kz.epam.quiz.wordsearch.pattern;
+package kz.epam.quiz.util.wordsearch.pattern;
 
 import java.util.Random;
 

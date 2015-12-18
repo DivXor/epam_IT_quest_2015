@@ -1,6 +1,6 @@
-package kz.epam.quiz.wordsearch.word;
+package kz.epam.quiz.util.wordsearch.word;
 
-import kz.epam.quiz.wordsearch.pattern.*;
+import kz.epam.quiz.util.wordsearch.pattern.*;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,17 +1,17 @@
 package kz.epam.quiz.controller;
 
-import kz.epam.quiz.maze.*;
-import kz.epam.quiz.maze.entity.Coordinates;
-import kz.epam.quiz.maze.entity.Maze;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import kz.epam.quiz.util.maze.MazeGenerator;
+import kz.epam.quiz.util.maze.PlaceholderGenerator;
+import kz.epam.quiz.util.maze.entity.Coordinates;
+import kz.epam.quiz.util.maze.entity.Maze;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 @Controller

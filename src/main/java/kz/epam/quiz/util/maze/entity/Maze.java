@@ -1,4 +1,4 @@
-package kz.epam.quiz.maze.entity;
+package kz.epam.quiz.util.maze.entity;
 
 import java.util.List;
 

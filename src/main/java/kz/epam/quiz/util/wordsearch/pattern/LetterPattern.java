@@ -1,4 +1,4 @@
-package kz.epam.quiz.wordsearch.pattern;
+package kz.epam.quiz.util.wordsearch.pattern;
 
 /**
  * Created by Khamid_Sarmanov on 12/9/2015.

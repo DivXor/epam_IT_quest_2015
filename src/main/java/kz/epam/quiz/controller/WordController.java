@@ -1,8 +1,8 @@
 package kz.epam.quiz.controller;
 
-import kz.epam.quiz.wordsearch.word.ClothWord;
-import kz.epam.quiz.wordsearch.word.FocalWord;
-import kz.epam.quiz.wordsearch.word.OctetWord;
+import kz.epam.quiz.util.wordsearch.word.ClothWord;
+import kz.epam.quiz.util.wordsearch.word.FocalWord;
+import kz.epam.quiz.util.wordsearch.word.OctetWord;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,7 +1,7 @@
-package kz.epam.quiz.maze;
+package kz.epam.quiz.util.maze;
 
-import kz.epam.quiz.maze.entity.Coordinates;
-import kz.epam.quiz.maze.entity.Maze;
+import kz.epam.quiz.util.maze.entity.Coordinates;
+import kz.epam.quiz.util.maze.entity.Maze;
 
 import java.util.Arrays;
 import java.util.Collections;
