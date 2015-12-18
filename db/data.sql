@@ -26,4 +26,40 @@ VALUES (
   1
 );
 
+INSERT INTO GRAMMAR_QUIZ (ID, ANSWER, SENTENCE, BASE_SCORE)
+VALUES (
+  2,
+  'A',
+  'To enable <u>the automatic</u> registration to SLD you have <u>to configure</u>
+  the connectivity information <u>using the</u> command line tool sldreg.',
+  1
+);
+
+INSERT INTO GRAMMAR_QUIZ (ID, ANSWER, SENTENCE, BASE_SCORE)
+VALUES (
+  3,
+  'A',
+  'To enable <u>the automatic</u> registration to SLD you have <u>to configure</u>
+  the connectivity information <u>using the</u> command line tool sldreg.',
+  1
+);
+
+INSERT INTO GRAMMAR_QUIZ (ID, ANSWER, SENTENCE, BASE_SCORE)
+VALUES (
+  4,
+  'A',
+  'To enable <u>the automatic</u> registration to SLD you have <u>to configure</u>
+  the connectivity information <u>using the</u> command line tool sldreg.',
+  1
+);
+
+INSERT INTO GRAMMAR_QUIZ (ID, ANSWER, SENTENCE, BASE_SCORE)
+VALUES (
+  5,
+  'A',
+  'To enable <u>the automatic</u> registration to SLD you have <u>to configure</u>
+  the connectivity information <u>using the</u> command line tool sldreg.',
+  1
+);
+
 COMMIT;

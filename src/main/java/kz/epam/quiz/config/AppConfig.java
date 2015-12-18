@@ -20,10 +20,10 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@EnableTransactionManagement
 @PropertySource("classpath:application.properties")
 @ComponentScan("kz.epam.quiz")
-@EnableJpaRepositories(basePackages = {"kz.epam.quiz.dao"})
+@EnableTransactionManagement
+@EnableJpaRepositories(basePackages = {"kz.epam.quiz"})
 public class AppConfig {
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
     private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";

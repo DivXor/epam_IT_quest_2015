@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by Khamid_Sarmanov on 12/15/2015.
- */
 @Controller
 @RequestMapping(value = "/wordsearch")
 public class WordController {

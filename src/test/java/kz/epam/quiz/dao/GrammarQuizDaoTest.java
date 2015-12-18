@@ -26,4 +26,11 @@ public class GrammarQuizDaoTest {
         List<GrammarQuiz> quizs = quizDao.findAll();
         System.out.println(quizs);
     }
+
+    @Test
+    public void testGetOne() throws Exception {
+        GrammarQuiz quiz = quizDao.getOne(1);
+        System.out.println(quiz);
+    }
+
 }

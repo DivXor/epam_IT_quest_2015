@@ -26,93 +26,96 @@
 
                 </div>
                 <p>В этом задании вам необходимо найти граматические или синтаксические ошибки в
-                    предложениях и
-                    указать их</p>
+                    предложениях и указать их</p>
                 <br/>
 
-                <form>
-                    <div class="grammar-test">
+                <div th:if="${answerError}" class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4><strong>Упс!</strong> Где-то Вы допустили ошибку.</h4>
+                </div>
+
+                <form id="grammar-form" th:action="@{/grammar/check}" method="post">
+                    <div th:each="quiz : ${grammarQuizzes}" class="grammar-test">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <p>To enable <u>the automatic</u> registration to SLD you have <u>to
-                                    configure</u> the connectivity
-                                    information <u>using the</u> command line tool sldreg.</p>
+                                <p th:utext="${quiz.sentence}"></p>
                             </div>
-                            <div class="panel-footer"><label class="radio-inline">
-                                <input name="radioGroup1" value="option1" type="radio"/> A
-                            </label>
+                            <div class="panel-footer">
                                 <label class="radio-inline">
-                                    <input name="radioGroup1" value="option2" checked="" type="radio"/> B
+                                    <input th:name="${'answers['+ quiz.id +']'}" value="A" type="radio"/> A
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="radioGroup1" value="option3" type="radio"/> C
+                                    <input th:name="${'answers['+ quiz.id +']'}" value="B" checked="" type="radio"/> B
+                                </label>
+                                <label class="radio-inline">
+                                    <input th:name="${'answers['+ quiz.id +']'}" value="C" type="radio"/> C
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="grammar-test">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p>To enable <u>the automatic</u> registration to SLD you have <u>to
-                                    configure</u>
-                                    the
-                                    connectivity
-                                    information <u>using the</u> command line tool sldreg.</p>
-                            </div>
-                            <div class="panel-footer"><label class="radio-inline">
-                                <input name="radioGroup1" value="option1" type="radio"/> A
-                            </label>
-                                <label class="radio-inline">
-                                    <input name="radioGroup1" value="option2" checked="" type="radio"/> B
-                                </label>
-                                <label class="radio-inline">
-                                    <input name="radioGroup1" value="option3" type="radio"/> C
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grammar-test">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p>To enable <u>the automatic</u> registration to SLD you have <u>to
-                                    configure</u>
-                                    the
-                                    connectivity
-                                    information <u>using the</u> command line tool sldreg.</p>
-                            </div>
-                            <div class="panel-footer"><label class="radio-inline">
-                                <input name="radioGroup1" value="option1" type="radio"/> A
-                            </label>
-                                <label class="radio-inline">
-                                    <input name="radioGroup1" value="option2" checked="" type="radio"/> B
-                                </label>
-                                <label class="radio-inline">
-                                    <input name="radioGroup1" value="option3" type="radio"/> C
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grammar-test">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p>To enable <u>the automatic</u> registration to SLD you have <u>to
-                                    configure</u>
-                                    the
-                                    connectivity
-                                    information <u>using the</u> command line tool sldreg.</p>
-                            </div>
-                            <div class="panel-footer"><label class="radio-inline">
-                                <input name="radioGroup1" value="option1" type="radio"/> A
-                            </label>
-                                <label class="radio-inline">
-                                    <input name="radioGroup1" value="option2" checked="" type="radio"/> B
-                                </label>
-                                <label class="radio-inline">
-                                    <input name="radioGroup1" value="option3" type="radio"/> C
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                    <!--<div class="grammar-test">-->
+                        <!--<div class="panel panel-default">-->
+                            <!--<div class="panel-body">-->
+                                <!--<p>To enable <u>the automatic</u> registration to SLD you have <u>to-->
+                                    <!--configure</u>-->
+                                    <!--the-->
+                                    <!--connectivity-->
+                                    <!--information <u>using the</u> command line tool sldreg.</p>-->
+                            <!--</div>-->
+                            <!--<div class="panel-footer"><label class="radio-inline">-->
+                                <!--<input name="radioGroup1" value="option1" type="radio"/> A-->
+                            <!--</label>-->
+                                <!--<label class="radio-inline">-->
+                                    <!--<input name="radioGroup1" value="option2" checked="" type="radio"/> B-->
+                                <!--</label>-->
+                                <!--<label class="radio-inline">-->
+                                    <!--<input name="radioGroup1" value="option3" type="radio"/> C-->
+                                <!--</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="grammar-test">-->
+                        <!--<div class="panel panel-default">-->
+                            <!--<div class="panel-body">-->
+                                <!--<p>To enable <u>the automatic</u> registration to SLD you have <u>to-->
+                                    <!--configure</u>-->
+                                    <!--the-->
+                                    <!--connectivity-->
+                                    <!--information <u>using the</u> command line tool sldreg.</p>-->
+                            <!--</div>-->
+                            <!--<div class="panel-footer"><label class="radio-inline">-->
+                                <!--<input name="radioGroup1" value="option1" type="radio"/> A-->
+                            <!--</label>-->
+                                <!--<label class="radio-inline">-->
+                                    <!--<input name="radioGroup1" value="option2" checked="" type="radio"/> B-->
+                                <!--</label>-->
+                                <!--<label class="radio-inline">-->
+                                    <!--<input name="radioGroup1" value="option3" type="radio"/> C-->
+                                <!--</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="grammar-test">-->
+                        <!--<div class="panel panel-default">-->
+                            <!--<div class="panel-body">-->
+                                <!--<p>To enable <u>the automatic</u> registration to SLD you have <u>to-->
+                                    <!--configure</u>-->
+                                    <!--the-->
+                                    <!--connectivity-->
+                                    <!--information <u>using the</u> command line tool sldreg.</p>-->
+                            <!--</div>-->
+                            <!--<div class="panel-footer"><label class="radio-inline">-->
+                                <!--<input name="radioGroup1" value="option1" type="radio"/> A-->
+                            <!--</label>-->
+                                <!--<label class="radio-inline">-->
+                                    <!--<input name="radioGroup1" value="option2" checked="" type="radio"/> B-->
+                                <!--</label>-->
+                                <!--<label class="radio-inline">-->
+                                    <!--<input name="radioGroup1" value="option3" type="radio"/> C-->
+                                <!--</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <hr/>
                     <button type="submit" class="btn btn-success">Проверить</button>
                 </form>
@@ -126,15 +129,39 @@
     <div th:replace="fragments/footer"></div>
 </div>
 
-
 <!-- Bootstrap core JavaScript
 ================================================== -->
-<script type="text/javascript" th:src="@{/js/jquery-1.11.3.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.js}"></script>
 <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
 
 <!-- Lightbox library JavaScript
 ================================================== -->
 <script type="text/javascript" th:src="@{/js/lightbox.js}"></script>
+
+<!--<script>-->
+    <!--jQuery(document).ready(function ($) {-->
+        <!--$("#grammar-form").submit(function () {-->
+            <!--sendAnswers();-->
+        <!--});-->
+    <!--});-->
+
+    <!--function sendAnswers() {-->
+        <!--$.post("/grammar/check", function(data){-->
+
+        <!--}-->
+
+
+    <!--}-->
+
+    <!--function createNewMaze() {-->
+        <!--$.getJSON("/maze/data", function (data) {-->
+            <!--console.log(data);-->
+            <!--localStorage.setItem('mazeData', JSON.stringify(data));-->
+            <!--drawCharMaze(data);-->
+            <!--drawNumberMaze(data);-->
+        <!--});-->
+    <!--}-->
+<!--</script>-->
 
 </body>
 </html>

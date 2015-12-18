@@ -46,4 +46,25 @@ public class GrammarQuiz extends AbstractEntity{
                 ", baseScore=" + baseScore +
                 "} " + super.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        GrammarQuiz quiz = (GrammarQuiz) o;
+
+        if (answer != null ? !answer.equals(quiz.answer) : quiz.answer != null) return false;
+        if (sentence != null ? !sentence.equals(quiz.sentence) : quiz.sentence != null) return false;
+        return !(baseScore != null ? !baseScore.equals(quiz.baseScore) : quiz.baseScore != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = answer != null ? answer.hashCode() : 0;
+        result = 31 * result + (sentence != null ? sentence.hashCode() : 0);
+        result = 31 * result + (baseScore != null ? baseScore.hashCode() : 0);
+        return result;
+    }
 }

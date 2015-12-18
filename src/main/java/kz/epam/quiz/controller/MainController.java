@@ -30,9 +30,4 @@ public class MainController {
         return "finish";
     }
 
-    @RequestMapping(value = "/grammar", method = RequestMethod.GET)
-    public String grammarPage(Model model) {
-        return "grammar";
-    }
-
 }
