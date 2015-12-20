@@ -1,17 +1,17 @@
 package kz.epam.quiz.util.maze;
 
 import kz.epam.quiz.util.maze.entity.Coordinates;
-import kz.epam.quiz.util.maze.entity.Maze;
+import kz.epam.quiz.util.maze.entity.MazeField;
 
 import java.util.*;
 
 public class PlaceholderGenerator {
     private Random rand = new Random();
 
-    public Map<Coordinates, String> createCharsMap(Maze maze, Map<Integer, String> shuffledWord, int distance) {
-        int wx = maze.getWx();
-        int wy = maze.getWy();
-        List<Coordinates> resolve = maze.getResolvePath();
+    public Map<Coordinates, String> createCharsMap(MazeField mazeField, Map<Integer, String> shuffledWord, int distance) {
+        int wx = mazeField.getWx();
+        int wy = mazeField.getWy();
+        List<Coordinates> resolve = mazeField.getResolvePath();
 
         Map<Coordinates, String> charsToDraw = new LinkedHashMap<>();
 
@@ -63,10 +63,10 @@ public class PlaceholderGenerator {
         return shuffledMap;
     }
 
-    public Map<Coordinates, String> createNumbersMap(Maze maze, Map<Integer, String> shuffledWord, int distance) {
-        int wx = maze.getWx();
-        int wy = maze.getWy();
-        List<Coordinates> resolve = maze.getResolvePath();
+    public Map<Coordinates, String> createNumbersMap(MazeField mazeField, Map<Integer, String> shuffledWord, int distance) {
+        int wx = mazeField.getWx();
+        int wy = mazeField.getWy();
+        List<Coordinates> resolve = mazeField.getResolvePath();
 
         Map<Coordinates, String> numbersToDraw = new LinkedHashMap<>();
 

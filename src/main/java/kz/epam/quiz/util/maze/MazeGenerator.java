@@ -1,7 +1,7 @@
 package kz.epam.quiz.util.maze;
 
 import kz.epam.quiz.util.maze.entity.Coordinates;
-import kz.epam.quiz.util.maze.entity.Maze;
+import kz.epam.quiz.util.maze.entity.MazeField;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +13,7 @@ public class MazeGenerator {
 
     private int[][] mazeMap;
 
-    public Maze generateMaze(int wx, int wy, int startX, int startY, int endX, int endY) {
+    public MazeField generateMaze(int wx, int wy, int startX, int startY, int endX, int endY) {
         MazeSolver mazeSolver = new MazeSolver();
         mazeMap = new int[wx][wy];
         this.wx = wx;
@@ -21,7 +21,7 @@ public class MazeGenerator {
 
         generateMazeMap(0, wy / 2);
         LinkedList<Coordinates> resolvePath = mazeSolver.solve(startX, startY, endX, endY, mazeMap);
-        return new Maze(wx, wy, mazeMap, resolvePath);
+        return new MazeField(wx, wy, mazeMap, resolvePath);
     }
 
     private void generateMazeMap(int cx, int cy) {

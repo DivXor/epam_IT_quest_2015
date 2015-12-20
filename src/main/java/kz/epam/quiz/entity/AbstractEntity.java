@@ -1,9 +1,10 @@
 package kz.epam.quiz.entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import org.hibernate.annotations.GeneratorType;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.annotation.Generated;
+import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class AbstractEntity {
@@ -20,4 +21,10 @@ public abstract class AbstractEntity {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "AbstractEntity{" +
+                "id=" + id +
+                '}';
+    }
 }

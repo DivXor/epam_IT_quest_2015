@@ -2,13 +2,13 @@ package kz.epam.quiz.util.maze.entity;
 
 import java.util.List;
 
-public class Maze {
+public class MazeField {
     private final int wx;
     private final int wy;
     private final int[][] mazeMap;
     private final List<Coordinates> resolvePath;
 
-    public Maze(int wx, int wy, int[][] mazeMap, List<Coordinates> resolvePath) {
+    public MazeField(int wx, int wy, int[][] mazeMap, List<Coordinates> resolvePath) {
         this.wx = wx;
         this.wy = wy;
         this.mazeMap = mazeMap;

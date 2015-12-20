@@ -35,6 +35,11 @@
                     Например: odwr + 2413 = word.</p>
                 <br/>
 
+                <div th:if="${answerError}" class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4><strong>Упс!</strong> Где-то Вы допустили ошибку.</h4>
+                </div>
+
                 <div class="col-xs-6 col-sm-4 col-sm-offset-2">
                     <a id="charsMaze" href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox"></a>
                 </div>
@@ -57,10 +62,10 @@
         <hr/>
         <div class="row">
             <div class="col-lg-12 col-centered">
-                <form role="form" class="form-inline">
+                <form th:action="@{/maze/check/}" role="form" method="post" class="form-inline">
                     <div class="form-group">
                         <!--<label for="result-word">Ответ</label>-->
-                        <input type="email" class="form-control" id="result-word" placeholder="Введите ответ"/>
+                        <input type="text" name="answer" class="form-control" id="result-word" placeholder="Введите ответ"/>
                     </div>
                     <button type="submit" class="btn btn-success">Проверить</button>
                 </form>
@@ -75,7 +80,7 @@
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
-<script type="text/javascript" th:src="@{/js/jquery-1.11.3.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.js}"></script>
 <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
 
 <!-- Lightbox library JavaScript

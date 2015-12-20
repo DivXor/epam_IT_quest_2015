@@ -4,32 +4,41 @@ import kz.epam.quiz.entity.enums.TaskTypeEnum;
 import kz.epam.quiz.entity.enums.UserRoleEnum;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Table(name = "USERS")
-public class User extends AbstractEntity{
+public class User extends AbstractEntity implements Serializable {
     private String name;
     private String password;
-
-    @Column(name = "TOTAL_SCORE")
-    private BigDecimal totalScore;
 
     @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
 
     @Enumerated(EnumType.ORDINAL)
-    @Column(name = "TASKS_ID")
+    @Column(name = "TASK_ID")
     private TaskTypeEnum currentTask;
 
-    protected User() {
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    private Set<MazeHistory> mazeHistories;
+//
+//    public Set<MazeHistory> getMazeHistories() {
+//        return mazeHistories;
+//    }
+//
+//    public void setMazeHistories(Set<MazeHistory> mazeHistories) {
+//        this.mazeHistories = mazeHistories;
+//    }
+
+    public User() {
     }
 
     public User(String name, String password, UserRoleEnum role) {
         this.name = name;
         this.password = password;
         this.role = role;
-
     }
 
     public String getName() {
@@ -46,14 +55,6 @@ public class User extends AbstractEntity{
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public BigDecimal getTotalScore() {
-        return totalScore;
-    }
-
-    public void setTotalScore(BigDecimal totalScore) {
-        this.totalScore = totalScore;
     }
 
     public UserRoleEnum getRole() {
@@ -75,12 +76,12 @@ public class User extends AbstractEntity{
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
-                ", totalScore=" + totalScore +
                 ", role=" + role +
                 ", currentTask=" + currentTask +
-                "} " + super.toString();
+                '}';
     }
 
     @Override
@@ -92,7 +93,6 @@ public class User extends AbstractEntity{
 
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        if (totalScore != null ? !totalScore.equals(user.totalScore) : user.totalScore != null) return false;
         if (role != user.role) return false;
         return currentTask == user.currentTask;
 
@@ -102,7 +102,6 @@ public class User extends AbstractEntity{
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (totalScore != null ? totalScore.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (currentTask != null ? currentTask.hashCode() : 0);
         return result;

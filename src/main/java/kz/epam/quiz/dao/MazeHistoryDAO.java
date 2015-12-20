@@ -1,11 +1,9 @@
 package kz.epam.quiz.dao;
 
-import kz.epam.quiz.entity.User;
+import kz.epam.quiz.entity.MazeHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserDao extends JpaRepository<User, Integer> {
-
-    User findUserByName(String name);
+public interface MazeHistoryDAO extends JpaRepository<MazeHistory, Integer> {
 }

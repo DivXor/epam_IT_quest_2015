@@ -14,11 +14,11 @@ public class GrammarQuizHistory extends AbstractEntity{
     private Date time;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "GRAMMAR_QUIZ_ID", insertable = false, updatable = false)
+    @JoinColumn(name = "GRAMMAR_QUIZ_ID")
     private GrammarQuiz quiz;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "USER_ID", insertable = false, updatable = false)
+    @JoinColumn(name = "USER_ID")
     private User user;
 
     public String getAnswer() {

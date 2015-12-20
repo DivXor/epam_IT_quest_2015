@@ -5,7 +5,7 @@ public enum TaskTypeEnum {
     MAZE,
     ASSOCIATIONS,
     WORD_SEARCH,
-    GRAMMAE_QUIZ,
+    GRAMMAR,
     FIND_SUPERFLUOUS;
 
     TaskTypeEnum() {
