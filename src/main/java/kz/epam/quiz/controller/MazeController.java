@@ -11,6 +11,7 @@ import kz.epam.quiz.entity.MazeHistory;
 import kz.epam.quiz.entity.Quest;
 import kz.epam.quiz.entity.User;
 import kz.epam.quiz.entity.enums.TaskTypeEnum;
+import kz.epam.quiz.util.TaskHelper;
 import kz.epam.quiz.util.maze.MazeGenerator;
 import kz.epam.quiz.util.maze.MazeJsonViewer;
 import kz.epam.quiz.util.maze.PlaceholderGenerator;
@@ -33,7 +34,7 @@ import java.security.Principal;
 import java.util.Map;
 
 @Controller
-@RequestMapping(value = "/maze/")
+@RequestMapping(value = "/maze")
 public class MazeController {
     public static final int CELL_SIZE = 12;
     public static final int CHARS_DISTANCE = 20;
@@ -56,7 +57,7 @@ public class MazeController {
         return "maze";
     }
 
-    @RequestMapping(value = "/check/", method = RequestMethod.POST)
+    @RequestMapping(value = "/check", method = RequestMethod.POST)
     public String checkAnswer(@RequestParam(value = "answer") String answer,
                               RedirectAttributes redirectAttributes,
                               Principal principal) {
@@ -80,42 +81,25 @@ public class MazeController {
                 Quest newQuest = new Quest(true, maze.getBaseScore(), user, TaskTypeEnum.MAZE);
                 questDAO.save(newQuest);
 
-                setNextTask(user);
+                TaskHelper.setNextTask(user);
                 userDao.save(user);
 
                 return "redirect:/task";
             } else {
                 redirectAttributes.addFlashAttribute("answerError", true);
-                return "redirect:/maze/";
+                return "redirect:/maze";
             }
         } else return "redirect:/task";
 
     }
 
     @RequestMapping(value = "/data", method = RequestMethod.GET)
-    public
     @ResponseBody
-    String getMazeData() throws IOException {
+    public String getMazeData() throws IOException {
         Maze maze = mazeDao.findOne(CURRENT_MAZE_DB_ID);
         MazeJsonViewer jsonViewer = new MazeJsonViewer();
         return jsonViewer.createJsonMazeResponse(maze, CELL_SIZE, CHARS_DISTANCE).toString();
     }
 
-    public void setNextTask(User user){
-        TaskTypeEnum currentTask = user.getCurrentTask();
-        switch (currentTask){
-            case MAZE:
-                user.setCurrentTask(TaskTypeEnum.GRAMMAR);
-                break;
-            case GRAMMAR:
-                user.setCurrentTask(TaskTypeEnum.FIND_SUPERFLUOUS);
-                break;
-            case FIND_SUPERFLUOUS:
-                user.setCurrentTask(TaskTypeEnum.WORD_SEARCH);
-                break;
-            case WORD_SEARCH:
-                user.setCurrentTask(TaskTypeEnum.ASSOCIATIONS);
-                break;
-        }
-    }
+
 }

@@ -30,15 +30,15 @@ public class MainController {
 
         switch (currentTask){
             case MAZE:
-                return "maze";
+                return "forward:" + UrlPathConstants.MAZE_PATH;
             case GRAMMAR:
-                return "grammar";
-            case ASSOCIATIONS:
-                return "ASSOCIATIONS";
+                return "forward:/grammar";
             case WORD_SEARCH:
-                return "word_search";
+                return "forward:/wordsearch/board/first";
+            case ASSOCIATIONS:
+                return "forward:/associations";
             case FIND_SUPERFLUOUS:
-                return "find_superfluous";
+                return "forward:/find_superfluous";
         }
         return "index";
     }
