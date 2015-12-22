@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Game</title>
+    <link rel="stylesheet" href="/resources/css/style.css" th:href="@{/resources/css/style.css}"/>
+</head>
+
+<body>
+<form th:action="@{/association/answer}" method="post">
+    <div th:each="plate: ${session.pictureList}">
+        <input type="hidden" name="plateId[]" th:value="${plate.id}"/>
+        <div th:switch="${plate.result.hintCounter}">
+            <p th:case="0">
+                <img src="${plate.firstPictureUrl}" th:src="${plate.firstPictureUrl}"/>
+                <input type="submit" name="hint" th:value="Hint+${plate.id}"/>
+            </p>
+            <p th:case="1">
+                <img src="${plate.firstPictureUrl}" th:src="${plate.firstPictureUrl}"/>
+                <img src="${plate.secondPictureUrl}" th:src="${plate.secondPictureUrl}"/>
+                <input type="submit" name="hint" th:value="Hint+${plate.id}"/>
+            </p>
+
+            <p th:case="2">
+                <img src="${plate.firstPictureUrl}" th:src="${plate.firstPictureUrl}"/>
+                <img src="${plate.secondPictureUrl}" th:src="${plate.secondPictureUrl}"/>
+                <img src="${plate.thirdPictureUrl}" th:src="${plate.thirdPictureUrl}"/>
+                <input type="submit" name="hint" th:value="Hint+${plate.id}"/>
+            </p>
+
+            <p th:case="3">
+                <img src="${plate.firstPictureUrl}" th:src="${plate.firstPictureUrl}"/>
+                <img src="${plate.secondPictureUrl}" th:src="${plate.secondPictureUrl}"/>
+                <img src="${plate.thirdPictureUrl}" th:src="${plate.thirdPictureUrl}"/>
+                <img src="${plate.forthPictureUrl}" th:src="${plate.forthPictureUrl}"/>
+            </p>
+        </div>
+        <div th:if="${plate.result.answerRight == true}">
+            <img src="" th:src="@{resourses/static/tick_sign.png}"/>
+        </div>
+        <p>
+            <input type="text" name="userAnswer[]" th:placeholder="${plate.hiddenWord.length()} + ' letters'" />
+        </p>
+    </div>
+    <input type="submit" name="submit" value="Confirm"/>
+</form>
+</body>
+</html>
