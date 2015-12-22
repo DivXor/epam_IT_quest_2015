@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.Assert.*;
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -32,5 +32,13 @@ public class QuestDAOTest {
 
         Quest quest = questDAO.findByUserAndTask(user, TaskTypeEnum.MAZE);
         System.out.println(quest);
+    }
+
+    @Test
+    public void testFindByUser() throws Exception {
+        User user = new User();
+        user.setId(1);
+        List<Quest> quests = questDAO.findByUser(user);
+        System.out.println(quests);
     }
 }

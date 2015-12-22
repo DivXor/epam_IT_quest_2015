@@ -21,6 +21,14 @@ public class ExcessImageHistory extends AbstractEntity implements Serializable {
     @JoinColumn(name = "USER_ID")
     private User user;
 
+    public ExcessImageHistory() {
+    }
+
+    public ExcessImageHistory(ExcessImage excessImage, User user) {
+        this.excessImage = excessImage;
+        this.user = user;
+    }
+
     //region Getters and Setters
     public Date getTime() {
         return time;

@@ -1,11 +1,11 @@
 package kz.epam.quiz.controller;
 
 import kz.epam.quiz.controller.dto.GrammarAnswersDTO;
-import kz.epam.quiz.dao.GrammarQuizDao;
-import kz.epam.quiz.dao.GrammarQuizHistoryDAO;
+import kz.epam.quiz.dao.ExcessImageDAO;
+import kz.epam.quiz.dao.ExcessImageHistoryDAO;
 import kz.epam.quiz.dao.QuestDAO;
 import kz.epam.quiz.dao.UserDao;
-import kz.epam.quiz.entity.GrammarQuiz;
+import kz.epam.quiz.entity.ExcessImage;
 import kz.epam.quiz.entity.Quest;
 import kz.epam.quiz.entity.User;
 import kz.epam.quiz.entity.enums.TaskTypeEnum;
@@ -24,28 +24,28 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping(value = "/grammar")
-public class GrammarQuizController {
+@RequestMapping(value = "/excess_image")
+public class ExcessImageController {
 
-    public static final BigDecimal GRAMMAR_BASE_SCORE = new BigDecimal(1);
+    public static final BigDecimal EXCESS_IMAGE_BASE_SCORE = new BigDecimal(1);
 
     @Autowired
     private UserDao userDao;
 
     @Autowired
-    private GrammarQuizDao dao;
+    private ExcessImageDAO excessImageDAO;
 
     @Autowired
-    private GrammarQuizHistoryDAO historyDAO;
+    private ExcessImageHistoryDAO excessImageHistoryDAO;
 
     @Autowired
     private QuestDAO questDAO;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String grammarPage(Model model) {
-        List<GrammarQuiz> quizList = dao.findAll();
-        model.addAttribute("grammarQuizzes", quizList);
-        return "grammar";
+    public String viewMaze(Model model) {
+        List<ExcessImage> excessImageQuests = excessImageDAO.findAll();
+        model.addAttribute("imageQuizzes", excessImageQuests);
+        return "excess_image";
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.POST)
@@ -60,13 +60,14 @@ public class GrammarQuizController {
         User user = userDao.findUserByName(currentUser);
 
         //get quest
-        Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.GRAMMAR);
+        Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.FIND_SUPERFLUOUS);
 
         if (currentQuest == null || !currentQuest.isDone()) {
 
             for (String id : answers.keySet()) {
-                GrammarQuiz quiz = dao.findOne(Integer.parseInt(id));
-                if (!answers.get(id).equals(quiz.getAnswer())) {
+                int currentAnswer = Integer.parseInt(answers.get(id));
+                ExcessImage excessImage = excessImageDAO.findOne(Integer.parseInt(id));
+                if (currentAnswer != excessImage.getExcessImageNumber()) {
                     hasWrongAnswer = true;
                 }
             }
@@ -74,7 +75,7 @@ public class GrammarQuizController {
             if (hasWrongAnswer) {
                 redirectAttributes.addFlashAttribute("answerError", true);
             } else {
-                Quest newQuest = new Quest(true, GRAMMAR_BASE_SCORE, user, TaskTypeEnum.GRAMMAR);
+                Quest newQuest = new Quest(true, EXCESS_IMAGE_BASE_SCORE, user, TaskTypeEnum.FIND_SUPERFLUOUS);
                 questDAO.save(newQuest);
 
                 TaskHelper.setNextTask(user);
@@ -83,4 +84,5 @@ public class GrammarQuizController {
         }
         return "redirect:/task";
     }
+
 }

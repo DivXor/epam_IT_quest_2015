@@ -37,19 +37,19 @@
                     <div class="odd-picture-test">
                         <div th:each="quiz : ${imageQuizzes}" class="form-group">
                             <label>
-                                <input type="radio" th:name="${quiz.id}" value="1" />
+                                <input checked="" type="radio" th:name="${'answers['+ quiz.id +']'}" value="1" />
                                 <img th:src="${quiz.img1}"/>
                             </label>
                             <label>
-                                <input type="radio" th:name="${quiz.id}" value="2" />
+                                <input type="radio" th:name="${'answers['+ quiz.id +']'}" value="2" />
                                 <img th:src="${quiz.img2}"/>
                             </label>
                             <label>
-                                <input type="radio" th:name="${quiz.id}" value="3" />
+                                <input type="radio" th:name="${'answers['+ quiz.id +']'}" value="3" />
                                 <img th:src="${quiz.img3}"/>
                             </label>
-                            <label>
-                                <input type="radio" th:name="${quiz.id}" value="4" />
+                            <label th:if="${quiz.img4 != null}">
+                                <input type="radio" th:name="${'answers['+ quiz.id +']'}" value="4" />
                                 <img th:src="${quiz.img4}"/>
                             </label>
                             <hr/>

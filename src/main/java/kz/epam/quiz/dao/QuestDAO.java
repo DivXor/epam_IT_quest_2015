@@ -8,9 +8,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface QuestDAO extends JpaRepository<Quest, Integer>{
 
     @Query(value = "SELECT q from Quest q where q.user = :user and q.task = :task")
     Quest findByUserAndTask(@Param("user") User user, @Param("task") TaskTypeEnum task);
+
+    List<Quest> findByUser(User user);
 }
