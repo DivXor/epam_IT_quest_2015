@@ -29,8 +29,8 @@
                     предложениях и указать их</p>
                 <br/>
 
-                <div th:if="${answerError}" class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                <div id="error-message" class="alert alert-warning hide" role="alert">
+                    <button id="close-button" type="button" class="close"><span
                             aria-hidden="true">&times;</span></button>
                     <h4><strong>Упс!</strong> Где-то Вы допустили ошибку.</h4>
                 </div>
@@ -50,6 +50,9 @@
                                 </label>
                                 <label class="radio-inline">
                                     <input th:name="${'answers['+ quiz.id +']'}" value="C" type="radio"/> C
+                                </label>
+                                <label class="radio-inline">
+                                    <input th:name="${'answers['+ quiz.id +']'}" value="D" type="radio"/> D
                                 </label>
                             </div>
                         </div>
@@ -118,7 +121,7 @@
                     <!--</div>-->
                     <!--</div>-->
                     <hr/>
-                    <button type="submit" class="btn btn-success">Проверить</button>
+                    <button type="button" id="submit-button" class="btn btn-success">Проверить</button>
                 </form>
             </div>
 
@@ -141,27 +144,35 @@
 
 <script>
     jQuery(document).ready(function ($) {
-        $("#grammar-form").submit(function () {
+        $("#submit-button").click(function () {
             sendAnswers();
         });
+
+        $("#close-button").click(function (){
+            $("#error-message").addClass("hide");
+        })
     });
 
     function sendAnswers() {
-        $.post("/grammar/check", function (data) {
-
-        }
-
+        $.post("/grammar/check", $("#grammar-form").serialize())
+                .done(function (data) {
+                    console.log(data);
+                    if (data == 'error'){
+                        $("#error-message").removeClass("hide");
+                        $('html, body').animate({scrollTop: 0}, 700);
+                    }
+                })
 
     }
 
-    function createNewMaze() {
-        $.getJSON("/maze/data", function (data) {
-            console.log(data);
-            localStorage.setItem('mazeData', JSON.stringify(data));
-            drawCharMaze(data);
-            drawNumberMaze(data);
-        });
-    }
+//    function createNewMaze() {
+//        $.getJSON("/maze/data", function (data) {
+//            console.log(data);
+//            localStorage.setItem('mazeData', JSON.stringify(data));
+//            drawCharMaze(data);
+//            drawNumberMaze(data);
+//        });
+//    }
 </script>
 
 </body>

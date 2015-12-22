@@ -23,7 +23,7 @@ public class ControllerHelper {
     private UserDao userDao;
 
     @ModelAttribute
-    public void addUserSore(Model model, Principal principal){
+    public void addUserAndScore(Model model, Principal principal){
 
         if (principal != null){
             BigDecimal score = new BigDecimal(0);
@@ -34,15 +34,12 @@ public class ControllerHelper {
                 List<Quest> quests = questDAO.findByUser(user);
 
                 for (Quest quest : quests) {
-                    score.add(quest.getScore());
+                    score = score.add(quest.getScore());
                 }
 
                 model.addAttribute("user", user);
                 model.addAttribute("userScore", score.toString());
             }
         }
-//
-//        model.addAttribute("userScore", score);
-
     }
 }

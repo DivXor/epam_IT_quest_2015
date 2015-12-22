@@ -11,9 +11,9 @@
         <div class="navbar-header">
             <a href="../" class="navbar-brand"><img class="logo" src="/images/logo_white.png"/></a>
         </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-            <p sec:authorize="isAuthenticated()" class="navbar-text navbar-right">Team 1</p>
-            <p sec:authorize="isAuthenticated()" class="navbar-text navbar-right">Счет: 10.0</p>
+        <div sec:authorize="isAuthenticated()" class="navbar-collapse collapse" id="navbar-main">
+            <p th:if="${user}" class="navbar-text navbar-right" th:text="${user.name}"></p>
+            <p th:if="${userScore}" class="navbar-text navbar-right" th:text="${'Ваш счет: '+ userScore +''}"></p>
         </div>
     </div>
 </div>
