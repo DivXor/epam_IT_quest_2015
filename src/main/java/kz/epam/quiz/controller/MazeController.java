@@ -87,7 +87,7 @@ public class MazeController {
                 return "redirect:/task";
             } else {
                 redirectAttributes.addFlashAttribute("answerError", true);
-                return "redirect:/maze";
+                return "redirect:/task";
             }
         } else return "redirect:/task";
 

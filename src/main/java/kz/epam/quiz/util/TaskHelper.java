@@ -9,15 +9,15 @@ public abstract class TaskHelper {
         TaskTypeEnum currentTask = user.getCurrentTask();
         switch (currentTask){
             case MAZE:
+                user.setCurrentTask(TaskTypeEnum.WORD_SEARCH);
+                break;
+            case WORD_SEARCH:
                 user.setCurrentTask(TaskTypeEnum.GRAMMAR);
                 break;
             case GRAMMAR:
                 user.setCurrentTask(TaskTypeEnum.FIND_SUPERFLUOUS);
                 break;
             case FIND_SUPERFLUOUS:
-                user.setCurrentTask(TaskTypeEnum.WORD_SEARCH);
-                break;
-            case WORD_SEARCH:
                 user.setCurrentTask(TaskTypeEnum.ASSOCIATIONS);
                 break;
         }

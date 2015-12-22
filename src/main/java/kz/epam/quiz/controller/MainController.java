@@ -38,7 +38,7 @@ public class MainController {
             case ASSOCIATIONS:
                 return "forward:/associations";
             case FIND_SUPERFLUOUS:
-                return "forward:/find_superfluous";
+                return "forward:/excess_image";
         }
         return "index";
     }

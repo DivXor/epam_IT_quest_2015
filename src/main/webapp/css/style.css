@@ -113,3 +113,14 @@ html, body {
   left: 0px;
   width: 100%;
 }
+
+.odd-picture-test label > input{ /* HIDE RADIO */
+  display:none;
+}
+.odd-picture-test label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+.odd-picture-test label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
+  border:2px solid #00FF2B;
+}

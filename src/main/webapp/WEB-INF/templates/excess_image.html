@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+
+    <!-- User style -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
+</head>
+
+<body>
+
+<div th:replace="fragments/header"></div>
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row content">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h1>Что-то лишнее! </h1>
+
+                </div>
+                <p>В каждом ряду вам необходимо выделить лишнее изображение.</p>
+                <br/>
+
+                <div th:if="${answerError}" class="alert alert-warning" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4><strong>Упс!</strong> Где-то Вы допустили ошибку.</h4>
+                </div>
+
+                <form id="picture-form" th:action="@{/excess_image/check}" method="post">
+                    <div class="odd-picture-test">
+                        <div th:each="quiz : ${imageQuizzes}" class="form-group">
+                            <label>
+                                <input type="radio" th:name="${quiz.id}" value="1" />
+                                <img th:src="${quiz.img1}"/>
+                            </label>
+                            <label>
+                                <input type="radio" th:name="${quiz.id}" value="2" />
+                                <img th:src="${quiz.img2}"/>
+                            </label>
+                            <label>
+                                <input type="radio" th:name="${quiz.id}" value="3" />
+                                <img th:src="${quiz.img3}"/>
+                            </label>
+                            <label>
+                                <input type="radio" th:name="${quiz.id}" value="4" />
+                                <img th:src="${quiz.img4}"/>
+                            </label>
+                            <hr/>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Проверить</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="push-down"></div>
+
+    <div th:replace="fragments/footer"></div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+<!-- Lightbox library JavaScript
+================================================== -->
+<script type="text/javascript" th:src="@{/js/lightbox.js}"></script>
+
+<!--<script>-->
+    <!--jQuery(document).ready(function ($) {-->
+        <!--$("#grammar-form").submit(function () {-->
+            <!--sendAnswers();-->
+        <!--});-->
+    <!--});-->
+
+    <!--function sendAnswers() {-->
+        <!--$.post("/grammar/check", function(data){-->
+
+        <!--}-->
+
+
+    <!--}-->
+
+    <!--function createNewMaze() {-->
+        <!--$.getJSON("/maze/data", function (data) {-->
+            <!--console.log(data);-->
+            <!--localStorage.setItem('mazeData', JSON.stringify(data));-->
+            <!--drawCharMaze(data);-->
+            <!--drawNumberMaze(data);-->
+        <!--});-->
+    <!--}-->
+<!--</script>-->
+
+</body>
+</html>
