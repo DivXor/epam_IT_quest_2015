@@ -57,71 +57,10 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="grammar-test">-->
-                    <!--<div class="panel panel-default">-->
-                    <!--<div class="panel-body">-->
-                    <!--<p>To enable <u>the automatic</u> registration to SLD you have <u>to-->
-                    <!--configure</u>-->
-                    <!--the-->
-                    <!--connectivity-->
-                    <!--information <u>using the</u> command line tool sldreg.</p>-->
-                    <!--</div>-->
-                    <!--<div class="panel-footer"><label class="radio-inline">-->
-                    <!--<input name="radioGroup1" value="option1" type="radio"/> A-->
-                    <!--</label>-->
-                    <!--<label class="radio-inline">-->
-                    <!--<input name="radioGroup1" value="option2" checked="" type="radio"/> B-->
-                    <!--</label>-->
-                    <!--<label class="radio-inline">-->
-                    <!--<input name="radioGroup1" value="option3" type="radio"/> C-->
-                    <!--</label>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="grammar-test">-->
-                    <!--<div class="panel panel-default">-->
-                    <!--<div class="panel-body">-->
-                    <!--<p>To enable <u>the automatic</u> registration to SLD you have <u>to-->
-                    <!--configure</u>-->
-                    <!--the-->
-                    <!--connectivity-->
-                    <!--information <u>using the</u> command line tool sldreg.</p>-->
-                    <!--</div>-->
-                    <!--<div class="panel-footer"><label class="radio-inline">-->
-                    <!--<input name="radioGroup1" value="option1" type="radio"/> A-->
-                    <!--</label>-->
-                    <!--<label class="radio-inline">-->
-                    <!--<input name="radioGroup1" value="option2" checked="" type="radio"/> B-->
-                    <!--</label>-->
-                    <!--<label class="radio-inline">-->
-                    <!--<input name="radioGroup1" value="option3" type="radio"/> C-->
-                    <!--</label>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="grammar-test">-->
-                    <!--<div class="panel panel-default">-->
-                    <!--<div class="panel-body">-->
-                    <!--<p>To enable <u>the automatic</u> registration to SLD you have <u>to-->
-                    <!--configure</u>-->
-                    <!--the-->
-                    <!--connectivity-->
-                    <!--information <u>using the</u> command line tool sldreg.</p>-->
-                    <!--</div>-->
-                    <!--<div class="panel-footer"><label class="radio-inline">-->
-                    <!--<input name="radioGroup1" value="option1" type="radio"/> A-->
-                    <!--</label>-->
-                    <!--<label class="radio-inline">-->
-                    <!--<input name="radioGroup1" value="option2" checked="" type="radio"/> B-->
-                    <!--</label>-->
-                    <!--<label class="radio-inline">-->
-                    <!--<input name="radioGroup1" value="option3" type="radio"/> C-->
-                    <!--</label>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
                     <hr/>
-                    <button type="button" id="submit-button" class="btn btn-success">Проверить</button>
+                    <button type="button" onclick="sendAnswers('/grammar/check', 'grammar-form')" id="submit-button"
+                            class="btn btn-success">Проверить
+                    </button>
                 </form>
             </div>
 
@@ -142,38 +81,9 @@
 ================================================== -->
 <script type="text/javascript" th:src="@{/js/lightbox.js}"></script>
 
-<script>
-    jQuery(document).ready(function ($) {
-        $("#submit-button").click(function () {
-            sendAnswers();
-        });
-
-        $("#close-button").click(function (){
-            $("#error-message").addClass("hide");
-        })
-    });
-
-    function sendAnswers() {
-        $.post("/grammar/check", $("#grammar-form").serialize())
-                .done(function (data) {
-                    console.log(data);
-                    if (data == 'error'){
-                        $("#error-message").removeClass("hide");
-                        $('html, body').animate({scrollTop: 0}, 700);
-                    }
-                })
-
-    }
-
-//    function createNewMaze() {
-//        $.getJSON("/maze/data", function (data) {
-//            console.log(data);
-//            localStorage.setItem('mazeData', JSON.stringify(data));
-//            drawCharMaze(data);
-//            drawNumberMaze(data);
-//        });
-//    }
-</script>
+<!-- CheckAnswers js script
+================================================== -->
+<script type="text/javascript" th:src="@{/js/checkAnswers.js}"></script>
 
 </body>
 </html>

@@ -6,6 +6,10 @@ import kz.epam.quiz.dao.GrammarQuizHistoryDAO;
 import kz.epam.quiz.dao.QuestDAO;
 import kz.epam.quiz.dao.UserDao;
 import kz.epam.quiz.entity.GrammarQuiz;
+import kz.epam.quiz.entity.Quest;
+import kz.epam.quiz.entity.User;
+import kz.epam.quiz.entity.enums.TaskTypeEnum;
+import kz.epam.quiz.util.TaskHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,41 +53,36 @@ public class GrammarQuizController {
     @ResponseBody
     public String checkAnswers(@ModelAttribute GrammarAnswersDTO answersDTO,
                                RedirectAttributes redirectAttributes, Principal principal) {
-
+        boolean hasWrongAnswer = false;
         Map<String, String> answers = answersDTO.getAnswers();
-        System.out.println(answers);
-        return "error";
-//        boolean hasWrongAnswer = false;
-//
-//        Map<String, String> answers = answersDTO.getAnswers();
-//
-//        //get current logged in user
-//        String currentUser = principal.getName();
-//        User user = userDao.findUserByName(currentUser);
-//
-//        //get quest
-//        Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.GRAMMAR);
-//
-//        if (currentQuest == null || !currentQuest.isDone()) {
-//
-//            for (String id : answers.keySet()) {
-//                GrammarQuiz quiz = dao.findOne(Integer.parseInt(id));
-//                if (!answers.get(id).equals(quiz.getAnswer())) {
-//                    hasWrongAnswer = true;
-//                }
-//            }
-//
-//            if (hasWrongAnswer) {
-//                redirectAttributes.addFlashAttribute("answerError", true);
-//            } else {
-//                Quest newQuest = new Quest(true, GRAMMAR_BASE_SCORE, user, TaskTypeEnum.GRAMMAR);
-//                questDAO.save(newQuest);
-//
-//                TaskHelper.setNextTask(user);
-//                userDao.save(user);
-//            }
-//        }
-//        return "redirect:/task";
+
+        //get current logged in user
+        String currentUser = principal.getName();
+        User user = userDao.findUserByName(currentUser);
+
+        //get quest
+        Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.GRAMMAR);
+
+        if (currentQuest == null || !currentQuest.isDone()) {
+
+            for (String id : answers.keySet()) {
+                GrammarQuiz quiz = dao.findOne(Integer.parseInt(id));
+                if (!answers.get(id).equals(quiz.getAnswer())) {
+                    hasWrongAnswer = true;
+                }
+            }
+
+            if (hasWrongAnswer) {
+                return "error";
+            } else {
+                Quest newQuest = new Quest(true, GRAMMAR_BASE_SCORE, user, TaskTypeEnum.GRAMMAR);
+                questDAO.save(newQuest);
+
+                TaskHelper.setNextTask(user);
+                userDao.save(user);
+            }
+        }
+        return "success";
     }
 
 //    @RequestMapping(value = "/check", method = RequestMethod.POST)

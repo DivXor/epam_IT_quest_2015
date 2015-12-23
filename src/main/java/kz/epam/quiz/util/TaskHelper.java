@@ -18,7 +18,10 @@ public abstract class TaskHelper {
                 user.setCurrentTask(TaskTypeEnum.FIND_SUPERFLUOUS);
                 break;
             case FIND_SUPERFLUOUS:
-                user.setCurrentTask(TaskTypeEnum.ASSOCIATIONS);
+                user.setCurrentTask(TaskTypeEnum.ASSOCIATIONS); //TODO изменить после того как доделаем ассоциации
+                break;
+            case ASSOCIATIONS:
+                user.setCurrentTask(TaskTypeEnum.FINISH);
                 break;
         }
     }

@@ -1,10 +1,8 @@
 package kz.epam.quiz.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -34,18 +32,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/quest/**").hasRole("USER")
-                .antMatchers("/task/**").hasRole("USER")
-                .antMatchers("/maze/**").hasRole("USER")
-                .antMatchers("/grammar/**").hasRole("USER")
-                .antMatchers("/wordsearch/**").hasRole("USER")
-                .antMatchers("/excess_image/**").hasRole("USER");
+                .antMatchers("/maze").hasRole("ADMIN")
+                .antMatchers("/grammar").hasRole("ADMIN")
+                .antMatchers("/wordsearch").hasRole("ADMIN")
+                .antMatchers("/excess_image").hasRole("ADMIN") //TODO Add associations
+                .antMatchers("/task/**").hasRole("USER");
         http
                 .formLogin()
                 .loginProcessingUrl("/login")
                 .loginPage("/").successHandler(authSuccessHandler)
                 .failureUrl("/login-error")
-                .permitAll();
-
+                .permitAll()
+                .and()
+                .logout();
     }
 }

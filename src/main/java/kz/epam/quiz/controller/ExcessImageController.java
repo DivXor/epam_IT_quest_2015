@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.math.BigDecimal;
@@ -49,10 +50,10 @@ public class ExcessImageController {
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.POST)
+    @ResponseBody
     public String checkAnswers(@ModelAttribute GrammarAnswersDTO answersDTO,
                                RedirectAttributes redirectAttributes, Principal principal) {
         boolean hasWrongAnswer = false;
-
         Map<String, String> answers = answersDTO.getAnswers();
 
         //get current logged in user
@@ -73,7 +74,7 @@ public class ExcessImageController {
             }
 
             if (hasWrongAnswer) {
-                redirectAttributes.addFlashAttribute("answerError", true);
+                return "error";
             } else {
                 Quest newQuest = new Quest(true, EXCESS_IMAGE_BASE_SCORE, user, TaskTypeEnum.FIND_SUPERFLUOUS);
                 questDAO.save(newQuest);
@@ -82,7 +83,44 @@ public class ExcessImageController {
                 userDao.save(user);
             }
         }
-        return "redirect:/task";
+        return "success";
     }
+
+//    @RequestMapping(value = "/check", method = RequestMethod.POST)
+//    public String checkAnswers(@ModelAttribute GrammarAnswersDTO answersDTO,
+//                               RedirectAttributes redirectAttributes, Principal principal) {
+//        boolean hasWrongAnswer = false;
+//
+//        Map<String, String> answers = answersDTO.getAnswers();
+//
+//        //get current logged in user
+//        String currentUser = principal.getName();
+//        User user = userDao.findUserByName(currentUser);
+//
+//        //get quest
+//        Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.FIND_SUPERFLUOUS);
+//
+//        if (currentQuest == null || !currentQuest.isDone()) {
+//
+//            for (String id : answers.keySet()) {
+//                int currentAnswer = Integer.parseInt(answers.get(id));
+//                ExcessImage excessImage = excessImageDAO.findOne(Integer.parseInt(id));
+//                if (currentAnswer != excessImage.getExcessImageNumber()) {
+//                    hasWrongAnswer = true;
+//                }
+//            }
+//
+//            if (hasWrongAnswer) {
+//                redirectAttributes.addFlashAttribute("answerError", true);
+//            } else {
+//                Quest newQuest = new Quest(true, EXCESS_IMAGE_BASE_SCORE, user, TaskTypeEnum.FIND_SUPERFLUOUS);
+//                questDAO.save(newQuest);
+//
+//                TaskHelper.setNextTask(user);
+//                userDao.save(user);
+//            }
+//        }
+//        return "redirect:/task";
+//    }
 
 }

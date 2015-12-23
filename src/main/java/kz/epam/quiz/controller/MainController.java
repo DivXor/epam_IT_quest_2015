@@ -30,15 +30,17 @@ public class MainController {
 
         switch (currentTask){
             case MAZE:
-                return "forward:" + UrlPathConstants.MAZE_PATH;
+                return "forward:/maze";
             case GRAMMAR:
                 return "forward:/grammar";
             case WORD_SEARCH:
                 return "forward:/wordsearch/board/first";
             case ASSOCIATIONS:
-                return "forward:/associations";
+                return "forward:/association";
             case FIND_SUPERFLUOUS:
                 return "forward:/excess_image";
+            case FINISH:
+                return "finish";
         }
         return "index";
     }
@@ -50,9 +52,9 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping(value = "/finish", method = RequestMethod.GET)
-    public String finishPage(Model model) {
-        return "finish";
-    }
+//    @RequestMapping(value = "/finish", method = RequestMethod.GET)
+//    public String finishPage(Model model) {
+//        return "finish";
+//    }
 
 }

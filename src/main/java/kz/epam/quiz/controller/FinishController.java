@@ -1,0 +1,18 @@
+package kz.epam.quiz.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+@RequestMapping(value = "/finish")
+public class FinishController {
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String view(Model model) {
+
+        return "excess_image";
+    }
+
+}

@@ -3,6 +3,7 @@ INSERT INTO TASK (ID, TYPE) VALUES (1, 'ASSOCIATIONS');
 INSERT INTO TASK (ID, TYPE) VALUES (2, 'WORD_SEARCH');
 INSERT INTO TASK (ID, TYPE) VALUES (3, 'GRAMMAR_QUIZ');
 INSERT INTO TASK (ID, TYPE) VALUES (4, 'FIND_SUPERFLUOUS');
+INSERT INTO TASK (ID, TYPE) VALUES (5, 'FINISH');
 
 INSERT INTO USERS (NAME, PASSWORD, ROLE, TASK_ID) VALUES ('Team1', 'password', 'USER', 0);
 INSERT INTO USERS (NAME, PASSWORD, ROLE, TASK_ID) VALUES ('Team2', 'password', 'USER', 0);
@@ -88,27 +89,86 @@ VALUES (0, 60, 60, 'Test word', 1);
 INSERT INTO word_search (ANSWER, BASE_SCORE) VALUES ('cloth', 1.0);
 
 INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
-VALUES (2, '/images/excess_image_quiz/1/1.jpg', '/images/excess_image_quiz/1/2.jpg', '/images/excess_image_quiz/1/3.jpg', '/images/excess_image_quiz/1/4.jpg', 1.0);
+VALUES
+  (1, '/images/excess_image_quiz/1/1.jpg', '/images/excess_image_quiz/1/2.jpg', '/images/excess_image_quiz/1/3.jpg',
+   '/images/excess_image_quiz/1/4.jpg', 1.0);
 
 INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
-VALUES (2, '/images/excess_image_quiz/2/1.jpg', '/images/excess_image_quiz/2/2.jpg', '/images/excess_image_quiz/2/3.jpg', '/images/excess_image_quiz/2/4.jpg', 1.0);
+VALUES
+  (3, '/images/excess_image_quiz/2/1.jpg', '/images/excess_image_quiz/2/2.jpg', '/images/excess_image_quiz/2/3.jpg',
+   '/images/excess_image_quiz/2/4.jpg', 1.0);
 
 INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
-VALUES (2, '/images/excess_image_quiz/3/1.jpg', '/images/excess_image_quiz/3/2.jpg', '/images/excess_image_quiz/3/3.jpg', '/images/excess_image_quiz/3/4.jpg', 1.0);
+VALUES
+  (3, '/images/excess_image_quiz/3/1.jpg', '/images/excess_image_quiz/3/2.jpg', '/images/excess_image_quiz/3/3.jpg',
+   '/images/excess_image_quiz/3/4.jpg', 1.0);
 
 INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
-VALUES (2, '/images/excess_image_quiz/4/1.jpg', '/images/excess_image_quiz/4/2.jpg', '/images/excess_image_quiz/4/3.jpg', '/images/excess_image_quiz/4/4.jpg', 1.0);
+VALUES
+  (4, '/images/excess_image_quiz/4/1.jpg', '/images/excess_image_quiz/4/2.jpg', '/images/excess_image_quiz/4/3.jpg',
+   '/images/excess_image_quiz/4/4.jpg', 1.0);
 
 INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
-VALUES (2, '/images/excess_image_quiz/5/1.jpg', '/images/excess_image_quiz/5/2.jpg', '/images/excess_image_quiz/5/3.jpg', '/images/excess_image_quiz/5/4.jpg', 1.0);
+VALUES
+  (1, '/images/excess_image_quiz/5/1.jpg', '/images/excess_image_quiz/5/2.jpg', '/images/excess_image_quiz/5/3.jpg',
+   '/images/excess_image_quiz/5/4.jpg', 1.0);
 
 INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
-VALUES (2, '/images/excess_image_quiz/6/1.jpg', '/images/excess_image_quiz/6/2.jpg', '/images/excess_image_quiz/6/3.jpg', '/images/excess_image_quiz/6/4.jpg', 1.0);
+VALUES
+  (2, '/images/excess_image_quiz/6/1.jpg', '/images/excess_image_quiz/6/2.jpg', '/images/excess_image_quiz/6/3.jpg',
+   '/images/excess_image_quiz/6/4.jpg', 1.0);
 
 INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, BASE_SCORE)
-VALUES (2, '/images/excess_image_quiz/7/1.jpg', '/images/excess_image_quiz/7/2.jpg', '/images/excess_image_quiz/7/3.jpg', 1.0);
+VALUES
+  (3, '/images/excess_image_quiz/7/1.jpg', '/images/excess_image_quiz/7/2.jpg', '/images/excess_image_quiz/7/3.jpg',
+   1.0);
 
 INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, BASE_SCORE)
-VALUES (2, '/images/excess_image_quiz/8/1.jpg', '/images/excess_image_quiz/8/2.jpg', '/images/excess_image_quiz/8/3.jpg', 1.0);
+VALUES
+  (3, '/images/excess_image_quiz/8/1.jpg', '/images/excess_image_quiz/8/2.jpg', '/images/excess_image_quiz/8/3.jpg',
+   1.0);
+
+# Association
+INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+VALUES ('/images/association/1/1.jpg',
+        '/images/association/1/2.jpg',
+        '/images/association/1/3.jpg',
+        '/images/association/1/4.jpg',
+        3, 1.0, 'Beatles');
+
+INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+VALUES ('/images/association/2/1.jpg',
+        '/images/association/2/2.jpg',
+        '/images/association/2/3.jpg',
+        '/images/association/2/4.jpg',
+        3, 1.0, 'Bobby');
+
+INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+VALUES ('/images/association/3/1.jpg',
+        '/images/association/3/2.jpg',
+        '/images/association/3/3.jpg',
+        '/images/association/3/4.jpg',
+        3, 1.0, 'Churchill');
+
+INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+VALUES ('/images/association/4/1.jpg',
+        '/images/association/4/2.jpg',
+        '/images/association/4/3.jpg',
+        '/images/association/4/4.jpg',
+        3, 1.0, 'Newton');
+
+INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+VALUES ('/images/association/5/1.jpg',
+        '/images/association/5/2.jpg',
+        '/images/association/5/3.jpg',
+        '/images/association/5/4.jpg',
+        3, 1.0, 'Queen');
+
+INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+VALUES ('/images/association/6/1.jpg',
+        '/images/association/6/2.jpg',
+        '/images/association/6/3.jpg',
+        '/images/association/6/4.jpg',
+        3, 1.0, 'Sting');
 
 COMMIT;

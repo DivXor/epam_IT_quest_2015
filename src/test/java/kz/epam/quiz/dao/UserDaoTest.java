@@ -2,6 +2,7 @@ package kz.epam.quiz.dao;
 
 import kz.epam.quiz.config.AppConfig;
 import kz.epam.quiz.entity.User;
+import kz.epam.quiz.entity.enums.UserRoleEnum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,11 @@ public class UserDaoTest {
     public void testFindUserByName() throws Exception {
         User user = userDao.findUserByName("Team1");
         System.out.println(user);
+    }
+
+    @Test
+    public void testFindByRole() throws Exception {
+        List<User> users = userDao.findByRole(UserRoleEnum.USER);
+        System.out.println(users);
     }
 }

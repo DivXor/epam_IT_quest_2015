@@ -1,50 +1,159 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <meta charset="UTF-8"/>
-    <title>Game</title>
-    <link rel="stylesheet" href="/resources/css/style.css" th:href="@{/resources/css/style.css}"/>
+    <title th:text="${title}">Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+
+    <!-- User style -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
 </head>
 
 <body>
-<form th:action="@{/association/answer}" method="post">
-    <div th:each="plate: ${session.pictureList}">
-        <input type="hidden" name="plateId[]" th:value="${plate.id}"/>
-        <div th:switch="${plate.result.hintCounter}">
-            <p th:case="0">
-                <img src="${plate.firstPictureUrl}" th:src="${plate.firstPictureUrl}"/>
-                <input type="submit" name="hint" th:value="Hint+${plate.id}"/>
-            </p>
-            <p th:case="1">
-                <img src="${plate.firstPictureUrl}" th:src="${plate.firstPictureUrl}"/>
-                <img src="${plate.secondPictureUrl}" th:src="${plate.secondPictureUrl}"/>
-                <input type="submit" name="hint" th:value="Hint+${plate.id}"/>
-            </p>
 
-            <p th:case="2">
-                <img src="${plate.firstPictureUrl}" th:src="${plate.firstPictureUrl}"/>
-                <img src="${plate.secondPictureUrl}" th:src="${plate.secondPictureUrl}"/>
-                <img src="${plate.thirdPictureUrl}" th:src="${plate.thirdPictureUrl}"/>
-                <input type="submit" name="hint" th:value="Hint+${plate.id}"/>
-            </p>
+<div th:replace="fragments/header"></div>
 
-            <p th:case="3">
-                <img src="${plate.firstPictureUrl}" th:src="${plate.firstPictureUrl}"/>
-                <img src="${plate.secondPictureUrl}" th:src="${plate.secondPictureUrl}"/>
-                <img src="${plate.thirdPictureUrl}" th:src="${plate.thirdPictureUrl}"/>
-                <img src="${plate.forthPictureUrl}" th:src="${plate.forthPictureUrl}"/>
-            </p>
+<div class="wrapper">
+    <div class="container">
+        <div class="row content">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h1>Ассоциации! </h1>
+
+                </div>
+                <p>В этом задании вам необходимо найти граматические или синтаксические ошибки в
+                    предложениях и указать их</p>
+                <br/>
+
+                <div id="error-message" class="alert alert-warning hide" role="alert">
+                    <button id="close-button" type="button" class="close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4><strong>Упс!</strong> Где-то Вы допустили ошибку.</h4>
+                </div>
+
+                <br/>
+                <hr/>
+            </div>
         </div>
-        <div th:if="${plate.result.answerRight == true}">
-            <img src="" th:src="@{resourses/static/tick_sign.png}"/>
+
+        <div class="row" th:each="plate : ${pictureList}">
+            <form th:if="${!plate.answerRight}" class="form-inline" th:action="${'/association/check/' + plate.id}"
+                  method="post">
+                <div class="images-container" th:switch="${plate.hintCounter}">
+                    <div th:case="0">
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img1}"/>
+                        </a>
+                        <img th:src="@{/images/question_mark.jpg}"/>
+                        <img th:src="@{/images/question_mark.jpg}"/>
+                        <img th:src="@{/images/question_mark.jpg}"/>
+                    </div>
+
+                    <div th:case="1">
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img1}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img2}"/>
+                        </a>
+                        <img th:src="@{/images/question_mark.jpg}"/>
+                        <img th:src="@{/images/question_mark.jpg}"/>
+                    </div>
+
+                    <div th:case="2">
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img1}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img2}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img3}"/>
+                        </a>
+                        <img th:src="@{/images/question_mark.jpg}"/>
+                    </div>
+
+                    <div th:case="3">
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img1}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img2}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img3}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img4}"/>
+                        </a>
+
+                        <div th:if="${plate.answerRight}">
+                            <img th:src="@{images/tick_sign.svg}"/>
+                        </div>
+                    </div>
+
+                </div>
+                <br/>
+
+                <div th:if="${plate.hintCounter &lt; 3 and !plate.answerRight}" class="form-group">
+                    <input th:onclick="'window.location = \'/association/hint/'+ ${plate.id} + '\''"
+                           class="btn btn-primary"
+                           type="button" name="hint" value="Взять подсказку!"/>
+                </div>
+
+                <div th:if="${!plate.answerRight}" class="form-group">
+                    <input class="form-control" type="text" name="userAnswer"
+                           th:placeholder="${plate.hiddenWord.length()} + ' letters'"/>
+
+                    <input type="submit" class="btn btn-success" value="Проверить"/>
+                </div>
+            </form>
+
+            <div class="answered" th:if="${plate.answerRight}">
+                <img src="/images/tick_sign.svg"/>
+            </div>
+
+            <hr/>
         </div>
-        <p>
-            <input type="text" name="userAnswer[]" th:placeholder="${plate.hiddenWord.length()} + ' letters'" />
-        </p>
+
+        <div id="lightbox" class="modal fade" tabindex="-1" role="dialog"
+             aria-labelledby="myLargeModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×
+                </button>
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img src="" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <input type="submit" name="submit" value="Confirm"/>
-</form>
+
+
+    <div class="push-down"></div>
+
+    <div th:replace="fragments/footer"></div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+<!-- Lightbox library JavaScript
+================================================== -->
+<script type="text/javascript" th:src="@{/js/lightbox.js}"></script>
+
+<!-- CheckAnswers js script
+================================================== -->
+<script type="text/javascript" th:src="@{/js/checkAnswers.js}"></script>
+
 </body>
 </html>

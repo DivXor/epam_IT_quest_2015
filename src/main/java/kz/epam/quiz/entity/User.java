@@ -5,8 +5,6 @@ import kz.epam.quiz.entity.enums.UserRoleEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Set;
 
 @Entity
 @Table(name = "USERS")
@@ -20,17 +18,6 @@ public class User extends AbstractEntity implements Serializable {
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "TASK_ID")
     private TaskTypeEnum currentTask;
-
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//    private Set<MazeHistory> mazeHistories;
-//
-//    public Set<MazeHistory> getMazeHistories() {
-//        return mazeHistories;
-//    }
-//
-//    public void setMazeHistories(Set<MazeHistory> mazeHistories) {
-//        this.mazeHistories = mazeHistories;
-//    }
 
     public User() {
     }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Game</title>
+    <link rel="stylesheet" th:href="@{/resources/css/style.css}"/>
+</head>
+
+<body>
+
+<div th:each="plate : ${pictureList}">
+    <form th:action="${'/association/check/' + plate.id}" method="post">
+        <!--<input type="hidden" name="plateId[]" th:value="${plate.id}"/>-->
+
+        <div th:switch="${plate.hintCounter}">
+            <p th:case="0">
+                <img th:src="${plate.img1}"/>
+                <input type="submit" name="hint" th:value="Hint+${plate.id}"/>
+            </p>
+
+            <p th:case="1">
+                <img th:src="${plate.img1}"/>
+                <img th:src="${plate.img2}"/>
+                <input type="submit" name="hint" th:value="Hint+${plate.id}"/>
+            </p>
+
+            <p th:case="2">
+                <img th:src="${plate.img1}"/>
+                <img th:src="${plate.img2}"/>
+                <img th:src="${plate.img3}"/>
+                <input type="submit" name="hint" th:value="Hint+${plate.id}"/>
+            </p>
+
+            <p th:case="3">
+                <img th:src="${plate.img1}"/>
+                <img th:src="${plate.img2}"/>
+                <img th:src="${plate.img3}"/>
+                <img th:src="${plate.img4}"/>
+            </p>
+        </div>
+        <div th:if="${plate.answerRight}">
+            <img th:src="@{images/tick_sign.svg}"/>
+        </div>
+        <p>
+            <input type="text" name="userAnswer[]" th:placeholder="${plate.hiddenWord.length()} + ' letters'"/>
+        </p>
+        <input type="submit" class="btn btn-default" name="submit" value="Confirm"/>
+    </form>
+</div>
+
+</body>
+</html>

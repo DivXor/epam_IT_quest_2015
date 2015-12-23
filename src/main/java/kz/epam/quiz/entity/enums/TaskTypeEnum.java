@@ -2,12 +2,26 @@ package kz.epam.quiz.entity.enums;
 
 public enum TaskTypeEnum {
 
-    MAZE,
-    ASSOCIATIONS,
-    WORD_SEARCH,
-    GRAMMAR,
-    FIND_SUPERFLUOUS;
+    MAZE("Maze"),
+    ASSOCIATIONS("Associations"),
+    WORD_SEARCH("Word search"),
+    GRAMMAR("Grammar quiz"),
+    FIND_SUPERFLUOUS("Find excess image"),
+    FINISH("Finish");
 
-    TaskTypeEnum() {
+    private final String name;
+
+    TaskTypeEnum(String s) {
+        name = s;
+    }
+
+    public boolean equalsName(String otherName) {
+        return otherName != null && name.equals(otherName);
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }
+

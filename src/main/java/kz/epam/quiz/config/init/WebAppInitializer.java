@@ -4,16 +4,7 @@ import kz.epam.quiz.config.AppConfig;
 import kz.epam.quiz.config.WebAppConfig;
 import kz.epam.quiz.config.WebSecurityConfig;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.filter.DelegatingFilterProxy;
-import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
-import javax.servlet.FilterRegistration;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
 
 //public class WebAppInitializer implements WebApplicationInitializer {
 //
