@@ -122,32 +122,29 @@ public class AssociationsController {
 
         if (checkAnswer) {
             boolean questDone = true;
-            Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.ASSOCIATIONS);
 
+            //getting quest for current quiz and user
+            Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.ASSOCIATIONS);
             if (currentQuest == null) {
                 currentQuest = new Quest(false, new BigDecimal(0), user, TaskTypeEnum.ASSOCIATIONS);
             }
 
             BigDecimal score = currentQuest.getScore();
+            score = score.add(scoreCounter(associations.getBaseScore(), history.getHintCounter()));
             currentQuest.setScore(score);
-
 
             List<Associations> associationsList = associationsDAO.findAll();
 
             for (Associations association : associationsList) {
                 AssociationsHistory associationHistory = associationsHistoryDAO.findByUserAndAssociations(user, association);
 
-                if (associationHistory == null){
+                if (associationHistory == null)
                     questDone = false;
-                } else if (!associationHistory.isAnswerRight()){
+                else if (!associationHistory.isAnswerRight())
                     questDone = false;
-                }
-
             }
 
-            if (questDone){
-                currentQuest.setDone(true);
-            }
+            currentQuest.setDone(questDone);
 
             if (currentQuest.isDone()) {
                 TaskHelper.setNextTask(user);
@@ -155,9 +152,20 @@ public class AssociationsController {
 
             userDao.save(user);
             questDAO.save(currentQuest);
-
         }
         return "redirect:/task";
+    }
+
+    @RequestMapping(value = "/finish", method = RequestMethod.POST)
+    public String finish(Model model, Principal principal) {
+
+        return "redirect:/task";
+    }
+
+    public BigDecimal scoreCounter(BigDecimal baseScore, int hintCounter) {
+        assert baseScore.doubleValue() >= 1;
+        double score = baseScore.doubleValue() - 0.25 * hintCounter;
+        return new BigDecimal(score);
     }
 
 }

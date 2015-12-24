@@ -3,6 +3,7 @@ package kz.epam.quiz.controller;
 import kz.epam.quiz.dao.UserDao;
 import kz.epam.quiz.entity.User;
 import kz.epam.quiz.entity.enums.TaskTypeEnum;
+import kz.epam.quiz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +18,16 @@ public class MainController {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String viewMain(Model model) {
+    public String viewMain() {
         return "index";
     }
 
     @RequestMapping(value = "/task", method = RequestMethod.GET)
-    public String viewCurrentTask(Model model, Principal principal) {
+    public String viewCurrentTask(Principal principal) {
         String currentUser = principal.getName();
         User user = userDao.findUserByName(currentUser);
         TaskTypeEnum currentTask = user.getCurrentTask();
@@ -40,7 +44,7 @@ public class MainController {
             case FIND_SUPERFLUOUS:
                 return "forward:/excess_image";
             case FINISH:
-                return "finish";
+                return "forward:/finish";
         }
         return "index";
     }
@@ -52,9 +56,11 @@ public class MainController {
         return "index";
     }
 
-//    @RequestMapping(value = "/finish", method = RequestMethod.GET)
-//    public String finishPage(Model model) {
-//        return "finish";
-//    }
+    @RequestMapping(value = "/task/next", method = RequestMethod.GET)
+    public String finishPage(Principal principal) {
+        User user = userDao.findUserByName(principal.getName());
+        userService.setNextTask(user);
+        return "redirect:/task";
+    }
 
 }

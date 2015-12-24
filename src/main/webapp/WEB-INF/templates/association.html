@@ -5,12 +5,9 @@
     <title th:text="${title}">Quiz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-
-    <!-- User style -->
+    <link rel="stylesheet" href="/css/bootstrap-dialog.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-
 </head>
 
 <body>
@@ -48,9 +45,9 @@
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
                             <img th:src="${plate.img1}"/>
                         </a>
-                        <img th:src="@{/images/question_mark.jpg}"/>
-                        <img th:src="@{/images/question_mark.jpg}"/>
-                        <img th:src="@{/images/question_mark.jpg}"/>
+                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
+                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
+                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
                     </div>
 
                     <div th:case="1">
@@ -60,8 +57,8 @@
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
                             <img th:src="${plate.img2}"/>
                         </a>
-                        <img th:src="@{/images/question_mark.jpg}"/>
-                        <img th:src="@{/images/question_mark.jpg}"/>
+                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
+                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
                     </div>
 
                     <div th:case="2">
@@ -74,7 +71,7 @@
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
                             <img th:src="${plate.img3}"/>
                         </a>
-                        <img th:src="@{/images/question_mark.jpg}"/>
+                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
                     </div>
 
                     <div th:case="3">
@@ -99,11 +96,11 @@
                 </div>
                 <br/>
 
-                <div th:if="${plate.hintCounter &lt; 3 and !plate.answerRight}" class="form-group">
-                    <input th:onclick="'window.location = \'/association/hint/'+ ${plate.id} + '\''"
-                           class="btn btn-primary"
-                           type="button" name="hint" value="Взять подсказку!"/>
-                </div>
+                <!--<div th:if="${plate.hintCounter &lt; 3 and !plate.answerRight}" class="form-group">-->
+                    <!--<input th:onclick="'window.location = \'/association/hint/'+ ${plate.id} + '\''"-->
+                           <!--class="btn btn-primary"-->
+                           <!--type="button" name="hint" value="Взять подсказку!"/>-->
+                <!--</div>-->
 
                 <div th:if="${!plate.answerRight}" class="form-group">
                     <input class="form-control" type="text" name="userAnswer"
@@ -120,12 +117,19 @@
             <hr/>
         </div>
 
+        <div class="row">
+            <div class="col-md-2 pull-right">
+                <form th:action="@{/association/finish}" role="form" method="post" class="form-inline">
+                    <button type="submit" class="btn btn-warning">Завершить задание</button>
+                </form>
+            </div>
+        </div>
+
         <div id="lightbox" class="modal fade" tabindex="-1" role="dialog"
              aria-labelledby="myLargeModalLabel"
              aria-hidden="true">
             <div class="modal-dialog">
-                <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×
-                </button>
+                <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×</button>
                 <div class="modal-content">
                     <div class="modal-body">
                         <img src="" alt=""/>
@@ -135,8 +139,6 @@
         </div>
 
     </div>
-
-
     <div class="push-down"></div>
 
     <div th:replace="fragments/footer"></div>
@@ -154,6 +156,8 @@
 <!-- CheckAnswers js script
 ================================================== -->
 <script type="text/javascript" th:src="@{/js/checkAnswers.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/user.js}"></script>
 
 </body>
 </html>

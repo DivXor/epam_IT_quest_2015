@@ -60,7 +60,6 @@ public class GrammarQuizController {
         String currentUser = principal.getName();
         User user = userDao.findUserByName(currentUser);
 
-        //get quest
         Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.GRAMMAR);
 
         if (currentQuest == null || !currentQuest.isDone()) {

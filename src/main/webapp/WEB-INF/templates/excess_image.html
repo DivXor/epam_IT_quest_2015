@@ -5,12 +5,9 @@
     <title th:text="${title}">Quiz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-
-    <!-- User style -->
+    <link rel="stylesheet" href="/css/bootstrap-dialog.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-
 </head>
 
 <body>
@@ -82,6 +79,8 @@
 <!-- CheckAnswers js script
 ================================================== -->
 <script type="text/javascript" th:src="@{/js/checkAnswers.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/user.js}"></script>
 
 </body>
 </html>

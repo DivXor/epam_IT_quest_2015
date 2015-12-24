@@ -6,13 +6,8 @@
     <title th:text="${title}">Quiz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
-
-    <!--&lt;!&ndash; Custom styles for this template &ndash;&gt;-->
-    <!--<link rel="stylesheet" type="text/css" href="/css/cover.css"/>-->
-
-    <!-- Main styles -->
+    <link rel="stylesheet" href="/css/bootstrap-dialog.min.css"/>
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
 
@@ -35,9 +30,9 @@
             <div class="comment-input" sec:authorize="isAuthenticated()">
                 <div class="col-lg-12">
                     <!--TODO change action name-->
-                    <form role="form" th:action="@{/login}" method="post">
+                    <form role="form" th:action="@{/finish/send}" method="post">
                         <div class="form-group">
-                        <textarea maxlength="200" class="form-control" rows="5" id="comment"
+                        <textarea name="comment" maxlength="200" class="form-control" rows="5" id="comment"
                                   placeholder="Комментарий"></textarea>
                         </div>
                         <button type="submit" class="btn btn-success">Отправить</button>
@@ -47,31 +42,16 @@
                 <div class="col-md-12">
                     <div class="panel-body">
                         <ul class="chat">
-                            <li class="left clearfix">
+                            <li th:each="comment : ${comments}" class="left clearfix">
                                 <div class="chat-body clearfix">
                                     <div class="header">
-                                        <strong class="primary-font">Team 1</strong>
+                                        <strong class="primary-font" th:text="${comment.user.name}"></strong>
                                         <br/>
                                         <small class="pull-right text-muted">
-                                            <span class="glyphicon glyphicon-time"></span>11:10
+                                            <span class="glyphicon glyphicon-time"></span><span th:text="${#dates.format(comment.time, 'dd MMMM YY HH:mm')}"></span>
                                         </small>
                                     </div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="left clearfix">
-                                <div class="chat-body clearfix">
-                                    <div class="header">
-                                        <strong class="primary-font">Team 2</strong>
-                                        <small class="pull-right text-muted">
-                                            <span class="glyphicon glyphicon-time"></span>12:00
-                                        </small>
-                                    </div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </p>
+                                    <p th:text="${comment.message}"></p>
                                 </div>
                             </li>
                         </ul>
@@ -91,6 +71,8 @@
 ================================================== -->
 <script type="text/javascript" th:src="@{/js/jquery-1.11.3.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/user.js}"></script>
 
 </body>
 </html>

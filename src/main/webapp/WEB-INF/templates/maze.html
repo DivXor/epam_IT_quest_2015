@@ -5,15 +5,9 @@
     <title th:text="${title}">Quiz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-
-    <!--&lt;!&ndash; Custom styles for this template &ndash;&gt;-->
-    <!--<link rel="stylesheet" type="text/css" href="/css/cover.css"/>-->
-
-    <!-- User style -->
+    <link rel="stylesheet" href="/css/bootstrap-dialog.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-
 </head>
 
 <body>
@@ -64,7 +58,6 @@
             <div class="col-lg-12 col-centered">
                 <form th:action="@{/maze/check}" role="form" method="post" class="form-inline">
                     <div class="form-group">
-                        <!--<label for="result-word">Ответ</label>-->
                         <input type="text" name="answer" class="form-control" id="result-word" placeholder="Введите ответ"/>
                     </div>
                     <button type="submit" class="btn btn-success">Проверить</button>
@@ -90,6 +83,8 @@
 <!-- Maze canvas rendering JavaScript
 ================================================== -->
 <script type="text/javascript" th:src="@{/js/maze_renderer.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/user.js}"></script>
 
 </body>
 </html>

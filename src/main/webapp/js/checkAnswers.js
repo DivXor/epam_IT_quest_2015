@@ -3,13 +3,11 @@ var errorResponce = "error";
 var successResponce = "success";
 
 jQuery(document).ready(function ($) {
-    //$("#submit-button").click(function () {
-    //    sendAnswers();
-    //});
 
     $("#close-button").click(function (){
         $("#error-message").addClass("hide");
-    })
+    });
+
 });
 
 function sendAnswers(url, formId) {

@@ -7,19 +7,13 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-
-
-    <!-- User style -->
+    <link rel="stylesheet" href="/css/bootstrap-dialog.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-
-    <!-- Word search game style -->
     <link rel="stylesheet" type="text/css" href="/css/wordsearch.css"/>
-
 </head>
 
 <body>
 <div th:replace="fragments/header"></div>
-
 
 <div class="wrapper">
     <div class="container">
@@ -37,15 +31,15 @@
                     </p>
 
                     <div th:if="${answerError}" class="alert alert-warning alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                         <h4><strong>Упс!</strong> Где-то Вы допустили ошибку.</h4>
                     </div>
 
-                    <!--<button id="button">Test</button>-->
                     <div class="row">
                         <div class="col-sm-4">
-                            <a id="charsMaze" href="#" class="wordsearch-button btn btn-primary" data-toggle="modal" data-target="#lightbox">Показать
-                                таблицу</a>
+                            <a id="charsMaze" href="#" class="wordsearch-button btn btn-primary" data-toggle="modal"
+                               data-target="#lightbox">Показать таблицу</a>
                         </div>
                     </div>
 
@@ -82,13 +76,17 @@
 
             <hr/>
             <div class="row">
-                <div class="col-lg-12 col-centered">
+                <div class="col-md-10">
                     <form role="form" method="post" class="form-inline" th:action="@{/wordsearch/check}">
                         <div class="form-group">
-                            <input type="text" name="answer" class="form-control" id="result-word" placeholder="Введите ответ"/>
+                            <input type="text" name="answer" class="form-control" id="result-word"
+                                   placeholder="Введите ответ"/>
                         </div>
                         <button type="submit" class="btn btn-success">Проверить</button>
                     </form>
+                </div>
+                <div class="col-md-2">
+                    <div th:replace="fragments/next-task"></div>
                 </div>
             </div>
 
@@ -100,7 +98,6 @@
     <div th:replace="fragments/footer"></div>
 </div>
 
-
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <script type="text/javascript" th:src="@{/js/jquery-1.11.3.min.js}"></script>
@@ -110,7 +107,12 @@
 ================================================== -->
 <script type="text/javascript" th:src="@{/js/lightbox.js}"></script>
 
+<!-- Modal library JavaScript
+================================================== -->
+<script type="text/javascript" th:src="@{/js/bootstrap-dialog.min.js}"></script>
+
 <script type="text/javascript" th:src="@{/js/wordSearch.js}"></script>
+<script type="text/javascript" th:src="@{/js/user.js}"></script>
 
 </body>
 </html>
