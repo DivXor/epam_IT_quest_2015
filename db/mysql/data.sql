@@ -1,15 +1,15 @@
-INSERT INTO TASK (ID, TYPE) VALUES (0, 'MAZE');
-INSERT INTO TASK (ID, TYPE) VALUES (1, 'ASSOCIATIONS');
-INSERT INTO TASK (ID, TYPE) VALUES (2, 'WORD_SEARCH');
-INSERT INTO TASK (ID, TYPE) VALUES (3, 'GRAMMAR_QUIZ');
-INSERT INTO TASK (ID, TYPE) VALUES (4, 'FIND_SUPERFLUOUS');
-INSERT INTO TASK (ID, TYPE) VALUES (5, 'FINISH');
+INSERT INTO it_quest.TASK (ID, TYPE) VALUES (0, 'MAZE');
+INSERT INTO it_quest.TASK (ID, TYPE) VALUES (1, 'ASSOCIATIONS');
+INSERT INTO it_quest.TASK (ID, TYPE) VALUES (2, 'WORD_SEARCH');
+INSERT INTO it_quest.TASK (ID, TYPE) VALUES (3, 'GRAMMAR_QUIZ');
+INSERT INTO it_quest.TASK (ID, TYPE) VALUES (4, 'FIND_SUPERFLUOUS');
+INSERT INTO it_quest.TASK (ID, TYPE) VALUES (5, 'FINISH');
 
-INSERT INTO USERS (NAME, PASSWORD, ROLE, TASK_ID) VALUES ('Team1', 'password', 'USER', 0);
-INSERT INTO USERS (NAME, PASSWORD, ROLE, TASK_ID) VALUES ('Team2', 'password', 'USER', 0);
-INSERT INTO USERS (NAME, PASSWORD, ROLE, TASK_ID) VALUES ('admin', 'itquiz2015', 'ADMIN', 0);
+INSERT INTO it_quest.USERS (NAME, PASSWORD, ROLE, TASK_ID) VALUES ('Team1', 'password', 'USER', 0);
+INSERT INTO it_quest.USERS (NAME, PASSWORD, ROLE, TASK_ID) VALUES ('Team2', 'password', 'USER', 0);
+INSERT INTO it_quest.USERS (NAME, PASSWORD, ROLE, TASK_ID) VALUES ('admin', 'itquiz2015', 'ADMIN', 0);
 
-INSERT INTO GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
+INSERT INTO it_quest.GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
 VALUES (
   'A',
   'In 2002, 20 million people in the United States <span class="possible-answer">were reported</span>
@@ -20,7 +20,7 @@ VALUES (
   1
 );
 
-INSERT INTO GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
+INSERT INTO it_quest.GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
 VALUES (
   'A',
   'Charters <span class="possible-answer">are</span> <span class="answer-letter">(A)</span> self-governed schools
@@ -30,7 +30,7 @@ VALUES (
   1
 );
 
-INSERT INTO GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
+INSERT INTO it_quest.GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
 VALUES (
   'A',
   'Scientists have <span class="possible-answer">uncovered</span> <span class="answer-letter">(A)</span> evidence
@@ -40,7 +40,7 @@ VALUES (
   1
 );
 
-INSERT INTO GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
+INSERT INTO it_quest.GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
 VALUES (
   'A',
   'When major food companies <span class="possible-answer">began widely</span> <span class="answer-letter">(A)</span>
@@ -50,7 +50,7 @@ VALUES (
   1
 );
 
-INSERT INTO GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
+INSERT INTO it_quest.GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
 VALUES (
   'A',
   'Education <span class="possible-answer">should</span> <span class="answer-letter">(A)</span> emphasize
@@ -60,7 +60,7 @@ VALUES (
   1
 );
 
-INSERT INTO GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
+INSERT INTO it_quest.GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
 VALUES (
   'A',
   'Italian citizens <span class="possible-answer">lead their counterparts</span> <span class="answer-letter">(A)</span>
@@ -72,7 +72,7 @@ VALUES (
   1
 );
 
-INSERT INTO GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
+INSERT INTO it_quest.GRAMMAR_QUIZ (ANSWER, SENTENCE, BASE_SCORE)
 VALUES (
   'A',
   'Everybody <span class="possible-answer">holds hands</span> <span class="answer-letter">(A)</span>. This is the
@@ -83,88 +83,92 @@ VALUES (
   1
 );
 
-INSERT INTO MAZE (ID, WX, WY, WORD, BASE_SCORE)
+INSERT INTO it_quest.MAZE (ID, WX, WY, WORD, BASE_SCORE)
 VALUES (0, 60, 60, 'Test word', 1);
 
-INSERT INTO word_search (ANSWER, BASE_SCORE) VALUES ('cloth', 1.0);
+INSERT INTO it_quest.WORD_SEARCH (ANSWER, BASE_SCORE) VALUES ('cloth', 1.0);
 
-INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
+INSERT INTO it_quest.EXCESS_IMAGE (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
 VALUES
-  (1, '/images/excess_image_quiz/1/1.jpg', '/images/excess_image_quiz/1/2.jpg', '/images/excess_image_quiz/1/3.jpg',
-   '/images/excess_image_quiz/1/4.jpg', 1.0);
+  (1, '/images/excess_image_quiz/1/1.jpg',
+   '/images/excess_image_quiz/1/2.jpg',
+   '/images/excess_image_quiz/1/3.jpg',
+   '/images/excess_image_quiz/1/4.jpg', 1.0),
 
-INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
-VALUES
-  (3, '/images/excess_image_quiz/2/1.jpg', '/images/excess_image_quiz/2/2.jpg', '/images/excess_image_quiz/2/3.jpg',
-   '/images/excess_image_quiz/2/4.jpg', 1.0);
+  (3, '/images/excess_image_quiz/2/1.jpg',
+   '/images/excess_image_quiz/2/2.jpg',
+   '/images/excess_image_quiz/2/3.jpg',
+   '/images/excess_image_quiz/2/4.jpg', 1.0),
 
-INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
-VALUES
-  (3, '/images/excess_image_quiz/3/1.jpg', '/images/excess_image_quiz/3/2.jpg', '/images/excess_image_quiz/3/3.jpg',
-   '/images/excess_image_quiz/3/4.jpg', 1.0);
+  (3, '/images/excess_image_quiz/3/1.jpg',
+   '/images/excess_image_quiz/3/2.jpg',
+   '/images/excess_image_quiz/3/3.jpg',
+   '/images/excess_image_quiz/3/4.jpg', 1.0),
 
-INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
-VALUES
-  (4, '/images/excess_image_quiz/4/1.jpg', '/images/excess_image_quiz/4/2.jpg', '/images/excess_image_quiz/4/3.jpg',
-   '/images/excess_image_quiz/4/4.jpg', 1.0);
+  (4, '/images/excess_image_quiz/4/1.jpg',
+   '/images/excess_image_quiz/4/2.jpg',
+   '/images/excess_image_quiz/4/3.jpg',
+   '/images/excess_image_quiz/4/4.jpg', 1.0),
 
-INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
-VALUES
-  (1, '/images/excess_image_quiz/5/1.jpg', '/images/excess_image_quiz/5/2.jpg', '/images/excess_image_quiz/5/3.jpg',
-   '/images/excess_image_quiz/5/4.jpg', 1.0);
+  (1, '/images/excess_image_quiz/5/1.jpg',
+   '/images/excess_image_quiz/5/2.jpg',
+   '/images/excess_image_quiz/5/3.jpg',
+   '/images/excess_image_quiz/5/4.jpg', 1.0),
 
-INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
-VALUES
-  (2, '/images/excess_image_quiz/6/1.jpg', '/images/excess_image_quiz/6/2.jpg', '/images/excess_image_quiz/6/3.jpg',
-   '/images/excess_image_quiz/6/4.jpg', 1.0);
+  (2, '/images/excess_image_quiz/6/1.jpg',
+   '/images/excess_image_quiz/6/2.jpg',
+   '/images/excess_image_quiz/6/3.jpg',
+   '/images/excess_image_quiz/6/4.jpg', 1.0),
 
-INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, BASE_SCORE)
-VALUES
-  (3, '/images/excess_image_quiz/7/1.jpg', '/images/excess_image_quiz/7/2.jpg', '/images/excess_image_quiz/7/3.jpg',
-   1.0);
+  (3, '/images/excess_image_quiz/7/1.jpg',
+   '/images/excess_image_quiz/7/2.jpg',
+   '/images/excess_image_quiz/7/3.jpg',
+   NULL,
+   1.0),
 
-INSERT INTO excess_image (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, BASE_SCORE)
-VALUES
-  (3, '/images/excess_image_quiz/8/1.jpg', '/images/excess_image_quiz/8/2.jpg', '/images/excess_image_quiz/8/3.jpg',
+  (3, '/images/excess_image_quiz/8/1.jpg',
+   '/images/excess_image_quiz/8/2.jpg',
+   '/images/excess_image_quiz/8/3.jpg',
+   NULL,
    1.0);
 
 # Association
-INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
 VALUES ('/images/association/1/1.jpg',
         '/images/association/1/2.jpg',
         '/images/association/1/3.jpg',
         '/images/association/1/4.jpg',
         3, 1.0, 'Beatles');
 
-INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
 VALUES ('/images/association/2/1.jpg',
         '/images/association/2/2.jpg',
         '/images/association/2/3.jpg',
         '/images/association/2/4.jpg',
         3, 1.0, 'Bobby');
 
-INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
 VALUES ('/images/association/3/1.jpg',
         '/images/association/3/2.jpg',
         '/images/association/3/3.jpg',
         '/images/association/3/4.jpg',
         3, 1.0, 'Churchill');
 
-INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
 VALUES ('/images/association/4/1.jpg',
         '/images/association/4/2.jpg',
         '/images/association/4/3.jpg',
         '/images/association/4/4.jpg',
         3, 1.0, 'Newton');
 
-INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
 VALUES ('/images/association/5/1.jpg',
         '/images/association/5/2.jpg',
         '/images/association/5/3.jpg',
         '/images/association/5/4.jpg',
         3, 1.0, 'Queen');
 
-INSERT INTO associations (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
+INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD)
 VALUES ('/images/association/6/1.jpg',
         '/images/association/6/2.jpg',
         '/images/association/6/3.jpg',

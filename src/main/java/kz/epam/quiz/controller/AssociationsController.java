@@ -156,12 +156,6 @@ public class AssociationsController {
         return "redirect:/task";
     }
 
-    @RequestMapping(value = "/finish", method = RequestMethod.POST)
-    public String finish(Model model, Principal principal) {
-
-        return "redirect:/task";
-    }
-
     public BigDecimal scoreCounter(BigDecimal baseScore, int hintCounter) {
         assert baseScore.doubleValue() >= 1;
         double score = baseScore.doubleValue() - 0.25 * hintCounter;

@@ -36,7 +36,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/maze")
 public class MazeController {
-    public static final int CELL_SIZE = 12;
+    public static final int CELL_SIZE = 17;
     public static final int CHARS_DISTANCE = 20;
     public static final int CURRENT_MAZE_DB_ID = 1;
 
