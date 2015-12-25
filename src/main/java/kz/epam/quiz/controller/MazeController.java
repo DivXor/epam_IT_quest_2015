@@ -1,7 +1,5 @@
 package kz.epam.quiz.controller;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import kz.epam.quiz.dao.MazeDao;
 import kz.epam.quiz.dao.MazeHistoryDAO;
 import kz.epam.quiz.dao.QuestDAO;
@@ -12,14 +10,9 @@ import kz.epam.quiz.entity.Quest;
 import kz.epam.quiz.entity.User;
 import kz.epam.quiz.entity.enums.TaskTypeEnum;
 import kz.epam.quiz.util.TaskHelper;
-import kz.epam.quiz.util.maze.MazeGenerator;
 import kz.epam.quiz.util.maze.MazeJsonViewer;
-import kz.epam.quiz.util.maze.PlaceholderGenerator;
-import kz.epam.quiz.util.maze.entity.Coordinates;
-import kz.epam.quiz.util.maze.entity.MazeField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,12 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.transaction.Transactional;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.security.Principal;
-import java.util.Map;
-
+//TODO change return in method checkAnswer
 @Controller
 @RequestMapping(value = "/maze")
 public class MazeController {

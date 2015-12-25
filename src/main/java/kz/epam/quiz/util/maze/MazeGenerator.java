@@ -6,7 +6,7 @@ import kz.epam.quiz.util.maze.entity.MazeField;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
-
+//TODO i need a the biggest rename
 public class MazeGenerator {
     private int wx;
     private int wy;

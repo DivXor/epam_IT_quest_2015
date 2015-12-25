@@ -3,7 +3,7 @@ package kz.epam.quiz.util.maze;
 import kz.epam.quiz.util.maze.entity.Coordinates;
 
 import java.util.LinkedList;
-
+//TODO change fields names
 public class MazeSolver {
     private int wx;
     private int wy;

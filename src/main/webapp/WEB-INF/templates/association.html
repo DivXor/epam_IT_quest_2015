@@ -33,48 +33,22 @@
                 </div>
 
                 <br/>
-                <hr/>
             </div>
         </div>
-
-        <div class="row" th:each="plate : ${pictureList}">
-            <form th:if="${!plate.answerRight}" class="form-inline" th:action="${'/association/check/' + plate.id}"
-                  method="post">
-                <div class="images-container" th:switch="${plate.hintCounter}">
-                    <div th:case="0">
-                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.img1}"/>
-                        </a>
-                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
-                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
-                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
-                    </div>
-
-                    <div th:case="1">
-                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.img1}"/>
-                        </a>
-                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.img2}"/>
-                        </a>
-                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
-                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
-                    </div>
-
-                    <div th:case="2">
-                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.img1}"/>
-                        </a>
-                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.img2}"/>
-                        </a>
-                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.img3}"/>
-                        </a>
-                        <a th:href="'/association/hint/'+ ${plate.id} +''"><img th:src="@{/images/question_mark.jpg}"/></a>
-                    </div>
-
-                    <div th:case="3">
+        <div th:each="plate : ${pictureList}"
+             th:class="'panel ' + ${plate.answerRight ? 'panel-success' : 'panel-default'}">
+            <div class="panel-heading">
+                Category: <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+            </div>
+            <div class="panel-body">
+                <div th:if="${plate.answerRight}" class="images-container">
+                    <!--<ul class="thumbnails">-->
+                    <!--<li><a href="#" class="thumbnail" title="Image 1"><img th:src="${plate.img1}"/></a></li>-->
+                    <!--<li><a href="#" class="thumbnail" title="Image 2"><img th:src="${plate.img2}"/></a></li>-->
+                    <!--<li><a href="#" class="thumbnail" title="Image 3"><img th:src="${plate.img3}"/></a></li>-->
+                    <!--<li><a href="#" class="thumbnail" title="Image 4"><img th:src="${plate.img4}"/></a></li>-->
+                    <!--</ul>-->
+                    <div class="thumbnail-container">
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
                             <img th:src="${plate.img1}"/>
                         </a>
@@ -87,41 +61,82 @@
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
                             <img th:src="${plate.img4}"/>
                         </a>
+                    </div>
+                </div>
+                <div th:if="${!plate.answerRight}" class="images-container" th:switch="${plate.hintCounter}">
+                    <div class="thumbnail-container" th:case="0">
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img1}"/>
+                        </a>
+                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                                th:src="@{/images/question_mark.jpg}"/></a>
+                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                                th:src="@{/images/question_mark.jpg}"/></a>
+                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                                th:src="@{/images/question_mark.jpg}"/></a>
+                    </div>
 
-                        <div th:if="${plate.answerRight}">
-                            <img th:src="@{images/tick_sign.svg}"/>
-                        </div>
+                    <div class="thumbnail-container" th:case="1">
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img1}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img2}"/>
+                        </a>
+                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                                th:src="@{/images/question_mark.jpg}"/></a>
+                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                                th:src="@{/images/question_mark.jpg}"/></a>
+                    </div>
+
+                    <div class="thumbnail-container" th:case="2">
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img1}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img2}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img3}"/>
+                        </a>
+                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                                th:src="@{/images/question_mark.jpg}"/></a>
+                    </div>
+
+                    <div class="thumbnail-container" th:case="3">
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img1}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img2}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img3}"/>
+                        </a>
+                        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                            <img th:src="${plate.img4}"/>
+                        </a>
                     </div>
 
                 </div>
-                <br/>
-
-                <!--<div th:if="${plate.hintCounter &lt; 3 and !plate.answerRight}" class="form-group">-->
-                    <!--<input th:onclick="'window.location = \'/association/hint/'+ ${plate.id} + '\''"-->
-                           <!--class="btn btn-primary"-->
-                           <!--type="button" name="hint" value="Взять подсказку!"/>-->
-                <!--</div>-->
-
-                <div th:if="${!plate.answerRight}" class="form-group">
-                    <input class="form-control" type="text" name="userAnswer"
-                           th:placeholder="${plate.hiddenWord.length()} + ' letters'"/>
-
-                    <input type="submit" class="btn btn-success" value="Проверить"/>
-                </div>
-            </form>
-
-            <div class="answered" th:if="${plate.answerRight}">
-                <img src="/images/tick_sign.svg"/>
             </div>
+            <div th:if="${!plate.answerRight}" class="panel-footer">
+                <form class="form-inline"
+                      th:action="${'/association/check/' + plate.id}" method="post">
 
-            <hr/>
+                    <div class="form-group">
+                        <input id="answerInput" class="form-control" type="text" name="userAnswer"
+                               th:placeholder="${plate.hiddenWord.length()} + ' letters'"/>
+
+                        <input type="submit" class="btn btn-success" value="Проверить"/>
+                    </div>
+                </form>
+            </div>
         </div>
-
+        <hr/>
         <div class="row">
             <div class="col-md-2 pull-right">
-                <form th:action="@{/association/finish}" role="form" method="post" class="form-inline">
-                    <button type="submit" class="btn btn-warning">Завершить задание</button>
-                </form>
+                <div th:replace="fragments/next-task"></div>
             </div>
         </div>
 
@@ -146,18 +161,18 @@
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
-<script type="text/javascript" th:src="@{/js/jquery-2.1.4.js}"></script>
-<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="/js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 
 <!-- Lightbox library JavaScript
 ================================================== -->
-<script type="text/javascript" th:src="@{/js/lightbox.js}"></script>
+<script type="text/javascript" src="/js/lightbox.js"></script>
 
-<!-- CheckAnswers js script
+<!-- Modal library JavaScript
 ================================================== -->
-<script type="text/javascript" th:src="@{/js/checkAnswers.js}"></script>
+<script type="text/javascript" src="/js/bootstrap-dialog.min.js"></script>
 
-<script type="text/javascript" th:src="@{/js/user.js}"></script>
+<script type="text/javascript" src="/js/user.js"></script>
 
 </body>
 </html>

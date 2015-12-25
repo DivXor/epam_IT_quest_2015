@@ -1,7 +1,13 @@
 package kz.epam.quiz.controller;
 
-import kz.epam.quiz.dao.*;
-import kz.epam.quiz.entity.*;
+import kz.epam.quiz.dao.QuestDAO;
+import kz.epam.quiz.dao.UserDao;
+import kz.epam.quiz.dao.WordSearchDAO;
+import kz.epam.quiz.dao.WordSearchHistoryDAO;
+import kz.epam.quiz.entity.Quest;
+import kz.epam.quiz.entity.User;
+import kz.epam.quiz.entity.WordSearch;
+import kz.epam.quiz.entity.WordSearchHistory;
 import kz.epam.quiz.entity.enums.TaskTypeEnum;
 import kz.epam.quiz.util.TaskHelper;
 import kz.epam.quiz.util.wordsearch.word.ClothWord;
@@ -18,8 +24,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.security.Principal;
 import java.util.Collections;
 import java.util.List;
-
-@Controller
+//TODO copy-past Khamid is a baD BOY   create a common  interface for ClothWord...., and common method
+ @Controller
 @RequestMapping(value = "/wordsearch")
 public class WordController {
     private final String GRID = "grid";
@@ -75,7 +81,6 @@ public class WordController {
         String currentUser = principal.getName();
         User user = userDao.findUserByName(currentUser);
 
-        //get quest
         Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.WORD_SEARCH);
 
         if (currentQuest == null || !currentQuest.isDone()){
@@ -92,14 +97,11 @@ public class WordController {
 
                 TaskHelper.setNextTask(user);
                 userDao.save(user);
-
-                return "redirect:/task";
             } else {
                 redirectAttributes.addFlashAttribute("answerError", true);
-                return "redirect:/task";
             }
-        } else return "redirect:/task";
-
+        }
+        return "redirect:/task";
     }
 
 }

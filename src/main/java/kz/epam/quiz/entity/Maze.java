@@ -1,14 +1,17 @@
 package kz.epam.quiz.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "MAZE")
 public class Maze extends AbstractEntity implements Serializable{
+  //TODO weightField
+  //TODO heightField
+
     private int wx;
     private int wy;
     private String word;

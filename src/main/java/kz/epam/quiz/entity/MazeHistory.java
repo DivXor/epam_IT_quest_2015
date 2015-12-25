@@ -12,7 +12,7 @@ public class MazeHistory extends AbstractEntity implements Serializable {
             insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(TemporalType.TIMESTAMP)
     private Date time;
-
+//todo ID is constant
     @ManyToOne
     @JoinColumn(name = "MAZE_ID", referencedColumnName = "ID")
     private Maze maze;

@@ -87,7 +87,7 @@
         </div>
         <hr/>
         <div class="row">
-            <div class="col-lg-12 col-centered">
+            <div class="col-md-10">
                 <form th:action="@{/maze/check}" role="form" method="post" class="form-inline">
                     <div class="form-group">
                         <input type="text" name="answer" class="form-control" id="result-word"
@@ -95,6 +95,9 @@
                     </div>
                     <button type="submit" class="btn btn-success">Проверить</button>
                 </form>
+            </div>
+            <div class="col-md-2">
+                <div th:replace="fragments/next-task"></div>
             </div>
         </div>
     </div>
@@ -106,18 +109,22 @@
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
-<script type="text/javascript" th:src="@{/js/jquery-2.1.4.js}"></script>
-<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="/js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 
 <!-- Lightbox library JavaScript
 ================================================== -->
-<script type="text/javascript" th:src="@{/js/lightbox.js}"></script>
+<script type="text/javascript" src="/js/lightbox.js"></script>
+
+<!-- Modal library JavaScript
+================================================== -->
+<script type="text/javascript" src="/js/bootstrap-dialog.min.js"></script>
 
 <!-- Maze canvas rendering JavaScript
 ================================================== -->
-<script type="text/javascript" th:src="@{/js/maze_renderer.js}"></script>
+<script type="text/javascript" src="/js/maze_renderer.js"></script>
 
-<script type="text/javascript" th:src="@{/js/user.js}"></script>
+<script type="text/javascript" src="/js/user.js"></script>
 
 </body>
 </html>

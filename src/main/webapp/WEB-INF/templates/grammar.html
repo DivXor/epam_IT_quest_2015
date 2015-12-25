@@ -56,12 +56,19 @@
                         </div>
                     </div>
                     <hr/>
-                    <button type="button" onclick="sendAnswers('/grammar/check', 'grammar-form')" id="submit-button"
-                            class="btn btn-success">Проверить
-                    </button>
+
                 </form>
             </div>
-
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <button type="button" onclick="sendAnswers('/grammar/check', 'grammar-form')" id="submit-button"
+                        class="btn btn-success">Проверить
+                </button>
+            </div>
+            <div class="col-md-2">
+                <div th:replace="fragments/next-task"></div>
+            </div>
         </div>
     </div>
 
@@ -72,18 +79,14 @@
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
-<script type="text/javascript" th:src="@{/js/jquery-2.1.4.js}"></script>
-<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="/js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 
-<!-- Lightbox library JavaScript
+<!-- Modal library JavaScript
 ================================================== -->
-<script type="text/javascript" th:src="@{/js/lightbox.js}"></script>
+<script type="text/javascript" src="/js/bootstrap-dialog.min.js"></script>
 
-<!-- CheckAnswers js script
-================================================== -->
-<script type="text/javascript" th:src="@{/js/checkAnswers.js}"></script>
-
-<script type="text/javascript" th:src="@{/js/user.js}"></script>
+<script type="text/javascript" src="/js/user.js"></script>
 
 </body>
 </html>

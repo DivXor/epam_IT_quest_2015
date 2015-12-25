@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "associations")
+@Table(name = "ASSOCIATIONS")
 public class Associations extends AbstractEntity implements Serializable {
 
     @Column(name = "HIDDEN_WORD")

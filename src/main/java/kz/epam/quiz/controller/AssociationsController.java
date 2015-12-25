@@ -50,7 +50,8 @@ public class AssociationsController {
         User user = userDao.findUserByName(currentUser);
 
         List<Associations> associationsList = associationsDAO.findAll();
-
+//todo will think about builder
+        // a lot of magic numbers
         for (Associations association : associationsList) {
             AssociationsHistory history = associationsHistoryDAO.findByUserAndAssociations(user, association);
 
@@ -85,20 +86,18 @@ public class AssociationsController {
 
         String currentUser = principal.getName();
         User user = userDao.findUserByName(currentUser);
-
+//todo what are magic numbers?
         AssociationsHistory history = associationsHistoryDAO.findByUserAndAssociations(user, associations);
         if (history == null) {
             history = new AssociationsHistory(0, false, associations, user);
         }
-
-        int hint = history.getHintCounter() + 1;
-        history.setHintCounter(hint);
+        history.setHintCounter(history.getHintCounter() + 1);
         associationsHistoryDAO.save(history);
 
         return "redirect:/association";
     }
 
-    //TODO доделать
+
     @RequestMapping(value = "/check/{id}", method = RequestMethod.POST)
     public String answerCheck(@RequestParam("userAnswer") String answer,
                               @PathVariable String id, Model model, Principal principal) {
@@ -126,7 +125,7 @@ public class AssociationsController {
             //getting quest for current quiz and user
             Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.ASSOCIATIONS);
             if (currentQuest == null) {
-                currentQuest = new Quest(false, new BigDecimal(0), user, TaskTypeEnum.ASSOCIATIONS);
+                currentQuest = new Quest(false, BigDecimal.ZERO, user, TaskTypeEnum.ASSOCIATIONS);
             }
 
             BigDecimal score = currentQuest.getScore();
@@ -156,6 +155,7 @@ public class AssociationsController {
         return "redirect:/task";
     }
 
+    //todo what are magic numbers?
     public BigDecimal scoreCounter(BigDecimal baseScore, int hintCounter) {
         assert baseScore.doubleValue() >= 1;
         double score = baseScore.doubleValue() - 0.25 * hintCounter;

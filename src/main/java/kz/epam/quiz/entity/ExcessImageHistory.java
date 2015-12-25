@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "excess_image_history")
+@Table(name = "EXCESS_IMAGE_HISTORY")
 public class ExcessImageHistory extends AbstractEntity implements Serializable {
 
     @Column(name = "time", nullable = false, updatable = false,

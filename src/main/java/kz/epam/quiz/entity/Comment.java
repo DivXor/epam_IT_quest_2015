@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "comments")
+@Table(name = "COMMENTS")
 public class Comment extends AbstractEntity implements Serializable {
     private String message;
 

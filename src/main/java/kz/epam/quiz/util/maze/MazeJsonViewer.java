@@ -20,7 +20,7 @@ public class MazeJsonViewer {
         Map<Coordinates, String> numbersMap = placeholderGenerator.createNumbersMap(numberMaze, shuffledWord, charsDistance);
 
         JsonObject response = new JsonObject();
-
+//TODO create util method
         JsonObject charsMazeJson = new JsonObject();
         charsMazeJson.add("map", createJsonMazeMap(charsMaze));
         charsMazeJson.addProperty("cellSize", cellSize);
@@ -65,7 +65,7 @@ public class MazeJsonViewer {
         }
         return symbolsMap;
     }
-
+//TODO wtf  i don't understand parameters
     private MazeField createSolvedMaze(int wx, int wy) {
         MazeGenerator mazeGenerator = new MazeGenerator();
         return mazeGenerator.generateMaze(wx, wy, 0, 0, wx, wy);

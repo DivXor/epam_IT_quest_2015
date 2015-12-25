@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
+//todo create structure for DAO
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminController {
@@ -33,7 +33,7 @@ public class AdminController {
         List<User> users = userDao.findByRole(UserRoleEnum.USER);
 
         for (User user : users){
-            BigDecimal score = new BigDecimal(0);
+            BigDecimal score = BigDecimal.ZERO;
             List<Quest> quests = questDAO.findByUser(user);
 
             for (Quest quest : quests) {

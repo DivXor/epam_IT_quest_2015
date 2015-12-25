@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "quest")
+@Table(name = "QUEST")
 public class Quest extends AbstractEntity {
     private boolean isDone;
     private BigDecimal score;

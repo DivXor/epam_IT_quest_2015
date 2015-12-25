@@ -25,7 +25,7 @@ public class UserService {
                 user.setCurrentTask(TaskTypeEnum.FIND_SUPERFLUOUS);
                 break;
             case FIND_SUPERFLUOUS:
-                user.setCurrentTask(TaskTypeEnum.ASSOCIATIONS); //TODO изменить после того как доделаем ассоциации
+                user.setCurrentTask(TaskTypeEnum.ASSOCIATIONS);
                 break;
             case ASSOCIATIONS:
                 user.setCurrentTask(TaskTypeEnum.FINISH);

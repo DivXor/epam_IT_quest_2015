@@ -9,11 +9,21 @@
 <div th:fragment="header" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a href="../" class="navbar-brand"><img class="logo" src="/images/logo_white.png"/></a>
+            <a href="/" class="navbar-brand"><img class="logo" src="/images/logo_white.png"/></a>
         </div>
         <div sec:authorize="isAuthenticated()" class="navbar-collapse collapse" id="navbar-main">
-            <p th:if="${user}" class="navbar-text navbar-right" th:text="${user.name}"></p>
-            <p th:if="${userScore}" class="navbar-text navbar-right" th:text="${'Ваш счет: '+ userScore +''}"></p>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a th:if="${userScore}" th:text="${'Ваш счет: '+ userScore +''}"></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span th:text="${user.name}"></span><span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "associations_history")
+@Table(name = "ASSOCIATIONS_HISTORY")
 public class AssociationsHistory extends AbstractEntity implements Serializable {
 
     @Column(name = "time", nullable = false, updatable = false,

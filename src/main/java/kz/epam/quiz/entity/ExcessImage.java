@@ -31,6 +31,8 @@ public class ExcessImage extends AbstractEntity implements Serializable {
         this.img4 = img4;
         this.baseScore = baseScore;
     }
+ //TODO imgONE, imgTWO
+
 
     //region Setters and Getters
     public int getExcessImageNumber() {

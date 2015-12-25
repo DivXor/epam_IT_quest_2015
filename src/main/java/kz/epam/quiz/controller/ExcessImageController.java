@@ -85,7 +85,7 @@ public class ExcessImageController {
         }
         return "success";
     }
-
+//TODO what is it   >>
 //    @RequestMapping(value = "/check", method = RequestMethod.POST)
 //    public String checkAnswers(@ModelAttribute GrammarAnswersDTO answersDTO,
 //                               RedirectAttributes redirectAttributes, Principal principal) {
