@@ -1,5 +1,6 @@
 package kz.epam.quiz.controller;
 
+import com.google.gson.JsonObject;
 import kz.epam.quiz.controller.dto.GrammarAnswersDTO;
 import kz.epam.quiz.dao.ExcessImageDAO;
 import kz.epam.quiz.dao.ExcessImageHistoryDAO;
@@ -29,8 +30,6 @@ import java.util.Map;
 @RequestMapping(value = "/excess_image")
 public class ExcessImageController {
 
-    public static final BigDecimal EXCESS_IMAGE_BASE_SCORE = new BigDecimal(2);
-
     @Autowired
     private UserDao userDao;
 
@@ -52,9 +51,10 @@ public class ExcessImageController {
 
     @RequestMapping(value = "/check", method = RequestMethod.POST)
     @ResponseBody
-    public String checkAnswers(@ModelAttribute GrammarAnswersDTO answersDTO,
-                               RedirectAttributes redirectAttributes, Principal principal) {
+    public String checkAnswers(@ModelAttribute GrammarAnswersDTO answersDTO, Principal principal) {
         boolean hasWrongAnswer = false;
+        JsonObject jsonObject = new JsonObject();
+
         BigDecimal score = BigDecimal.ZERO;
         Map<String, String> answers = answersDTO.getAnswers();
 
@@ -86,16 +86,19 @@ public class ExcessImageController {
             }
 
             if (hasWrongAnswer) {
-                return "error";
+                jsonObject.addProperty("answerStatus", "error");
+                jsonObject.addProperty("score", score);
             } else {
                 Quest newQuest = new Quest(true, score, user, TaskTypeEnum.FIND_EXCESS);
                 questDAO.save(newQuest);
 
                 TaskHelper.setNextTask(user);
                 userDao.save(user);
+
+                jsonObject.addProperty("answerStatus", "success");
             }
         }
-        return "success";
+        return jsonObject.toString();
     }
 
     @RequestMapping(value = "next", method = RequestMethod.GET)

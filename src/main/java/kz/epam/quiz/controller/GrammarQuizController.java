@@ -1,5 +1,6 @@
 package kz.epam.quiz.controller;
 
+import com.google.gson.JsonObject;
 import kz.epam.quiz.controller.dto.GrammarAnswersDTO;
 import kz.epam.quiz.dao.GrammarQuizDao;
 import kz.epam.quiz.dao.GrammarQuizHistoryDAO;
@@ -28,8 +29,6 @@ import java.util.Map;
 @RequestMapping(value = "/grammar")
 public class GrammarQuizController {
 
-    public static final BigDecimal GRAMMAR_BASE_SCORE = new BigDecimal(1.75);
-
     @Autowired
     private UserDao userDao;
 
@@ -53,6 +52,8 @@ public class GrammarQuizController {
     @ResponseBody
     public String checkAnswers(@ModelAttribute GrammarAnswersDTO answersDTO, Principal principal) {
         boolean hasWrongAnswer = false;
+        JsonObject jsonObject = new JsonObject();
+
         BigDecimal score = BigDecimal.ZERO;
         Map<String, String> answers = answersDTO.getAnswers();
 
@@ -82,16 +83,19 @@ public class GrammarQuizController {
             }
 
             if (hasWrongAnswer) {
-                return "error";
+                jsonObject.addProperty("answerStatus", "error");
+                jsonObject.addProperty("score", score);
             } else {
                 Quest newQuest = new Quest(true, score, user, TaskTypeEnum.GRAMMAR);
                 questDAO.save(newQuest);
 
                 TaskHelper.setNextTask(user);
                 userDao.save(user);
+
+                jsonObject.addProperty("answerStatus", "success");
             }
         }
-        return "success";
+        return jsonObject.toString();
     }
 
     @RequestMapping(value = "next", method = RequestMethod.GET)
@@ -108,7 +112,7 @@ public class GrammarQuizController {
             String historyAnswer = history.getAnswer();
             String rightAnswer = history.getQuiz().getAnswer();
 
-            if (historyAnswer.equals(rightAnswer)){
+            if (historyAnswer.equals(rightAnswer)) {
                 score = score.add(history.getQuiz().getBaseScore());
             }
         }

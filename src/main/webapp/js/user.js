@@ -12,12 +12,29 @@ jQuery(document).ready(function ($) {
 function sendAnswers(url, formId) {
     $.post(url, $("#" + formId).serialize())
         .done(function (data) {
-            console.log(data);
-            if (data == errorResponce){
+            var responceData = JSON.parse(data);
+            console.log(responceData);
+            if (responceData.answerStatus == errorResponce){
+                var score = responceData.score;
+                switch (true){
+                    case ((score < 1 && score > 0) || (score > 1 && score <= 4)):
+                        score += ' балла';
+                        break;
+                    case (score == 1):
+                        score += ' балл';
+                        break;
+                    case (score > 4):
+                        score += ' баллов';
+                        break;
+                    default:
+                        score += ' баллов';
+                        break;
+                }
+                document.getElementById('score').innerHTML = score;
                 $("#error-message").removeClass("hide");
                 $('html, body').animate({scrollTop: 0}, 700);
             }
-            if (data == successResponce){
+            if (responceData.answerStatus == successResponce){
                 window.location.replace(taskURL);
             }
         })

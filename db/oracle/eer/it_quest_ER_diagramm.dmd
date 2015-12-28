@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="it_quest_ER_diagramm" id="AB16D4DA-E7AD-7AA0-DEA6-47DD8642A3CF" version="3.5">
-<createdBy>Ilya_Doroshenko</createdBy>
-<createdTime>2015-12-14 06:26:41 UTC</createdTime>
-<ownerDesignName>it_quest_ER_diagramm</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>AB16D4DA-E7AD-7AA0-DEA6-47DD8642A3CF</designId>
-</OSDM_Design>
