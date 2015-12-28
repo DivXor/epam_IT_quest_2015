@@ -3,6 +3,8 @@ package kz.epam.quiz.util.wordsearch.word;
 import kz.epam.quiz.util.wordsearch.pattern.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -16,11 +18,13 @@ public class FocalWord {
     private static final String[] L_LETTER = {"mainland", "debug"};
 
     public static List getSmallWords() {
-        List list = new ArrayList();
-        list.add(C_LETTER[0].toUpperCase());
-        list.add(O_LETTER[1].toUpperCase());
-        list.add(A_LETTER[3].toUpperCase());
-        list.add(L_LETTER[1].toUpperCase());
+        List<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList(F_LETTER));
+        list.addAll(Arrays.asList(O_LETTER));
+        list.addAll(Arrays.asList(C_LETTER));
+        list.addAll(Arrays.asList(A_LETTER));
+        list.addAll(Arrays.asList(L_LETTER));
+        Collections.sort(list);
         return list;
     }
 

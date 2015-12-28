@@ -23,14 +23,14 @@
                     <h1>Найди ошибку! </h1>
 
                 </div>
-                <p class="lead">Здесь проверяется ваше знание грамматики. Просто отметьте НЕПРАВИЛЬНЫЙ вариант. За каждый правильный
-                    ответ получаете 0.25 балла</p>
+                <p class="lead">Здесь проверяется ваше знание грамматики. Просто отметьте НЕПРАВИЛЬНЫЙ вариант.
+                    За каждый правильный ответ получаете 0.25 балла</p>
                 <br/>
 
                 <div id="error-message" class="alert alert-warning hide" role="alert">
                     <button id="close-button" type="button" class="close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h4><strong>Упс!</strong> Где-то Вы допустили ошибку.</h4>
+                    <h4><strong>Упс!</strong>Где-то Вы допустили ошибку.</h4>
                 </div>
 
                 <form id="grammar-form" th:action="@{/grammar/check}" method="post">
@@ -67,7 +67,7 @@
                 </button>
             </div>
             <div class="col-md-2">
-                <div th:replace="fragments/next-task"></div>
+                <input onclick="goNext('grammar')" type="button" class="btn btn-warning" value="Следующее задание"/>
             </div>
         </div>
     </div>

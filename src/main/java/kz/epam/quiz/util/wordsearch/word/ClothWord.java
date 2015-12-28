@@ -3,6 +3,8 @@ package kz.epam.quiz.util.wordsearch.word;
 import kz.epam.quiz.util.wordsearch.pattern.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -17,10 +19,13 @@ public class ClothWord {
 
 
     public static List getSmallWords() {
-        List list = new ArrayList();
-        list.add(C_LETTER[0].toUpperCase());
-        list.add(O_LETTER[1].toUpperCase());
-        list.add(H_LETTER[0].toUpperCase());
+        List<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList(C_LETTER));
+        list.addAll(Arrays.asList(L_LETTER));
+        list.addAll(Arrays.asList(O_LETTER));
+        list.addAll(Arrays.asList(T_LETTER));
+        list.addAll(Arrays.asList(H_LETTER));
+        Collections.sort(list);
         return list;
     }
 

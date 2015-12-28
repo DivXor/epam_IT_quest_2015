@@ -7,6 +7,7 @@ import java.util.Date;
 @Entity
 @Table(name = "EXCESS_IMAGE_HISTORY")
 public class ExcessImageHistory extends AbstractEntity implements Serializable {
+    private int answer;
 
     @Column(name = "time", nullable = false, updatable = false,
             insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -15,7 +16,7 @@ public class ExcessImageHistory extends AbstractEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "excess_image_id")
-    private ExcessImage excessImage;
+    private ExcessImage quiz;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_ID")
@@ -24,8 +25,9 @@ public class ExcessImageHistory extends AbstractEntity implements Serializable {
     public ExcessImageHistory() {
     }
 
-    public ExcessImageHistory(ExcessImage excessImage, User user) {
-        this.excessImage = excessImage;
+    public ExcessImageHistory(int answer, ExcessImage quiz, User user) {
+        this.answer = answer;
+        this.quiz = quiz;
         this.user = user;
     }
 
@@ -38,12 +40,12 @@ public class ExcessImageHistory extends AbstractEntity implements Serializable {
         this.time = time;
     }
 
-    public ExcessImage getExcessImage() {
-        return excessImage;
+    public ExcessImage getQuiz() {
+        return quiz;
     }
 
-    public void setExcessImage(ExcessImage excessImage) {
-        this.excessImage = excessImage;
+    public void setQuiz(ExcessImage quiz) {
+        this.quiz = quiz;
     }
 
     public User getUser() {
@@ -53,9 +55,19 @@ public class ExcessImageHistory extends AbstractEntity implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public int getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(int answer) {
+        this.answer = answer;
+    }
+
     //endregion
 
     //region Equals and Hashcode
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,26 +75,31 @@ public class ExcessImageHistory extends AbstractEntity implements Serializable {
 
         ExcessImageHistory that = (ExcessImageHistory) o;
 
+        if (answer != that.answer) return false;
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
-        if (excessImage != null ? !excessImage.equals(that.excessImage) : that.excessImage != null) return false;
+        if (quiz != null ? !quiz.equals(that.quiz) : that.quiz != null) return false;
         return !(user != null ? !user.equals(that.user) : that.user != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = time != null ? time.hashCode() : 0;
-        result = 31 * result + (excessImage != null ? excessImage.hashCode() : 0);
+        int result = answer;
+        result = 31 * result + (time != null ? time.hashCode() : 0);
+        result = 31 * result + (quiz != null ? quiz.hashCode() : 0);
         result = 31 * result + (user != null ? user.hashCode() : 0);
         return result;
     }
+
+
     //endregion
 
     @Override
     public String toString() {
         return "ExcessImageHistory{" +
-                "time=" + time +
-                ", excessImage=" + excessImage +
+                "answer=" + answer +
+                ", time=" + time +
+                ", quiz=" + quiz +
                 ", user=" + user +
                 "} " + super.toString();
     }

@@ -108,5 +108,4 @@ public class MazeController {
         }
         return maze;
     }
-
 }

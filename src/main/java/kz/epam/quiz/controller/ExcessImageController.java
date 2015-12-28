@@ -6,6 +6,7 @@ import kz.epam.quiz.dao.ExcessImageHistoryDAO;
 import kz.epam.quiz.dao.QuestDAO;
 import kz.epam.quiz.dao.UserDao;
 import kz.epam.quiz.entity.ExcessImage;
+import kz.epam.quiz.entity.ExcessImageHistory;
 import kz.epam.quiz.entity.Quest;
 import kz.epam.quiz.entity.User;
 import kz.epam.quiz.entity.enums.TaskTypeEnum;
@@ -37,7 +38,7 @@ public class ExcessImageController {
     private ExcessImageDAO excessImageDAO;
 
     @Autowired
-    private ExcessImageHistoryDAO excessImageHistoryDAO;
+    private ExcessImageHistoryDAO historyDAO;
 
     @Autowired
     private QuestDAO questDAO;
@@ -54,29 +55,40 @@ public class ExcessImageController {
     public String checkAnswers(@ModelAttribute GrammarAnswersDTO answersDTO,
                                RedirectAttributes redirectAttributes, Principal principal) {
         boolean hasWrongAnswer = false;
+        BigDecimal score = BigDecimal.ZERO;
         Map<String, String> answers = answersDTO.getAnswers();
 
         //get current logged in user
         String currentUser = principal.getName();
         User user = userDao.findUserByName(currentUser);
 
-        //get quest
         Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.FIND_EXCESS);
 
         if (currentQuest == null || !currentQuest.isDone()) {
 
-            for (String id : answers.keySet()) {
-                int currentAnswer = Integer.parseInt(answers.get(id));
-                ExcessImage excessImage = excessImageDAO.findOne(Integer.parseInt(id));
-                if (currentAnswer != excessImage.getExcessImageNumber()) {
+            List<ExcessImage> excessImages = excessImageDAO.findAll();
+
+            for (ExcessImage quiz : excessImages) {
+                String quizIdStr = String.valueOf(quiz.getId());
+                Integer currentAnswer = Integer.valueOf(answers.get(quizIdStr));
+
+                ExcessImageHistory quizHistory = historyDAO.findByUserAndQuiz(user, quiz);
+
+                if (quizHistory == null)
+                    quizHistory = new ExcessImageHistory(currentAnswer, quiz, user);
+                else quizHistory.setAnswer(currentAnswer);
+
+                if (!currentAnswer.equals(quiz.getExcessImageNumber()))
                     hasWrongAnswer = true;
-                }
+                else score = score.add(quiz.getBaseScore());
+
+                historyDAO.save(quizHistory);
             }
 
             if (hasWrongAnswer) {
                 return "error";
             } else {
-                Quest newQuest = new Quest(true, EXCESS_IMAGE_BASE_SCORE, user, TaskTypeEnum.FIND_EXCESS);
+                Quest newQuest = new Quest(true, score, user, TaskTypeEnum.FIND_EXCESS);
                 questDAO.save(newQuest);
 
                 TaskHelper.setNextTask(user);
@@ -84,5 +96,32 @@ public class ExcessImageController {
             }
         }
         return "success";
+    }
+
+    @RequestMapping(value = "next", method = RequestMethod.GET)
+    public String goNext(Principal principal) {
+        BigDecimal score = BigDecimal.ZERO;
+
+        //get current logged in user
+        String currentUser = principal.getName();
+        User user = userDao.findUserByName(currentUser);
+
+        List<ExcessImageHistory> historyList = historyDAO.findByUser(user);
+
+        for (ExcessImageHistory history : historyList) {
+            Integer historyAnswer = history.getAnswer();
+            Integer rightAnswer = history.getQuiz().getExcessImageNumber();
+
+            if (historyAnswer.equals(rightAnswer)){
+                score = score.add(history.getQuiz().getBaseScore());
+            }
+        }
+
+        Quest newQuest = new Quest(true, score, user, TaskTypeEnum.FIND_EXCESS);
+        questDAO.save(newQuest);
+
+        TaskHelper.setNextTask(user);
+        userDao.save(user);
+        return "redirect:/task";
     }
 }

@@ -3,6 +3,8 @@ package kz.epam.quiz.util.wordsearch.word;
 import kz.epam.quiz.util.wordsearch.pattern.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -17,12 +19,13 @@ public class OctetWord {
 
 
     public static List getSmallWords() {
-        List list = new ArrayList();
-        list.add(O_LETTER[1].toUpperCase());
-        list.add(C_LETTER[0].toUpperCase());
-        list.add(T_LETTER[1].toUpperCase());
-        list.add(E_LETTER[3].toUpperCase());
-        list.add(T_LETTER_2[1].toUpperCase());
+        List<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList(O_LETTER));
+        list.addAll(Arrays.asList(C_LETTER));
+        list.addAll(Arrays.asList(T_LETTER));
+        list.addAll(Arrays.asList(E_LETTER));
+        list.addAll(Arrays.asList(T_LETTER_2));
+        Collections.sort(list);
         return list;
     }
 

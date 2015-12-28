@@ -38,7 +38,7 @@ public class MainController {
             case GRAMMAR:
                 return "forward:/grammar";
             case WORD_SEARCH:
-                return "forward:/wordsearch/board/first";
+                return "forward:/wordsearch";
             case ASSOCIATIONS:
                 return "forward:/association";
             case FIND_EXCESS:

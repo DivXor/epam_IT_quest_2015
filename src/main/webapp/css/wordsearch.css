@@ -55,6 +55,10 @@ p span {
     padding-right: 5px;
 }
 
+.smallwords{
+    text-transform: uppercase;
+}
+
 .smallwords:after {
     content:", ";
 }
