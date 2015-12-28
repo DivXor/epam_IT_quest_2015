@@ -4,6 +4,7 @@ import kz.epam.quiz.entity.enums.TaskTypeEnum;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "QUEST")
@@ -18,6 +19,11 @@ public class Quest extends AbstractEntity {
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "TASK_ID")
     private TaskTypeEnum task;
+
+    @Column(name = "DONE_TIME", nullable = false, updatable = false,
+            insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date doneTime;
 
     public Quest() {
     }
@@ -61,14 +67,12 @@ public class Quest extends AbstractEntity {
         this.task = task;
     }
 
-    @Override
-    public String toString() {
-        return "Quest{" +
-                "isDone=" + isDone +
-                ", score=" + score +
-                ", user=" + user +
-                ", task=" + task +
-                "} " + super.toString();
+    public Date getDoneTime() {
+        return doneTime;
+    }
+
+    public void setDoneTime(Date doneTime) {
+        this.doneTime = doneTime;
     }
 
     @Override
@@ -81,7 +85,8 @@ public class Quest extends AbstractEntity {
         if (isDone != quest.isDone) return false;
         if (score != null ? !score.equals(quest.score) : quest.score != null) return false;
         if (user != null ? !user.equals(quest.user) : quest.user != null) return false;
-        return task == quest.task;
+        if (task != quest.task) return false;
+        return !(doneTime != null ? !doneTime.equals(quest.doneTime) : quest.doneTime != null);
 
     }
 
@@ -91,6 +96,18 @@ public class Quest extends AbstractEntity {
         result = 31 * result + (score != null ? score.hashCode() : 0);
         result = 31 * result + (user != null ? user.hashCode() : 0);
         result = 31 * result + (task != null ? task.hashCode() : 0);
+        result = 31 * result + (doneTime != null ? doneTime.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Quest{" +
+                "isDone=" + isDone +
+                ", score=" + score +
+                ", user=" + user +
+                ", task=" + task +
+                "} " + super.toString();
+    }
+
 }

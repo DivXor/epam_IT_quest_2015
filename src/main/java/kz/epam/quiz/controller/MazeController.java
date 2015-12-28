@@ -28,7 +28,8 @@ import java.security.Principal;
 public class MazeController {
     public static final int CELL_SIZE = 17;
     public static final int CHARS_DISTANCE = 20;
-    public static final int CURRENT_MAZE_DB_ID = 1;
+    public static final int TEAM1_MAZE_ID = 1;
+    public static final int TEAM2_MAZE_ID = 2;
 
     @Autowired
     private MazeDao mazeDao;
@@ -51,14 +52,14 @@ public class MazeController {
     public String checkAnswer(@RequestParam(value = "answer") String answer,
                               RedirectAttributes redirectAttributes,
                               Principal principal) {
-        Maze maze = mazeDao.findOne(CURRENT_MAZE_DB_ID);
-
         String currentUser = principal.getName();
         User user = userDao.findUserByName(currentUser);
+        Maze maze = getAssociatedMaze(currentUser);
+
         Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.MAZE);
 
         if (currentQuest == null || !currentQuest.isDone()){
-            String dbAnswer = maze.getWord().replaceAll("\\s+", "").toLowerCase();
+            String dbAnswer = maze.getPassword().replaceAll("\\s+", "").toLowerCase();
             String userAnswer = answer.replaceAll("\\s+", "").toLowerCase();
             boolean isAnswerRight = dbAnswer.equals(userAnswer);
 
@@ -85,11 +86,27 @@ public class MazeController {
 
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     @ResponseBody
-    public String getMazeData() throws IOException {
-        Maze maze = mazeDao.findOne(CURRENT_MAZE_DB_ID);
+    public String getMazeData(Principal principal) throws IOException {
+        String currentUser = principal.getName();
+        Maze maze = getAssociatedMaze(currentUser);
         MazeJsonViewer jsonViewer = new MazeJsonViewer();
         return jsonViewer.createJsonMazeResponse(maze, CELL_SIZE, CHARS_DISTANCE).toString();
     }
 
+    private Maze getAssociatedMaze(String userName){
+        Maze maze;
+        switch (userName){
+            case "Team1":
+                maze = mazeDao.findOne(TEAM1_MAZE_ID);
+                break;
+            case "Team2":
+                maze = mazeDao.findOne(TEAM2_MAZE_ID);
+                break;
+            default:
+                maze = mazeDao.findOne(TEAM1_MAZE_ID);
+                break;
+        }
+        return maze;
+    }
 
 }

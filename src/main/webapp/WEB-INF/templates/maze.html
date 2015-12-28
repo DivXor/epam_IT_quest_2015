@@ -24,10 +24,8 @@
                 <div class="page-header">
                     <h1>Лабиринт!</h1>
                 </div>
-                <p>В этом задании вам необходимо пройти два лабиринта от синей до красной точки. В первом лабиринте на
-                    пути
-                    вы должны будете собрать буквы составляющие название книги. Во втором лабиринте индексы этих букв.
-                    Например: odwr + 2413 = word.</p>
+                <p class="lead">Здесь вам нужно пройти два лабиринта. От входа (синяя точка) до выхода (красная точка) ведет один единственный верный путь. Когда
+                    вы решите оба, то поймёте что нужно делать дальше.</p>
                 <br/>
 
                 <div th:if="${answerError}" class="alert alert-warning alert-dismissible" role="alert">
@@ -35,36 +33,6 @@
                             aria-hidden="true">&times;</span></button>
                     <h4><strong>Упс!</strong> Где-то Вы допустили ошибку.</h4>
                 </div>
-
-                <!--<div id="myCarousel" class="carousel slide" data-ride="carousel">-->
-                    <!--&lt;!&ndash; Indicators &ndash;&gt;-->
-                    <!--<ol class="carousel-indicators">-->
-                        <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
-                        <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
-                    <!--</ol>-->
-
-                    <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
-                    <!--<div class="carousel-inner" role="listbox">-->
-                        <!--<div class="item active">-->
-                            <!--<canvas class="maze-canvas" id="chars_maze"></canvas>-->
-                        <!--</div>-->
-
-                        <!--<div class="item">-->
-                            <!--<canvas class="maze-canvas" id="numbers_maze"></canvas>-->
-                        <!--</div>-->
-
-                    <!--</div>-->
-
-                    <!--&lt;!&ndash; Left and right controls &ndash;&gt;-->
-                    <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">-->
-                        <!--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
-                        <!--<span class="sr-only">Previous</span>-->
-                    <!--</a>-->
-                    <!--<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">-->
-                        <!--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
-                        <!--<span class="sr-only">Next</span>-->
-                    <!--</a>-->
-                <!--</div>-->
 
                 <div class="col-xs-6 col-sm-4 col-sm-offset-2">
                     <a id="charsMaze" href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox"></a>

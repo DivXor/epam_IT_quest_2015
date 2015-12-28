@@ -17,4 +17,6 @@ public interface QuestDAO extends JpaRepository<Quest, Integer>{
     Quest findByUserAndTask(@Param("user") User user, @Param("task") TaskTypeEnum task);
 
     List<Quest> findByUser(User user);
+
+//    List<Quest> findByTaskBeforeDate(@Param("task") TaskTypeEnum task, Date date);
 }

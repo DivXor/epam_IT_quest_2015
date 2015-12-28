@@ -15,6 +15,7 @@ public class Maze extends AbstractEntity implements Serializable{
     private int wx;
     private int wy;
     private String word;
+    private String password;
 
     @Column(name = "BASE_SCORE")
     private BigDecimal baseScore;
@@ -51,15 +52,23 @@ public class Maze extends AbstractEntity implements Serializable{
         this.baseScore = baseScore;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "Maze{" +
-                "id=" + id +
-                ", wx=" + wx +
+                "wx=" + wx +
                 ", wy=" + wy +
                 ", word='" + word + '\'' +
+                ", password='" + password + '\'' +
                 ", baseScore=" + baseScore +
-                '}';
+                "} " + super.toString();
     }
 
     @Override
@@ -72,6 +81,7 @@ public class Maze extends AbstractEntity implements Serializable{
         if (wx != maze.wx) return false;
         if (wy != maze.wy) return false;
         if (word != null ? !word.equals(maze.word) : maze.word != null) return false;
+        if (password != null ? !password.equals(maze.password) : maze.password != null) return false;
         return !(baseScore != null ? !baseScore.equals(maze.baseScore) : maze.baseScore != null);
 
     }
@@ -81,6 +91,7 @@ public class Maze extends AbstractEntity implements Serializable{
         int result = wx;
         result = 31 * result + wy;
         result = 31 * result + (word != null ? word.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (baseScore != null ? baseScore.hashCode() : 0);
         return result;
     }

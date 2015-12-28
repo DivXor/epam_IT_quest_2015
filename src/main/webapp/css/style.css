@@ -123,6 +123,7 @@ html, body {
     height: 250px;
     width: 250px;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 .excess-picture .form-group {
@@ -182,4 +183,8 @@ html, body {
 
 .hint-link {
     cursor: help;
+}
+
+.quest-hello > p{
+    font-size: 19px;
 }

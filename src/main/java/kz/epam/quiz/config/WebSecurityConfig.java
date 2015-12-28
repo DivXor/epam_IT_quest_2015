@@ -1,12 +1,14 @@
 package kz.epam.quiz.config;
 
-import static kz.epam.quiz.entity.enums.UserRoleEnum.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+import static kz.epam.quiz.entity.enums.UserRoleEnum.ADMIN;
+import static kz.epam.quiz.entity.enums.UserRoleEnum.USER;
 
 @Configuration
 @EnableWebSecurity
@@ -19,9 +21,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("Team1").password("password").roles(USER.name()).and()
-                .withUser("Team2").password("password").roles(USER.name()).and()
-                .withUser("admin").password("password").roles(USER.name(), ADMIN.name());
+                .withUser("Team1").password("fatwhale16").roles(USER.name()).and()
+                .withUser("Team2").password("jollywolf88").roles(USER.name()).and()
+                .withUser("admin").password("itquest2015").roles(USER.name(), ADMIN.name());
     }
 
     @Override

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.math.BigDecimal;
 import java.security.Principal;
@@ -51,7 +52,7 @@ public class AssociationsController {
 
         List<Associations> associationsList = associationsDAO.findAll();
 //todo will think about builder
-        // a lot of magic numbers
+//todo a lot of magic numbers
         for (Associations association : associationsList) {
             AssociationsHistory history = associationsHistoryDAO.findByUserAndAssociations(user, association);
 
@@ -61,7 +62,7 @@ public class AssociationsController {
                         association.getImg1(), association.getImg2(), association.getImg3(), association.getImg4(),
                         history.getHintCounter(),
                         history.isAnswerRight(),
-                        association.getHiddenWord());
+                        association.getHiddenWord(), association.getCategory());
                 dtoList.add(dto);
             } else {
                 AssociationDTO dto = new AssociationDTO(
@@ -69,7 +70,8 @@ public class AssociationsController {
                         association.getImg1(), association.getImg2(), association.getImg3(), association.getImg4(),
                         0,
                         false,
-                        association.getHiddenWord());
+                        association.getHiddenWord(),
+                        association.getCategory());
                 dtoList.add(dto);
             }
         }
@@ -80,16 +82,17 @@ public class AssociationsController {
 
     @RequestMapping(value = "/hint/{id}")
     public String userHint(@PathVariable String id, Principal principal) {
-        Associations associations;
         int associationId = Integer.parseInt(id);
-        associations = associationsDAO.findOne(associationId);
+        int initialScore = 0;
+
+        Associations associations = associationsDAO.findOne(associationId);
 
         String currentUser = principal.getName();
         User user = userDao.findUserByName(currentUser);
 //todo what are magic numbers?
         AssociationsHistory history = associationsHistoryDAO.findByUserAndAssociations(user, associations);
         if (history == null) {
-            history = new AssociationsHistory(0, false, associations, user);
+            history = new AssociationsHistory(initialScore, false, associations, user);
         }
         history.setHintCounter(history.getHintCounter() + 1);
         associationsHistoryDAO.save(history);
@@ -100,7 +103,7 @@ public class AssociationsController {
 
     @RequestMapping(value = "/check/{id}", method = RequestMethod.POST)
     public String answerCheck(@RequestParam("userAnswer") String answer,
-                              @PathVariable String id, Model model, Principal principal) {
+                              @PathVariable String id, RedirectAttributes redirectAttributes, Principal principal) {
         int associationId = Integer.parseInt(id);
         Associations associations = associationsDAO.findOne(associationId);
 
@@ -151,6 +154,8 @@ public class AssociationsController {
 
             userDao.save(user);
             questDAO.save(currentQuest);
+        } else {
+            redirectAttributes.addFlashAttribute("error", associationId);
         }
         return "redirect:/task";
     }

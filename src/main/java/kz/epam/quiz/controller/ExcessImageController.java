@@ -28,7 +28,7 @@ import java.util.Map;
 @RequestMapping(value = "/excess_image")
 public class ExcessImageController {
 
-    public static final BigDecimal EXCESS_IMAGE_BASE_SCORE = new BigDecimal(1);
+    public static final BigDecimal EXCESS_IMAGE_BASE_SCORE = new BigDecimal(2);
 
     @Autowired
     private UserDao userDao;
@@ -61,7 +61,7 @@ public class ExcessImageController {
         User user = userDao.findUserByName(currentUser);
 
         //get quest
-        Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.FIND_SUPERFLUOUS);
+        Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.FIND_EXCESS);
 
         if (currentQuest == null || !currentQuest.isDone()) {
 
@@ -76,7 +76,7 @@ public class ExcessImageController {
             if (hasWrongAnswer) {
                 return "error";
             } else {
-                Quest newQuest = new Quest(true, EXCESS_IMAGE_BASE_SCORE, user, TaskTypeEnum.FIND_SUPERFLUOUS);
+                Quest newQuest = new Quest(true, EXCESS_IMAGE_BASE_SCORE, user, TaskTypeEnum.FIND_EXCESS);
                 questDAO.save(newQuest);
 
                 TaskHelper.setNextTask(user);
@@ -85,42 +85,4 @@ public class ExcessImageController {
         }
         return "success";
     }
-//TODO what is it   >>
-//    @RequestMapping(value = "/check", method = RequestMethod.POST)
-//    public String checkAnswers(@ModelAttribute GrammarAnswersDTO answersDTO,
-//                               RedirectAttributes redirectAttributes, Principal principal) {
-//        boolean hasWrongAnswer = false;
-//
-//        Map<String, String> answers = answersDTO.getAnswers();
-//
-//        //get current logged in user
-//        String currentUser = principal.getName();
-//        User user = userDao.findUserByName(currentUser);
-//
-//        //get quest
-//        Quest currentQuest = questDAO.findByUserAndTask(user, TaskTypeEnum.FIND_SUPERFLUOUS);
-//
-//        if (currentQuest == null || !currentQuest.isDone()) {
-//
-//            for (String id : answers.keySet()) {
-//                int currentAnswer = Integer.parseInt(answers.get(id));
-//                ExcessImage excessImage = excessImageDAO.findOne(Integer.parseInt(id));
-//                if (currentAnswer != excessImage.getExcessImageNumber()) {
-//                    hasWrongAnswer = true;
-//                }
-//            }
-//
-//            if (hasWrongAnswer) {
-//                redirectAttributes.addFlashAttribute("answerError", true);
-//            } else {
-//                Quest newQuest = new Quest(true, EXCESS_IMAGE_BASE_SCORE, user, TaskTypeEnum.FIND_SUPERFLUOUS);
-//                questDAO.save(newQuest);
-//
-//                TaskHelper.setNextTask(user);
-//                userDao.save(user);
-//            }
-//        }
-//        return "redirect:/task";
-//    }
-
 }

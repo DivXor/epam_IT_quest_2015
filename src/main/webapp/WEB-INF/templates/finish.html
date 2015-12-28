@@ -22,7 +22,7 @@
                 <div class="page-header">
                     <h1>Поздравляем!</h1>
                 </div>
-                <p>Вы прошли Winter IT Quest 2105. Пожалуйста, оставьте свой комментарий.</p>
+                <p class="lead">Вы прошли Winter IT Quest 2105. Пожалуйста, оставьте свой комментарий.</p>
             </div>
         </div>
 
@@ -48,7 +48,7 @@
                                         <strong class="primary-font" th:text="${comment.user.name}"></strong>
                                         <br/>
                                         <small class="pull-right text-muted">
-                                            <span class="glyphicon glyphicon-time"></span><span th:text="${#dates.format(comment.time, 'dd MMMM YY HH:mm')}"></span>
+                                            <span class="glyphicon glyphicon-time"></span><span th:text="${#dates.format(comment.time, 'dd MMMM HH:mm')}"></span>
                                         </small>
                                     </div>
                                     <p th:text="${comment.message}"></p>

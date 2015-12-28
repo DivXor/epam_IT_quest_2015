@@ -28,7 +28,7 @@ import java.util.Map;
 @RequestMapping(value = "/grammar")
 public class GrammarQuizController {
 
-    public static final BigDecimal GRAMMAR_BASE_SCORE = new BigDecimal(1);
+    public static final BigDecimal GRAMMAR_BASE_SCORE = new BigDecimal(1.75);
 
     @Autowired
     private UserDao userDao;

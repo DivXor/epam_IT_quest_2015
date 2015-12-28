@@ -31,6 +31,9 @@ public class Associations extends AbstractEntity implements Serializable {
     @Column(name = "IMG4")
     private String img4;
 
+    @Column(name = "CATEGORY")
+    private String category;
+
     //region Getters and Setters
     public String getHiddenWord() {
         return hiddenWord;
@@ -87,9 +90,17 @@ public class Associations extends AbstractEntity implements Serializable {
     public void setImg4(String img4) {
         this.img4 = img4;
     }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
     //endregion
 
-    //region Equals and HashCode
+    //region Equals and Hashcode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,7 +114,8 @@ public class Associations extends AbstractEntity implements Serializable {
         if (img1 != null ? !img1.equals(that.img1) : that.img1 != null) return false;
         if (img2 != null ? !img2.equals(that.img2) : that.img2 != null) return false;
         if (img3 != null ? !img3.equals(that.img3) : that.img3 != null) return false;
-        return !(img4 != null ? !img4.equals(that.img4) : that.img4 != null);
+        if (img4 != null ? !img4.equals(that.img4) : that.img4 != null) return false;
+        return !(category != null ? !category.equals(that.category) : that.category != null);
 
     }
 
@@ -116,7 +128,9 @@ public class Associations extends AbstractEntity implements Serializable {
         result = 31 * result + (img2 != null ? img2.hashCode() : 0);
         result = 31 * result + (img3 != null ? img3.hashCode() : 0);
         result = 31 * result + (img4 != null ? img4.hashCode() : 0);
+        result = 31 * result + (category != null ? category.hashCode() : 0);
         return result;
     }
     //endregion
+
 }

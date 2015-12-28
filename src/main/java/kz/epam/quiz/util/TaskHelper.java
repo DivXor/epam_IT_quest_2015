@@ -8,17 +8,17 @@ public abstract class TaskHelper {
     public static synchronized void setNextTask(User user){
         TaskTypeEnum currentTask = user.getCurrentTask();
         switch (currentTask){
-            case MAZE:
+            case GRAMMAR:
+                user.setCurrentTask(TaskTypeEnum.FIND_EXCESS);
+                break;
+            case FIND_EXCESS:
                 user.setCurrentTask(TaskTypeEnum.WORD_SEARCH);
                 break;
             case WORD_SEARCH:
-                user.setCurrentTask(TaskTypeEnum.GRAMMAR);
+                user.setCurrentTask(TaskTypeEnum.MAZE);
                 break;
-            case GRAMMAR:
-                user.setCurrentTask(TaskTypeEnum.FIND_SUPERFLUOUS);
-                break;
-            case FIND_SUPERFLUOUS:
-                user.setCurrentTask(TaskTypeEnum.ASSOCIATIONS); //TODO изменить после того как доделаем ассоциации
+            case MAZE:
+                user.setCurrentTask(TaskTypeEnum.ASSOCIATIONS);
                 break;
             case ASSOCIATIONS:
                 user.setCurrentTask(TaskTypeEnum.FINISH);

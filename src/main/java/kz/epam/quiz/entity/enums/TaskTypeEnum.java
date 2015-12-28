@@ -2,11 +2,11 @@ package kz.epam.quiz.entity.enums;
 
 public enum TaskTypeEnum {
 
+    GRAMMAR("Grammar quiz"),
+    FIND_EXCESS("Find excess image"),
+    WORD_SEARCH("Word search"),
     MAZE("Maze"),
     ASSOCIATIONS("Associations"),
-    WORD_SEARCH("Word search"),
-    GRAMMAR("Grammar quiz"),
-    FIND_SUPERFLUOUS("Find excess image"),
     FINISH("Finish");
 
     private final String name;

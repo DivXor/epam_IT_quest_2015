@@ -41,7 +41,7 @@ public class MainController {
                 return "forward:/wordsearch/board/first";
             case ASSOCIATIONS:
                 return "forward:/association";
-            case FIND_SUPERFLUOUS:
+            case FIND_EXCESS:
                 return "forward:/excess_image";
             case FINISH:
                 return "forward:/finish";

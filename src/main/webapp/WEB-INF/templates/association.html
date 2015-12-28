@@ -19,11 +19,18 @@
         <div class="row content">
             <div class="col-lg-12">
                 <div class="page-header">
-                    <h1>Ассоциации! </h1>
+                    <h1>Ассоциации!</h1>
 
                 </div>
-                <p>В этом задании вам необходимо найти граматические или синтаксические ошибки в
-                    предложениях и указать их</p>
+                <p class="lead">
+                    Перед вами наборы картинок. Угадайте какое слово за ними скрыто.
+                </p>
+
+                <p class="lead">Картинки расположены по сложности - первая самая сложная, далее ассоциация все более
+                    очевидна.</p>
+
+                <p class="lead">Но за каждую открытую картинку будет вычтено 0.25 балла.
+                    За каждую отгаданную без подсказок ассоциацию вам будет начислено 2 балла.</p>
                 <br/>
 
                 <div id="error-message" class="alert alert-warning hide" role="alert">
@@ -36,9 +43,9 @@
             </div>
         </div>
         <div th:each="plate : ${pictureList}"
-             th:class="'panel ' + ${plate.answerRight ? 'panel-success' : 'panel-default'}">
+             th:class="'panel ' + ${plate.answerRight ? 'panel-success' : 'panel-default'}" th:classappend="${(error == plate.id)? 'panel-warning' : ''}">
             <div class="panel-heading">
-                Category: <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+                Category: <span th:text="${plate.category}"></span>
             </div>
             <div class="panel-body">
                 <div th:if="${plate.answerRight}" class="images-container">
@@ -129,8 +136,8 @@
         </div>
         <hr/>
         <div class="row">
-            <div class="col-md-2 pull-right">
-                <div th:replace="fragments/next-task"></div>
+            <div class="col-md-12 text-center">
+                <input th:fragment="next-task" onclick="goToNextTask()" type="button" class="btn btn-lg btn-success" value="Завершить квест"/>
             </div>
         </div>
 

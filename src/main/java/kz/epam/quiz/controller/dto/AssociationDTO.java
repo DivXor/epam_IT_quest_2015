@@ -1,7 +1,5 @@
 package kz.epam.quiz.controller.dto;
 
-import lombok.Builder;
-
 //TODO change fields names to imgUrlOne ...
 public class AssociationDTO {
     private int id;
@@ -12,8 +10,10 @@ public class AssociationDTO {
     private int hintCounter;
     private boolean answerRight;
     private String hiddenWord;
+    private String category;
 
-    public AssociationDTO(int id, String img1, String img2, String img3, String img4, int hintCounter, boolean answerRight, String hiddenWord) {
+    public AssociationDTO(int id, String img1, String img2, String img3, String img4, int hintCounter,
+                          boolean answerRight, String hiddenWord, String category) {
         this.id = id;
         this.img1 = img1;
         this.img2 = img2;
@@ -22,6 +22,7 @@ public class AssociationDTO {
         this.hintCounter = hintCounter;
         this.answerRight = answerRight;
         this.hiddenWord = hiddenWord;
+        this.category = category;
     }
 
     public int getId() {
@@ -86,5 +87,13 @@ public class AssociationDTO {
 
     public void setHiddenWord(String hiddenWord) {
         this.hiddenWord = hiddenWord;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
