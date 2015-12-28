@@ -13,7 +13,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("kz.epam.quiz.controller")
+@ComponentScan(basePackages = "kz.epam.quiz.controller")
 public class WebAppConfig extends WebMvcConfigurerAdapter {
 
     @Override

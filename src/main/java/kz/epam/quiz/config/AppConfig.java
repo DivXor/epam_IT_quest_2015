@@ -30,17 +30,16 @@ public class AppConfig {
     private static final String PROPERTY_NAME_DATABASE_URL = "db.url";
     private static final String PROPERTY_NAME_DATABASE_USERNAME = "db.username";
     private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "hibernate.dialect";
-    private static final String PROPERTY_NAME_HIBERNATE_HBM2DLL = "hibernate.hbm2ddl.auto";
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
     private static final String PROPERTY_NAME_HIBERNATE_FORMAT_SQL = "hibernate.format_sql";
+
+    @Autowired
+    private Environment environment;
 
     @Bean
     public AuthSuccessHandler getAuthSuccessHandler() {
         return new AuthSuccessHandler();
     }
-
-    @Autowired
-    private Environment environment;
 
     @Bean
     public DataSource dataSource() {
@@ -67,7 +66,6 @@ public class AppConfig {
     private Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put(PROPERTY_NAME_HIBERNATE_DIALECT, environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
-//        properties.put(PROPERTY_NAME_HIBERNATE_HBM2DLL, environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_HBM2DLL));
         properties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
         properties.put(PROPERTY_NAME_HIBERNATE_FORMAT_SQL, environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_FORMAT_SQL));
         return properties;
@@ -77,7 +75,6 @@ public class AppConfig {
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(emf);
-
         return transactionManager;
     }
 

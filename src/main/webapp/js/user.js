@@ -7,15 +7,6 @@ jQuery(document).ready(function ($) {
         $("#error-message").addClass("hide");
     });
 
-    //$('.thumbnail').click(function(){
-    //    var $pic = $('<div></div>');
-    //    $pic.append(this.innerHTML);
-    //
-    //    BootstrapDialog.show({
-    //        message: $pic
-    //    });
-    //});
-
 });
 
 function sendAnswers(url, formId) {
@@ -51,3 +42,36 @@ function goToNextTask() {
         }]
     });
 }
+
+(function($){
+
+    /**
+     * Store scroll position for and set it after reload
+     *
+     * @return {boolean} [loacalStorage is available]
+     */
+    $.fn.scrollPosReaload = function(){
+        if (localStorage) {
+            var posReader = localStorage["posStorage"];
+            if (posReader) {
+                $(window).scrollTop(posReader);
+                localStorage.removeItem("posStorage");
+            }
+            $(this).click(function(e) {
+                localStorage["posStorage"] = $(window).scrollTop();
+            });
+
+            return true;
+        }
+
+        return false;
+    };
+
+    /* ================================================== */
+
+    $(document).ready(function() {
+        // Feel free to set it for any element who trigger the reload
+        $('.save-position').scrollPosReaload();
+    });
+
+}(jQuery));

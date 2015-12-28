@@ -94,7 +94,7 @@ public class AssociationsController {
         history.setHintCounter(history.getHintCounter() + 1);
         associationsHistoryDAO.save(history);
 
-        return "redirect:/association";
+        return "redirect:/task";
     }
 
 

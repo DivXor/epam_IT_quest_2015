@@ -101,4 +101,5 @@ public class AssociationsHistory extends AbstractEntity implements Serializable 
         result = 31 * result + (user != null ? user.hashCode() : 0);
         return result;
     }
+
 }

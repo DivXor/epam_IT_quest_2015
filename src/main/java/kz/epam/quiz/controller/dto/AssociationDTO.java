@@ -1,21 +1,16 @@
 package kz.epam.quiz.controller.dto;
 
+import lombok.Builder;
+
+//TODO change fields names to imgUrlOne ...
 public class AssociationDTO {
-
     private int id;
-
     private String img1;
-
     private String img2;
-
     private String img3;
-
     private String img4;
-
     private int hintCounter;
-
     private boolean answerRight;
-
     private String hiddenWord;
 
     public AssociationDTO(int id, String img1, String img2, String img3, String img4, int hintCounter, boolean answerRight, String hiddenWord) {

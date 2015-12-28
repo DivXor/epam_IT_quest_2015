@@ -31,7 +31,6 @@ public class MazeHistoryDAOTest {
     MazeDao mazeDao;
 
     @Test
-    @Rollback(value = false)
     public void testSave() throws Exception {
         MazeHistory mazeHistory = new MazeHistory();
         User user = userDao.findOne(1);

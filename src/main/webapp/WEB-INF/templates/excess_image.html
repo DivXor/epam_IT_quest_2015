@@ -32,31 +32,45 @@
                 </div>
 
                 <form id="picture-form" th:action="@{/excess_image/check}" method="post">
-                    <div class="odd-picture-test">
-                        <div th:each="quiz : ${imageQuizzes}" class="form-group">
-                            <label>
-                                <input checked="" type="radio" th:name="${'answers['+ quiz.id +']'}" value="1" />
-                                <img th:src="${quiz.img1}"/>
-                            </label>
-                            <label>
-                                <input type="radio" th:name="${'answers['+ quiz.id +']'}" value="2" />
-                                <img th:src="${quiz.img2}"/>
-                            </label>
-                            <label>
-                                <input type="radio" th:name="${'answers['+ quiz.id +']'}" value="3" />
-                                <img th:src="${quiz.img3}"/>
-                            </label>
-                            <label th:if="${quiz.img4 != null}">
-                                <input type="radio" th:name="${'answers['+ quiz.id +']'}" value="4" />
-                                <img th:src="${quiz.img4}"/>
-                            </label>
-                            <hr/>
+                    <div class="excess-picture">
+                        <div th:each="quiz : ${imageQuizzes}" class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="form-group">
+
+                                    <input th:id="${'picOneRadio-'+ quiz.id +''}" checked="" type="radio"
+                                           th:name="${'answers['+ quiz.id +']'}" value="1"/>
+                                    <label th:for="${'picOneRadio-'+ quiz.id +''}">
+                                        <img th:src="${quiz.img1}"/>
+                                    </label>
+
+                                    <input th:id="${'picTwoRadio-'+ quiz.id +''}" type="radio" th:name="${'answers['+ quiz.id +']'}"
+                                           value="2"/>
+                                    <label th:for="${'picTwoRadio-'+ quiz.id +''}">
+                                        <img th:src="${quiz.img2}"/>
+                                    </label>
+
+                                    <input th:id="${'picThreeRadio-'+ quiz.id +''}" type="radio" th:name="${'answers['+ quiz.id +']'}"
+                                           value="3"/>
+                                    <label th:for="${'picThreeRadio-'+ quiz.id +''}">
+                                        <img th:src="${quiz.img3}"/>
+                                    </label>
+
+                                    <input th:id="${'picFourRadio-'+ quiz.id +''}" th:if="${quiz.img4 != null}" type="radio"
+                                           th:name="${'answers['+ quiz.id +']'}" value="4"/>
+                                    <label th:for="${'picFourRadio-'+ quiz.id +''}" th:if="${quiz.img4 != null}">
+                                        <img th:src="${quiz.img4}"/>
+                                    </label>
+
+                                    <div th:if="${quiz.img4 == null}" style="width: 250px; height: 250px;"></div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
+        <hr/>
         <div class="row">
             <div class="col-md-10">
                 <button type="button" onclick="sendAnswers('/excess_image/check', 'picture-form')" id="submit-button"

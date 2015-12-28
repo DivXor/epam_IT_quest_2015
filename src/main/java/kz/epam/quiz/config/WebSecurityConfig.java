@@ -1,5 +1,6 @@
 package kz.epam.quiz.config;
 
+import static kz.epam.quiz.entity.enums.UserRoleEnum.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -18,9 +19,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("Team1").password("password").roles("USER").and()
-                .withUser("Team2").password("password").roles("USER").and()
-                .withUser("admin").password("password").roles("USER", "ADMIN");
+                .withUser("Team1").password("password").roles(USER.name()).and()
+                .withUser("Team2").password("password").roles(USER.name()).and()
+                .withUser("admin").password("password").roles(USER.name(), ADMIN.name());
     }
 
     @Override
@@ -31,12 +32,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/maze").hasRole("ADMIN")
-                .antMatchers("/grammar").hasRole("ADMIN")
-                .antMatchers("/wordsearch").hasRole("ADMIN")
-                .antMatchers("/excess_image").hasRole("ADMIN") //TODO Add associations
-                .antMatchers("/task/**").hasRole("USER");
+                .antMatchers("/admin/**").hasRole(ADMIN.name())
+                .antMatchers("/maze", "/grammar", "/wordsearch", "/excess_image", "/association").hasRole(ADMIN.name())
+                .antMatchers("/task/**").hasRole(USER.name());
         http
                 .formLogin()
                 .loginProcessingUrl("/login")

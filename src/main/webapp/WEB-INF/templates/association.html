@@ -42,12 +42,6 @@
             </div>
             <div class="panel-body">
                 <div th:if="${plate.answerRight}" class="images-container">
-                    <!--<ul class="thumbnails">-->
-                    <!--<li><a href="#" class="thumbnail" title="Image 1"><img th:src="${plate.img1}"/></a></li>-->
-                    <!--<li><a href="#" class="thumbnail" title="Image 2"><img th:src="${plate.img2}"/></a></li>-->
-                    <!--<li><a href="#" class="thumbnail" title="Image 3"><img th:src="${plate.img3}"/></a></li>-->
-                    <!--<li><a href="#" class="thumbnail" title="Image 4"><img th:src="${plate.img4}"/></a></li>-->
-                    <!--</ul>-->
                     <div class="thumbnail-container">
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
                             <img th:src="${plate.img1}"/>
@@ -68,11 +62,11 @@
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
                             <img th:src="${plate.img1}"/>
                         </a>
-                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                        <a class="hint-link save-position" th:href="'/association/hint/'+ ${plate.id} +''"><img
                                 th:src="@{/images/question_mark.jpg}"/></a>
-                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                        <a class="hint-link save-position" th:href="'/association/hint/'+ ${plate.id} +''"><img
                                 th:src="@{/images/question_mark.jpg}"/></a>
-                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                        <a class="hint-link save-position" th:href="'/association/hint/'+ ${plate.id} +''"><img
                                 th:src="@{/images/question_mark.jpg}"/></a>
                     </div>
 
@@ -83,9 +77,9 @@
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
                             <img th:src="${plate.img2}"/>
                         </a>
-                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                        <a class="hint-link save-position" th:href="'/association/hint/'+ ${plate.id} +''"><img
                                 th:src="@{/images/question_mark.jpg}"/></a>
-                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                        <a class="hint-link save-position" th:href="'/association/hint/'+ ${plate.id} +''"><img
                                 th:src="@{/images/question_mark.jpg}"/></a>
                     </div>
 
@@ -99,7 +93,7 @@
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
                             <img th:src="${plate.img3}"/>
                         </a>
-                        <a class="hint-link" th:href="'/association/hint/'+ ${plate.id} +''"><img
+                        <a class="hint-link save-position" th:href="'/association/hint/'+ ${plate.id} +''"><img
                                 th:src="@{/images/question_mark.jpg}"/></a>
                     </div>
 
@@ -128,7 +122,7 @@
                         <input id="answerInput" class="form-control" type="text" name="userAnswer"
                                th:placeholder="${plate.hiddenWord.length()} + ' letters'"/>
 
-                        <input type="submit" class="btn btn-success" value="Проверить"/>
+                        <input type="submit" class="btn btn-success save-position" value="Проверить"/>
                     </div>
                 </form>
             </div>

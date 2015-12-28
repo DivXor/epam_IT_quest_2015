@@ -1,8 +1,20 @@
 package kz.epam.quiz.controller.dto;
 
 import kz.epam.quiz.entity.enums.TaskTypeEnum;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+//public class UserDTO {
+//    private String name;
+//    private BigDecimal totalScore;
+//    private TaskTypeEnum currentTask;
+//}
 
 public class UserDTO {
     private String name;
@@ -15,14 +27,6 @@ public class UserDTO {
     public UserDTO(String name, BigDecimal totalScore, TaskTypeEnum currentTask) {
         this.name = name;
         this.totalScore = totalScore;
-        this.currentTask = currentTask;
-    }
-
-    public TaskTypeEnum getCurrentTask() {
-        return currentTask;
-    }
-
-    public void setCurrentTask(TaskTypeEnum currentTask) {
         this.currentTask = currentTask;
     }
 
@@ -42,5 +46,11 @@ public class UserDTO {
         this.totalScore = totalScore;
     }
 
+    public TaskTypeEnum getCurrentTask() {
+        return currentTask;
+    }
 
+    public void setCurrentTask(TaskTypeEnum currentTask) {
+        this.currentTask = currentTask;
+    }
 }
