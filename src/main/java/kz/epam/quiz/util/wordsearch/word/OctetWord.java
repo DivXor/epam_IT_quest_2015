@@ -18,7 +18,7 @@ public class OctetWord {
     private static final String[] T_LETTER_2 = {"early", "radiator"};
 
 
-    public static List getSmallWords() {
+    public static synchronized List getSmallWords() {
         List<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(O_LETTER));
         list.addAll(Arrays.asList(C_LETTER));
@@ -30,7 +30,7 @@ public class OctetWord {
     }
 
 
-    public static List getWord() {
+    public static synchronized List getWord() {
         List list = new ArrayList();
         list.add(OLetterPattern.fillLeter(O_LETTER));
         list.add(CLetterPattern.fillLeter(C_LETTER));

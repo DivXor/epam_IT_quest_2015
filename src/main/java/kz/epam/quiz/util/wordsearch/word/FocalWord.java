@@ -17,7 +17,7 @@ public class FocalWord {
     private static final String[] A_LETTER = {"knave", "kindness", "energize", "defer"};
     private static final String[] L_LETTER = {"mainland", "debug"};
 
-    public static List getSmallWords() {
+    public static synchronized List getSmallWords() {
         List<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(F_LETTER));
         list.addAll(Arrays.asList(O_LETTER));
@@ -28,7 +28,7 @@ public class FocalWord {
         return list;
     }
 
-    public static List getWord() {
+    public static synchronized List getWord() {
         List list = new ArrayList();
         list.add(FLetterPattern.fillLeter(F_LETTER));
         list.add(OLetterPattern.fillLeter(O_LETTER));

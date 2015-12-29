@@ -26,12 +26,6 @@ public class AdminController {
     @Autowired
     private QuestDAO questDAO;
 
-//    @Autowired
-//    private AssociationsHistoryDAO associationsHistoryDAO;
-//    private ExcessImageHistoryDAO excessImageHistoryDAO;
-//    private GrammarQuizHistoryDAO grammarQuizHistoryDAO;
-//    private MazeHistoryDAO mazeHistoryDAO;
-
     @RequestMapping(method = RequestMethod.GET)
     public String view(Model model) {
         List<UserDTO> userDTOs = new ArrayList<>();
@@ -52,10 +46,5 @@ public class AdminController {
         model.addAttribute("userDTOs", userDTOs);
         return "admin";
     }
-
-//    @RequestMapping(method = RequestMethod.GET)
-//    public String refresh(Model model) {
-//        return null;
-//    }
 
 }

@@ -45,11 +45,13 @@ public class PlaceholderGenerator {
     }
 
     public Map<Integer, String> createShuffledWord(String word) {
+        String wordWithoutSpaces = word.replaceAll("\\s+", "");
+
         Map<Integer, String> charsMap = new LinkedHashMap<>();
         Map<Integer, String> shuffledMap = new LinkedHashMap<>();
 
-        for (int i = 0; i < word.length(); i++) {
-            char curChar = word.charAt(i);
+        for (int i = 0; i < wordWithoutSpaces.length(); i++) {
+            char curChar = wordWithoutSpaces.charAt(i);
             charsMap.put(i + 1, String.valueOf(curChar).toUpperCase());
         }
 
@@ -98,5 +100,4 @@ public class PlaceholderGenerator {
         }
         return numbersToDraw;
     }
-
 }

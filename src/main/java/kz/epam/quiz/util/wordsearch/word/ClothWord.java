@@ -18,7 +18,7 @@ public class ClothWord {
     private final static String[] H_LETTER = {"Facelift", "affluent", "easel"};
 
 
-    public static List getSmallWords() {
+    public static synchronized List getSmallWords() {
         List<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(C_LETTER));
         list.addAll(Arrays.asList(L_LETTER));
@@ -29,7 +29,7 @@ public class ClothWord {
         return list;
     }
 
-    public static List getWord() {
+    public static synchronized List getWord() {
         List list = new ArrayList();
         list.add(CLetterPattern.fillLeter(C_LETTER));
         list.add(LLetterPattern.fillLeter(L_LETTER));

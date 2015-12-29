@@ -84,10 +84,10 @@ VALUES (
 );
 
 INSERT INTO it_quest.MAZE (ID, WX, WY, WORD, BASE_SCORE, PASSWORD)
-VALUES (1, 60, 60, 'SQL Server 2008 Data Mining', 1, 'fatclass44');
+VALUES (1, 60, 60, 'hitchhiker''s guide to the galaxy', 3, 'hitchhiker''s guide to the galaxy');
 
 INSERT INTO it_quest.MAZE (ID, WX, WY, WORD, BASE_SCORE, PASSWORD)
-VALUES (2, 60, 60, 'Microsoft SQL Server 2000', 1, 'slimytest34');
+VALUES (2, 60, 60, 'hitchhiker''s guide to the galaxy', 3, 'hitchhiker''s guide to the galaxy');
 
 INSERT INTO it_quest.WORD_SEARCH (ANSWER, BASE_SCORE) VALUES ('cloth', 3);
 INSERT INTO it_quest.WORD_SEARCH (ANSWER, BASE_SCORE) VALUES ('octet', 3);
