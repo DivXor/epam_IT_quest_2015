@@ -1,24 +1,23 @@
 package kz.epam.quiz.controller.dto;
 
-//TODO change fields names to imgUrlOne ...
 public class AssociationDTO {
     private int id;
-    private String img1;
-    private String img2;
-    private String img3;
-    private String img4;
+    private String imgUrlOne;
+    private String imgUrlTwo;
+    private String imgUrlThree;
+    private String imgUrlFour;
     private int hintCounter;
     private boolean answerRight;
     private String hiddenWord;
     private String category;
 
-    public AssociationDTO(int id, String img1, String img2, String img3, String img4, int hintCounter,
+    public AssociationDTO(int id, String imgUrlOne, String imgUrlTwo, String imgUrlThree, String imgUrlFour, int hintCounter,
                           boolean answerRight, String hiddenWord, String category) {
         this.id = id;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
+        this.imgUrlOne = imgUrlOne;
+        this.imgUrlTwo = imgUrlTwo;
+        this.imgUrlThree = imgUrlThree;
+        this.imgUrlFour = imgUrlFour;
         this.hintCounter = hintCounter;
         this.answerRight = answerRight;
         this.hiddenWord = hiddenWord;
@@ -33,36 +32,36 @@ public class AssociationDTO {
         this.id = id;
     }
 
-    public String getImg1() {
-        return img1;
+    public String getImgUrlOne() {
+        return imgUrlOne;
     }
 
-    public void setImg1(String img1) {
-        this.img1 = img1;
+    public void setImgUrlOne(String imgUrlOne) {
+        this.imgUrlOne = imgUrlOne;
     }
 
-    public String getImg2() {
-        return img2;
+    public String getImgUrlTwo() {
+        return imgUrlTwo;
     }
 
-    public void setImg2(String img2) {
-        this.img2 = img2;
+    public void setImgUrlTwo(String imgUrlTwo) {
+        this.imgUrlTwo = imgUrlTwo;
     }
 
-    public String getImg3() {
-        return img3;
+    public String getImgUrlThree() {
+        return imgUrlThree;
     }
 
-    public void setImg3(String img3) {
-        this.img3 = img3;
+    public void setImgUrlThree(String imgUrlThree) {
+        this.imgUrlThree = imgUrlThree;
     }
 
-    public String getImg4() {
-        return img4;
+    public String getImgUrlFour() {
+        return imgUrlFour;
     }
 
-    public void setImg4(String img4) {
-        this.img4 = img4;
+    public void setImgUrlFour(String imgUrlFour) {
+        this.imgUrlFour = imgUrlFour;
     }
 
     public int getHintCounter() {

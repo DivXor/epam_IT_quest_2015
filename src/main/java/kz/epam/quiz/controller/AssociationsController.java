@@ -59,7 +59,7 @@ public class AssociationsController {
             if (history != null) {
                 AssociationDTO dto = new AssociationDTO(
                         association.getId(),
-                        association.getImg1(), association.getImg2(), association.getImg3(), association.getImg4(),
+                        association.getImgUrlOne(), association.getImgUrlTwo(), association.getImgUrlThree(), association.getImgUrlFour(),
                         history.getHintCounter(),
                         history.isAnswerRight(),
                         association.getHiddenWord(), association.getCategory());
@@ -67,7 +67,7 @@ public class AssociationsController {
             } else {
                 AssociationDTO dto = new AssociationDTO(
                         association.getId(),
-                        association.getImg1(), association.getImg2(), association.getImg3(), association.getImg4(),
+                        association.getImgUrlOne(), association.getImgUrlTwo(), association.getImgUrlThree(), association.getImgUrlFour(),
                         0,
                         false,
                         association.getHiddenWord(),

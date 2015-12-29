@@ -20,16 +20,16 @@ public class Associations extends AbstractEntity implements Serializable {
     private int hintTotal;
 
     @Column(name = "IMG1")
-    private String img1;
+    private String imgUrlOne;
 
     @Column(name = "IMG2")
-    private String img2;
+    private String imgUrlTwo;
 
     @Column(name = "IMG3")
-    private String img3;
+    private String imgUrlThree;
 
     @Column(name = "IMG4")
-    private String img4;
+    private String imgUrlFour;
 
     @Column(name = "CATEGORY")
     private String category;
@@ -59,36 +59,36 @@ public class Associations extends AbstractEntity implements Serializable {
         this.hintTotal = hintTotal;
     }
 
-    public String getImg1() {
-        return img1;
+    public String getImgUrlOne() {
+        return imgUrlOne;
     }
 
-    public void setImg1(String img1) {
-        this.img1 = img1;
+    public void setImgUrlOne(String imgUrlOne) {
+        this.imgUrlOne = imgUrlOne;
     }
 
-    public String getImg2() {
-        return img2;
+    public String getImgUrlTwo() {
+        return imgUrlTwo;
     }
 
-    public void setImg2(String img2) {
-        this.img2 = img2;
+    public void setImgUrlTwo(String imgUrlTwo) {
+        this.imgUrlTwo = imgUrlTwo;
     }
 
-    public String getImg3() {
-        return img3;
+    public String getImgUrlThree() {
+        return imgUrlThree;
     }
 
-    public void setImg3(String img3) {
-        this.img3 = img3;
+    public void setImgUrlThree(String imgUrlThree) {
+        this.imgUrlThree = imgUrlThree;
     }
 
-    public String getImg4() {
-        return img4;
+    public String getImgUrlFour() {
+        return imgUrlFour;
     }
 
-    public void setImg4(String img4) {
-        this.img4 = img4;
+    public void setImgUrlFour(String imgUrlFour) {
+        this.imgUrlFour = imgUrlFour;
     }
 
     public String getCategory() {
@@ -111,10 +111,10 @@ public class Associations extends AbstractEntity implements Serializable {
         if (hintTotal != that.hintTotal) return false;
         if (hiddenWord != null ? !hiddenWord.equals(that.hiddenWord) : that.hiddenWord != null) return false;
         if (baseScore != null ? !baseScore.equals(that.baseScore) : that.baseScore != null) return false;
-        if (img1 != null ? !img1.equals(that.img1) : that.img1 != null) return false;
-        if (img2 != null ? !img2.equals(that.img2) : that.img2 != null) return false;
-        if (img3 != null ? !img3.equals(that.img3) : that.img3 != null) return false;
-        if (img4 != null ? !img4.equals(that.img4) : that.img4 != null) return false;
+        if (imgUrlOne != null ? !imgUrlOne.equals(that.imgUrlOne) : that.imgUrlOne != null) return false;
+        if (imgUrlTwo != null ? !imgUrlTwo.equals(that.imgUrlTwo) : that.imgUrlTwo != null) return false;
+        if (imgUrlThree != null ? !imgUrlThree.equals(that.imgUrlThree) : that.imgUrlThree != null) return false;
+        if (imgUrlFour != null ? !imgUrlFour.equals(that.imgUrlFour) : that.imgUrlFour != null) return false;
         return !(category != null ? !category.equals(that.category) : that.category != null);
 
     }
@@ -124,10 +124,10 @@ public class Associations extends AbstractEntity implements Serializable {
         int result = hiddenWord != null ? hiddenWord.hashCode() : 0;
         result = 31 * result + (baseScore != null ? baseScore.hashCode() : 0);
         result = 31 * result + hintTotal;
-        result = 31 * result + (img1 != null ? img1.hashCode() : 0);
-        result = 31 * result + (img2 != null ? img2.hashCode() : 0);
-        result = 31 * result + (img3 != null ? img3.hashCode() : 0);
-        result = 31 * result + (img4 != null ? img4.hashCode() : 0);
+        result = 31 * result + (imgUrlOne != null ? imgUrlOne.hashCode() : 0);
+        result = 31 * result + (imgUrlTwo != null ? imgUrlTwo.hashCode() : 0);
+        result = 31 * result + (imgUrlThree != null ? imgUrlThree.hashCode() : 0);
+        result = 31 * result + (imgUrlFour != null ? imgUrlFour.hashCode() : 0);
         result = 31 * result + (category != null ? category.hashCode() : 0);
         return result;
     }
