@@ -41,31 +41,31 @@
                                     <input th:id="${'picOneRadio-'+ quiz.id +''}" checked="" type="radio"
                                            th:name="${'answers['+ quiz.id +']'}" value="1"/>
                                     <label th:for="${'picOneRadio-'+ quiz.id +''}">
-                                        <img th:src="${quiz.imgUrlOne}"/>
+                                        <img th:src="${quiz.imgOneURL}"/>
                                     </label>
 
                                     <input th:id="${'picTwoRadio-'+ quiz.id +''}" type="radio"
                                            th:name="${'answers['+ quiz.id +']'}"
                                            value="2"/>
                                     <label th:for="${'picTwoRadio-'+ quiz.id +''}">
-                                        <img th:src="${quiz.imgUrlTwo}"/>
+                                        <img th:src="${quiz.imgTwoURL}"/>
                                     </label>
 
                                     <input th:id="${'picThreeRadio-'+ quiz.id +''}" type="radio"
                                            th:name="${'answers['+ quiz.id +']'}"
                                            value="3"/>
                                     <label th:for="${'picThreeRadio-'+ quiz.id +''}">
-                                        <img th:src="${quiz.imgUrlThree}"/>
+                                        <img th:src="${quiz.imgThreeURL}"/>
                                     </label>
 
-                                    <input th:id="${'picFourRadio-'+ quiz.id +''}" th:if="${quiz.imgUrlFour != null}"
+                                    <input th:id="${'picFourRadio-'+ quiz.id +''}" th:if="${quiz.imgFourURL != null}"
                                            type="radio"
                                            th:name="${'answers['+ quiz.id +']'}" value="4"/>
-                                    <label th:for="${'picFourRadio-'+ quiz.id +''}" th:if="${quiz.imgUrlFour != null}">
-                                        <img th:src="${quiz.imgUrlFour}"/>
+                                    <label th:for="${'picFourRadio-'+ quiz.id +''}" th:if="${quiz.imgFourURL != null}">
+                                        <img th:src="${quiz.imgFourURL}"/>
                                     </label>
 
-                                    <div th:if="${quiz.imgUrlFour == null}" style="width: 250px; height: 250px;"></div>
+                                    <div th:if="${quiz.imgFourURL == null}" style="width: 250px; height: 250px;"></div>
                                 </div>
 
                             </div>

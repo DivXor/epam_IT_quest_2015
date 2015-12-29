@@ -51,7 +51,7 @@ public class AssociationsController {
         User user = userDao.findUserByName(currentUser);
 
         List<Associations> associationsList = associationsDAO.findAll();
-//todo will think about builder
+//todo will think about builder or BeanUtils
 //todo a lot of magic numbers
         for (Associations association : associationsList) {
             AssociationsHistory history = associationsHistoryDAO.findByUserAndAssociations(user, association);
@@ -59,7 +59,7 @@ public class AssociationsController {
             if (history != null) {
                 AssociationDTO dto = new AssociationDTO(
                         association.getId(),
-                        association.getImgUrlOne(), association.getImgUrlTwo(), association.getImgUrlThree(), association.getImgUrlFour(),
+                        association.getImgOneURL(), association.getImgTwoURL(), association.getImgThreeURL(), association.getImgFourURL(),
                         history.getHintCounter(),
                         history.isAnswerRight(),
                         association.getHiddenWord(), association.getCategory());
@@ -67,7 +67,7 @@ public class AssociationsController {
             } else {
                 AssociationDTO dto = new AssociationDTO(
                         association.getId(),
-                        association.getImgUrlOne(), association.getImgUrlTwo(), association.getImgUrlThree(), association.getImgUrlFour(),
+                        association.getImgOneURL(), association.getImgTwoURL(), association.getImgThreeURL(), association.getImgFourURL(),
                         0,
                         false,
                         association.getHiddenWord(),

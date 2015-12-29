@@ -93,7 +93,7 @@ INSERT INTO it_quest.WORD_SEARCH (ANSWER, BASE_SCORE) VALUES ('cloth', 3);
 INSERT INTO it_quest.WORD_SEARCH (ANSWER, BASE_SCORE) VALUES ('octet', 3);
 INSERT INTO it_quest.WORD_SEARCH (ANSWER, BASE_SCORE) VALUES ('focal', 3);
 
-INSERT INTO it_quest.EXCESS_IMAGE (EXCESS_IMAGE_NUMBER, IMG1, IMG2, IMG3, IMG4, BASE_SCORE)
+INSERT INTO it_quest.EXCESS_IMAGE (EXCESS_IMAGE_NUMBER, imgOneURL, imgTwoURL, imgThreeURL, imgFourURL, BASE_SCORE)
 VALUES
   (1, '/images/excess_image_quiz/1/1.jpg',
    '/images/excess_image_quiz/1/2.jpg',
@@ -136,42 +136,42 @@ VALUES
    NULL, 0.25);
 
 # Association
-INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
+INSERT INTO it_quest.ASSOCIATIONS (imgOneURL, imgTwoURL, imgThreeURL, imgFourURL, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
 VALUES ('/images/association/5/1_06aca64e-5713-4d5e-bf4a-04e2e1d43146.jpg',
         '/images/association/5/2_3fb410a7-3a5c-497e-a194-13f85f9c953e.jpg',
         '/images/association/5/3_8aabfd3a-e32a-4f68-945d-3e429b7b3fa4.jpg',
         '/images/association/5/4_1349b58c-864f-4298-b2ed-e9cba8e7782d.jpg',
         3, 2, 'Queen', 'England');
 
-INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
+INSERT INTO it_quest.ASSOCIATIONS (imgOneURL, imgTwoURL, imgThreeURL, imgFourURL, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
 VALUES ('/images/association/1/1_e6d75fbb-7699-4630-a911-0e2b2141217d.jpg',
         '/images/association/1/2_eb59266c-5bc9-49e7-86e9-c084d68cbb65.jpg',
         '/images/association/1/3_2fb09ffd-3c81-4fb8-9c5a-ed082e3427df.jpg',
         '/images/association/1/4_cb6e2b51-5ae8-471b-8464-98092af00148.jpg',
         3, 2, 'Beatles', 'Music');
 
-INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
+INSERT INTO it_quest.ASSOCIATIONS (imgOneURL, imgTwoURL, imgThreeURL, imgFourURL, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
 VALUES ('/images/association/2/1_68c4a23d-6ab5-43ca-ab64-6369c89cf6ea.jpg',
         '/images/association/2/2_42a767a6-c098-4d4c-a0e7-ea9b42210919.jpg',
         '/images/association/2/3_366e46b6-ffb5-4af3-9bb0-bf843544ea9d.jpg',
         '/images/association/2/4_379bb8c6-d119-4396-b05c-80579134a742.jpg',
         3, 2, 'Bobby', 'England');
 
-INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
+INSERT INTO it_quest.ASSOCIATIONS (imgOneURL, imgTwoURL, imgThreeURL, imgFourURL, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
 VALUES ('/images/association/3/1_0dbb476c-9bc0-4b40-9e77-773634a3a7f3.jpg',
         '/images/association/3/2_c14f2594-13cb-4efb-8c36-c214a7b56b74.jpg',
         '/images/association/3/3_96c57cba-5cd9-4a0f-a342-e80c4826b7a2.jpg',
         '/images/association/3/4_fed0f081-b23e-4fa2-9533-c67b4ec4ff65.jpg',
         3, 2, 'Churchill', 'Politics');
 
-INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
+INSERT INTO it_quest.ASSOCIATIONS (imgOneURL, imgTwoURL, imgThreeURL, imgFourURL, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
 VALUES ('/images/association/4/1_c3e86810-3bee-4cd3-bf42-59259a4d55e1.jpg',
         '/images/association/4/2_48b74f96-da5e-466f-b412-46ec09fb35b5.jpg',
         '/images/association/4/3_8c18e138-29e6-40d6-8730-8599120a610e.jpg',
         '/images/association/4/4_cfe5d1b4-7eb9-4a6c-af8b-534334269812.jpg',
         3, 2, 'Newton', 'Science');
 
-INSERT INTO it_quest.ASSOCIATIONS (IMG1, IMG2, IMG3, IMG4, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
+INSERT INTO it_quest.ASSOCIATIONS (imgOneURL, imgTwoURL, imgThreeURL, imgFourURL, HINT_TOTAL, BASE_SCORE, HIDDEN_WORD, CATEGORY)
 VALUES ('/images/association/6/1_89d76724-d58c-401c-a85f-8bd5bbdd1e3a.jpg',
         '/images/association/6/2_8d895b73-9295-4ee4-a4c2-42a0eebee9b9.jpg',
         '/images/association/6/3_abcee915-fab3-4ca1-92b6-f833d099515d.jpg',

@@ -52,23 +52,23 @@
                 <div th:if="${plate.answerRight}" class="images-container">
                     <div class="thumbnail-container">
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlOne}"/>
+                            <img th:src="${plate.imgOneURL}"/>
                         </a>
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlTwo}"/>
+                            <img th:src="${plate.imgTwoURL}"/>
                         </a>
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlThree}"/>
+                            <img th:src="${plate.imgThreeURL}"/>
                         </a>
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlFour}"/>
+                            <img th:src="${plate.imgFourURL}"/>
                         </a>
                     </div>
                 </div>
                 <div th:if="${!plate.answerRight}" class="images-container" th:switch="${plate.hintCounter}">
                     <div class="thumbnail-container" th:case="0">
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlOne}"/>
+                            <img th:src="${plate.imgOneURL}"/>
                         </a>
                         <a class="hint-link save-position" th:href="'/association/hint/'+ ${plate.id} +''"><img
                                 th:src="@{/images/question_mark.jpg}"/></a>
@@ -80,10 +80,10 @@
 
                     <div class="thumbnail-container" th:case="1">
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlOne}"/>
+                            <img th:src="${plate.imgOneURL}"/>
                         </a>
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlTwo}"/>
+                            <img th:src="${plate.imgTwoURL}"/>
                         </a>
                         <a class="hint-link save-position" th:href="'/association/hint/'+ ${plate.id} +''"><img
                                 th:src="@{/images/question_mark.jpg}"/></a>
@@ -93,13 +93,13 @@
 
                     <div class="thumbnail-container" th:case="2">
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlOne}"/>
+                            <img th:src="${plate.imgOneURL}"/>
                         </a>
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlTwo}"/>
+                            <img th:src="${plate.imgTwoURL}"/>
                         </a>
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlThree}"/>
+                            <img th:src="${plate.imgThreeURL}"/>
                         </a>
                         <a class="hint-link save-position" th:href="'/association/hint/'+ ${plate.id} +''"><img
                                 th:src="@{/images/question_mark.jpg}"/></a>
@@ -107,16 +107,16 @@
 
                     <div class="thumbnail-container" th:case="3">
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlOne}"/>
+                            <img th:src="${plate.imgOneURL}"/>
                         </a>
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlTwo}"/>
+                            <img th:src="${plate.imgTwoURL}"/>
                         </a>
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlThree}"/>
+                            <img th:src="${plate.imgThreeURL}"/>
                         </a>
                         <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                            <img th:src="${plate.imgUrlFour}"/>
+                            <img th:src="${plate.imgFourURL}"/>
                         </a>
                     </div>
 
