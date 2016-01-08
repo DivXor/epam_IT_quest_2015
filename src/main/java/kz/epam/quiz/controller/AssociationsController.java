@@ -30,6 +30,8 @@ import java.util.List;
 @RequestMapping(value = "/association")
 public class AssociationsController {
     public static final String VIEW = "association";
+    private int initialScore = 0;
+    private boolean answerRight = false;
 
     @Autowired
     private AssociationsDAO associationsDAO;
@@ -54,7 +56,7 @@ public class AssociationsController {
 //todo will think about builder or BeanUtils
 //todo a lot of magic numbers
         for (Associations association : associationsList) {
-            AssociationsHistory history = associationsHistoryDAO.findByUserAndAssociations(user, association);
+            AssociationsHistory history = associationsHistoryDAO.findByUserAndAssociations(user, association);z
 
             if (history != null) {
                 AssociationDTO dto = new AssociationDTO(
@@ -68,8 +70,8 @@ public class AssociationsController {
                 AssociationDTO dto = new AssociationDTO(
                         association.getId(),
                         association.getImgOneURL(), association.getImgTwoURL(), association.getImgThreeURL(), association.getImgFourURL(),
-                        0,
-                        false,
+                        initialScore,
+                        answerRight,
                         association.getHiddenWord(),
                         association.getCategory());
                 dtoList.add(dto);
@@ -83,18 +85,17 @@ public class AssociationsController {
     @RequestMapping(value = "/hint/{id}")
     public String userHint(@PathVariable String id, Principal principal) {
         int associationId = Integer.parseInt(id);
-        int initialScore = 0;
 
         Associations associations = associationsDAO.findOne(associationId);
 
         String currentUser = principal.getName();
         User user = userDao.findUserByName(currentUser);
-//todo what are magic numbers?
         AssociationsHistory history = associationsHistoryDAO.findByUserAndAssociations(user, associations);
         if (history == null) {
-            history = new AssociationsHistory(initialScore, false, associations, user);
+            history = new AssociationsHistory(initialScore, answerRight, associations, user);
         }
-        history.setHintCounter(history.getHintCounter() + 1);
+        int hintCounter = history.getHintCounter();
+        history.setHintCounter(hintCounter++);
         associationsHistoryDAO.save(history);
 
         return "redirect:/task";
@@ -160,10 +161,11 @@ public class AssociationsController {
         return "redirect:/task";
     }
 
-    //todo what are magic numbers?
     public BigDecimal scoreCounter(BigDecimal baseScore, int hintCounter) {
-        assert baseScore.doubleValue() >= 1;
-        double score = baseScore.doubleValue() - 0.25 * hintCounter;
+        double hintRate = 0.25;
+        int oneGamePlateTotalScore = 1;
+        assert baseScore.doubleValue() >= oneGamePlateTotalScore;
+        double score = baseScore.doubleValue() - hintRate * hintCounter;
         return new BigDecimal(score);
     }
 
